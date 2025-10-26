@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>離線版 天氣時鐘</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+      transition: background 1s ease;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+      margin: 0.2rem;
+    }
+    #clock {
+      font-size: 2rem;
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+    .btn {
+      margin-top: 1.5rem;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1 id="emoji">☀️</h1>
+  <p id="weather">晴天　27°C</p>
+  <div id="clock"></div>
+  <button class="btn" onclick="randomWeather()">🌦️ 變換天氣</button>
+
+  <script>
+    const weathers = [
+      { type: "clear", desc: "晴天", icon: "☀️" },
+      { type: "cloud", desc: "多雲", icon: "☁️" },
+      { type: "rain", desc: "下雨", icon: "🌧️" },
+      { type: "snow", desc: "下雪", icon: "❄️" },
+      { type: "storm", desc: "雷陣雨", icon: "⛈️" },
+      { type: "wind", desc: "有風", icon: "🌬️" }
+    ];
+
+    function randomWeather() {
+      const random = weathers[Math.floor(Math.random() * weathers.length)];
+      const emoji = document.getElementById("emoji");
+      const weatherText = document.getElementById("weather");
+      const body = document.body;
+
+      const temp = Math.floor(Math.random() * 10) + 20; // 模擬溫度
+      weatherText.textContent = `${random.desc}　${temp}°C`;
+      emoji.textContent = random.icon;
+
+      const hour = new Date().getHours();
+      const isNight = hour < 6 || hour >= 18;
+
+      // 根據天氣和時間改變背景
+      let bg = "linear-gradient(to bottom, #89f7fe, #66a6ff)";
+      if (random.type === "rain") {
+        bg = isNight
+          ? "linear-gradient(to bottom, #283E51, #485563)"
+          : "linear-gradient(to bottom, #5f9ea0, #2f4f4f)";
+      } else if (random.type === "cloud") {
+        bg = isNight
+          ? "linear-gradient(to bottom, #2C3E50, #4CA1AF)"
+          : "linear-gradient(to bottom, #b0c4de, #778899)";
+      } else if (random.type === "clear") {
+        bg = isNight
+          ? "linear-gradient(to bottom, #141E30, #243B55)"
+          : "linear-gradient(to bottom, #fbc531, #e1b12c)";
+      } else if (random.type === "snow") {
+        bg = isNight
+          ? "linear-gradient(to bottom, #83a4d4, #b6fbff)"
+          : "linear-gradient(to bottom, #a1c4fd, #c2e9fb)";
+      } else if (random.type === "storm") {
+        bg = "linear-gradient(to bottom, #232526, #414345)";
+      } else if (random.type === "wind") {
+        bg = "linear-gradient(to bottom, #74ebd5, #ACB6E5)";
+      }
+
+      body.style.background = bg;
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const hour = String(now.getHours()).padStart(2, '0');
+      const minute = String(now.getMinutes()).padStart(2, '0');
+      const second = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById("clock").textContent = `${hour}:${minute}:${second}`;
+    }
+
+    // 初始顯示
+    randomWeather();
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>

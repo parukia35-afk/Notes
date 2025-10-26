@@ -1,0 +1,353 @@
+<!-- !可以產生html5的結構 -->
+<!-- 宣告此文件是html5版本 -->
+<!DOCTYPE html>
+<!-- 標籤裡面會有屬性，例如lang,charset,name等 -->
+<html lang="en">
+
+<!-- head紀錄網頁的基本資訊和給爬蟲看的內容，這些資訊不會出現在網頁內容裡 -->
+
+<head>
+    <!-- meta記錄文件的資訊 -->
+    <!-- UTF-8:字元編碼，確保使用者瀏覽網頁可根據各國語言呈現 -->
+    <meta charset="UTF-8">
+    <!-- 響應式設計(RWD)確保網頁在各種裝置都能正常顯示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 給搜尋引擎看的文件描述 -->
+    <meta name="description" content="這是一個HTML標籤的使用範例">
+    <!-- title是文件標題，出現在瀏覽器的頁籤上 -->
+    <title>Document</title>
+    <style>
+        body {
+            padding-bottom: 300px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid blue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>標題1</h1>
+    <h2>標題2</h2>
+    <h3>標題3</h3>
+    <h4>標題4</h4>
+    <h5>標題5</h5>
+    <h6>標題6</h6>
+    <!--水平線沒有結束標籤  -->
+    <hr>
+
+    <h2>段落</h2>
+    <!-- p是block元素，由上往下垂直排列 -->
+    <p>我是段落文字</p>
+    <!--ctlorem+數字:指定產生的假字字數  -->
+    <p>系統程式方便目標流。</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, excepturi?</p>
+    <h2>超連結a</h2>
+    <!-- herf=>前往的連結位置(HyperText Reference) -->
+    <a href="http://www.google.com">前往Google</a>
+    <!-- shift+alt壓住再按下可複製整行 -->
+    <a href="http://www.google.com">前往Google</a>
+    <!-- _blank是開啟一個新分頁 -->
+    <a href="http://www.google.com" target="_blank">前往Google</a>
+    <hr>
+    <h2>換行 br</h2>
+    波加曼<br>
+    快龍<br>
+    水君<br>
+    瑪狃拉<br>
+    <hr>
+    <!-- unordered list -->
+    <h2>無序清單 ul</h2>
+    <!-- ul是父元素，li是子元素 -->
+    <ul>
+        <li>鑽石與珍珠</li>
+        <li>XY</li>
+    </ul>
+    <h2>有序清單 ol</h2>
+    <!-- emmet語法: ol>li*4 -->
+    <ol>
+        <li>搖曳露營</li>
+        <li>防波堤日誌</li>
+        <li></li>
+        <li></li>
+    </ol>
+    <h2>HTML巢狀概念</h2>
+    <ul>
+        <li>
+            <h3>前端技能</h3>
+            <ol>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Vue</li>
+                <li>SCSS</li>
+            </ol>
+        </li>
+        <li>
+            <h3>後端技能</h3>
+            <ol>
+                <li>Node.js</li>
+                <li>express</li>
+                <li>MongoDB</li>
+            </ol>
+        </li>
+    </ul>
+    <hr>
+    <h2 id="波加曼">圖片</h2>
+    <!-- 絕對路徑:網域位置+資源路徑 -->
+    <h3>絕對路徑</h3>
+    <!-- 
+    1.設定圖片寬或高擇一即可，瀏覽器會自動調整另一個以符合比例，兩者皆設定可能比例會跑掉
+    2.alt是圖片的替代文字
+    3.替代文字是當連結失效時會出現的(破圖))
+    4.title=>圖片的提示文字
+    5.../指的是回上一層級資料夾的位置找資源 -->
+
+    <img src="https://i.pinimg.com/236x/5f/2e/cc/5f2ecca11341463537cc008106132cdf.jpg" alt="波加曼吃麻糬" width="300">
+    <h3>相對路徑</h3>
+    <!-- ./指的是當前文件所在資料夾的位置 -->
+    <img src="./images/波加曼餓了.jpg" title="波加曼餓了" height="300">
+    <img src="./images/波加曼顏藝.jpg" title="波加曼顏藝" height="300
+    ">
+    <hr>
+    <h2>頁框 iframe</h2>
+    <!-- 替iframe取名字myframe，然˙後a使用target去指定到myframe，建立關聯 -->
+    <!-- a是一個inline box元素 -->
+    <a href="./others/hello.html">載入hello.html到一個name叫myframe的頁框裡面</a>
+    <br>
+    <!-- 預設頁面是main.html -->
+    <iframe src="./others/main.html" frameborder="1" width="800" height="400"> </iframe>
+
+    <hr>
+    <h2>表格 table(完整結構)</h2>
+    <!-- border的顏色之所以為紅，是建議使用CSS去設定 -->
+    <table border="1" width="600">
+        <!-- 表格標題 -->
+        <caption>前端班成績表</caption>
+        <!-- 頭 -->
+        <!-- tr表示一列，th.td表示一欄 -->
+        <thead>
+            <!-- 一列三欄 -->
+            <tr>
+                <!-- th 預設水平置中+粗體 -->
+                <th>姓名</th>
+                <th>網頁排版</th>
+                <th>程式設計</th>
+            </tr>
+        </thead>
+        <!-- 身體 -->
+        <tbody>
+            <tr>
+                <td>大寶</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>中寶</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>小寶</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+        </tbody>
+        <!-- 腳 -->
+        <tfoot>
+            <tr>
+                <td>共3人</td>
+                <td>總平均:100</td>
+                <td>總平均:100</td>
+            </tr>
+        </tfoot>
+
+
+
+    </table>
+    <h2>表格合併</h2>
+    <!-- table>tr*6>td{$}*6 -->
+    <!-- cellspaacing 表格儲存格之間的間距
+  cellpadding表格儲存格內文字與邊框的距離
+  align="center"置中，可用於tabe、tr、td、th
+   -->
+    <!-- 可以按住alt+左鍵點選去增加輸入的位置 -->
+    <p>colspan(欄合併):左吃右，右消失，colspan="吃幾個+自己的數字"</p>
+    <p>rowspan(列合併):上吃下，下消失，rowspan="吃幾個+自己的數字"</p>
+    <table boder="1" align="center" width="600" cellspacing="5" cellpadding="5">
+        <!-- 第一列 -->
+        <tr align="center">
+            <td colspan="3">1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <!-- 第二列 -->
+        <tr align="center" rowspan="4">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <!-- 第三列 -->
+        <tr align="center">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <!-- 第四列 -->
+        <tr align="center">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <!-- 第五列 -->
+        <tr align="center">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <!-- 第六列 -->
+        <tr align="center">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+    </table>
+    <hr>
+    <form>
+        <!-- 做一個10x2的表格 -->
+        <table width="600" cellspacing="5" cellpadding="5">
+            <tr>
+                <td width="100"><label for="account">帳號</label></td>
+                <!-- maxlength最大字元數 -->
+                <!-- placeholder佔位文字 -->
+                <!-- name程式會根據名稱區取值、傳值 -->
+                <!-- size欄位的寬度 -->
+                <!-- disabled為禁止使用 -->
+                <td><input type="text" id="account" size="30" maxlength="10" placeholder="請輸入帳號" name="account"></td>
+            </tr>
+            <tr>
+                <td>密碼</td>
+                <!-- input有多種type，如text,password,radio,checkbox,etc -->
+                <td><input type="password" size="30" placeholder="請輸入密碼" name="pwd"></td>
+            </tr>
+            <tr>
+                <td>性別</td>
+                <td><input type="radio" value="男" name="gender" checked>男
+                    <input type="radio" value="女" name="gender" disabled>女
+                </td>
+            </tr>
+            <tr>
+                <td>興趣</td>
+                <td>
+                    <!-- checknox為複選，name要相同，表示同一組(資料結構會以陣列表示) -->
+                    <input type="checkbox" name="hobby" value="打寶可夢">打寶可夢
+                    <input type="checkbox" name="hobby" value="電吉他">電吉他
+                    <input type="checkbox" name="hobby" value="養甲蟲">養甲蟲
+                    <input type="checkbox" name="hobby" value="攝影">攝影
+
+                </td>
+            </tr>
+            <tr>
+                <td>出生年份</td>
+                <td>
+                    <select name="birth_year">
+                        <option value="">1996>1996</option>
+                        <option value="">1997>1997</option>
+                        <option value="">1998>1998</option>
+                        <option value="">1999>1999</option>
+                    </select>
+                    年
+                </td>
+            </tr>
+            <tr>
+                <td>上傳檔案</td>
+                <td>
+                    <input type="file" name="upload">
+                </td>
+            </tr>
+            <tr>
+                <td>留言訊息</td>
+                <!-- textarea多行文字 -->
+                <!-- rows預設幾列文字 -->
+                <!-- cols預設可以輸入幾字 -->
+                <td><textarea name="message" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" vaule="送出">
+                    <input type="reset" value="重置">+
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+    </form>
+    <hr>
+    <!-- html5強調是語意化 -->
+    <h2>各種字體標籤</h2>
+    <b>粗體</b>
+    <strong>粗體</strong>
+    <hr>
+    <i>斜體</i>
+    <em>斜體</em>
+    <s>刪除線</s>
+    <del>刪除線</del>
+    <br>
+    <u>底線</u>
+    <ins>底線</ins>
+    <br>
+    X<sup>2</sup>
+    CO<sub>2</sub>
+    <h3>跟pre 保留空白</h3>
+    <!-- pre可以保留空白，維持程式碼的排版 -->
+    <pre>
+        <code>
+         function test() {
+            alert("hello")
+
+         }
+         </code>
+    </pre>
+    <hr>
+    <h2>特殊字元</h2>
+    &lt;html&gt;
+    &copy;2025 Pokemon
+    <br>
+    &star;<br>
+    <h2>錨點</h2>
+    <a href="#">回到頂端</a>
+    <a href="#                  波加曼">跳到圖片的位置</a>
+    <!-- script寫JS程式的地方 -->
+    <script>
+        
+    </script>
+</body>
+
+</html>

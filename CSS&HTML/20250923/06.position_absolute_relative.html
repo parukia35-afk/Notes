@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            border: 1px solid #000;
+            padding: 0 2rem;
+            margin-bottom: 3rem
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4 {
+            padding: 1rem;
+        }
+
+        .box1 {
+            background-color: pink;
+        }
+
+        .box2 {
+            background-color: palegreen;
+        }
+
+        .box3 {
+            background-color: powderblue;
+        }
+
+        .box4 {
+            background-color: blanchedalmond;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            /* 絕對定位 */
+            position: absolute;
+
+        }
+
+        .fixed {
+            position: fixed;
+        }
+
+        .top {
+            top: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .bottom {
+            bottom: 0;
+        }
+
+        .left {
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>position:relative</h1>
+        <h2>當元素為相對定位時...</h2>
+        <p>當產生定位時都可以用top,right,bottom,right調整位置</p>
+        <p>相對定位在偏移時會保留原本自己的空間，進入"定位層"，本來的空間不會被其他元素佔據。</p>
+        <p>沒有任何偏移屬性(top,rightm,bottom,left)，元素會留在原地不動，這種relative元素作為absolute子元素位移目標的依據</p>
+        <div class="box1">
+            <h1>box1</h1>
+            <p>龍岡第二次地面運行，老人臺東首頁配套晚上東京避免簡單選項共享專門取得，意思交通一年引用，之家碩士年。
+
+            </p>
+        </div>
+        <div class="box2 relative top right bottom left">
+            <h1>box2</h1>
+            <p>龍岡第二次地面運行，老人臺東首頁配套晚上東京避免簡單選項共享專門取得，意思交通一年引用，之家碩士年。
+
+            </p>
+        </div>
+        <div class="box3">
+            <h1>box3</h1>
+            <p>龍岡第二次地面運行，老人臺東首頁配套晚上東京避免簡單選項共享專門取得，意思交通一年引用，之家碩士年。
+
+            </p>
+        </div>
+        <div class="box4">
+            <h1>box4</h1>
+            <p>龍岡第二次地面運行，老人臺東首頁配套晚上東京避免簡單選項共享專門取得，意思交通一年引用，之家碩士年。
+
+            </p>
+        </div>
+    </div>
+
+    <div class="container relative">
+        <h1>position:absolute</h1>
+        <h2>當元素為絕對定位時...</h2>
+        <p>沒有任何位移屬性，該元素會脫離正常流向，進入"定位層"，後方元素依據CSS流動特性流到絕對定位元素的下方(被遮住)。</p>
+        <p>若父元素找不到任何定位，例如:absolute,relative,fixed(三者都可以讓絕對定位元素鎖在裡面，會往外面找，如果都沒有最後會以初始容器根元素html作為位移目標。)</p>
+        <h1>box1</h1>
+        <p>龍岡第二次地面運行，老人臺東首頁配套晚上東京避免簡單選項共享專門取得，意思交通一年引用，之家碩士年。
+
+        </p>
+    </div>
+    <div class="box2 absolute top left">
+        <h1>box2</h1>
+        <p>龍岡第二次地面運行，老人臺東首頁配套晚上東京避免簡單選項共享專門取得，意思交通一年引用，之家碩士年。
+
+        </p>
+    </div>
+    <div class="box3">
+        <h1>box3</h1>
+        <p>龍岡第二次地面運行，老人臺東首頁配套晚上東京避免簡單選項共享專門取得，意思交通一年引用，之家碩士年。
+
+        </p>
+    </div>
+    <div class="box4">
+        <h1>box4</h1>
+        <p>龍岡第二次地面運行，老人臺東首頁配套晚上東京避免簡單選項共享專門取得，意思交通一年引用，之家碩士年。
+
+        </p>
+    </div>
+    </div>
+</body>
+
+</html>

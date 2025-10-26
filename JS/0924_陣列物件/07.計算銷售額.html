@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 計算每一種產品的銷售金額
+        const sale = [
+            [33, 32, 56, 45, 33],
+            [77, 33, 68, 45, 23],
+            [43, 55, 43, 67, 65]
+        ]
+        const price = [12, 16, 10, 14, 15]
+        let incomeA = 0
+        let incomeB = 0
+        let incomeC = 0
+        let incomeD = 0
+        let incomeE = 0
+        for (let i = 0; i < sale.length; i++) {
+            incomeA += sale[i][0] * price[0]
+            incomeB += sale[i][1] * price[1]
+            incomeC += sale[i][2] * price[2]
+            incomeD += sale[i][3] * price[3]
+            incomeE += sale[i][4] * price[4]
+        }
+        document.write(`A: ${incomeA} / B: ${incomeB} / C: ${incomeC}/ D: ${incomeD}/ E: ${incomeE}<br>`)
+
+        // 每一個銷售員的銷售金額
+        let salesman1 = 0
+        let salesman2 = 0
+        let salesman3 = 0
+        for (let p = 0; p < price.length; p++) {
+            salesman1 += sale[0][p] * price[p]
+            salesman2 += sale[1][p] * price[p]
+            salesman3 += sale[2][p] * price[p]
+
+        }
+        document.write(`1: ${salesman1} / 2: ${salesman2} / 3: ${salesman3}`)
+    </script>
+
+</body>
+
+</html>

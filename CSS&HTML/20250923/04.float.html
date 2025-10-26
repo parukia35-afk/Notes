@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding-bottom: 300px;
+        }
+
+        .container {
+            width: 75%;
+            margin: 2rem auto;
+            background: #eee;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .float-left {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .float-right {
+            float: right;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .clear-left {
+            /* 也可以用clear:both */
+            clear: left;
+
+        }
+
+        .parent {
+            background: black;
+            color: white;
+            /* BFC 區塊格式上下文，可以讓失去的背景回來 */
+            overflow: hidden;
+            width: 960px;
+        }
+
+        .parent span {
+            float: left;
+            background-color: lightblue;
+            width: 300px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .parent div {
+            height: 30px;
+            background-color: red;
+            /* 由於三個span脫離正常流向，若不設置clear:both，div會往上面跑(在span的底下) */
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>浮動float</h1>
+        <p>浮動就是用來作文繞圖，早期一些設計師會用float做橫向排版</p>
+        <p>float只有left,right兩個方向，或兩者both</p>
+        <p>元素或圖片使用float時，會自動轉型變成block。</p>
+
+        <h2>float-left</h2>
+        <img class="float-left" src="https://picsum.photos/300/200/?random=10">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus perspiciatis, soluta expedita
+            adipisci quidem fuga, exercitationem a eligendi possimus veniam aliquid ut, quis ipsam suscipit ea tempora
+            iducimus blanditiis cumque. Quam veritatis ab tenetur enim consequuntur
+            molestiae quasi excepturi, porro voluptatem
+        <h3 class="clear-left">清除浮動左側</h3>
+        <p>反正我把，太麻里擔任，論壇十大有一定漂亮引用建設那位實業一條年代，學歷本來名稱選擇滿意最高小遊戲有一些工程返回，幾乎身份要在，期限加速設施變化做到他們的分享鄉民們長期後悔註冊一部主人投入，有些損失突出保障幻想同樣東京重複臺灣經常並不慢慢共同等方面，團體懂得一時阿宅人民共和國，免費同樣，記住不知體驗打開有什麼，開了緊緊一切都繼續部門消除，焦點排名浙江，提供他人精美協議，總是客服職業，不到氣息既然重點由於運行平台公共經銷商加上就在做到，來電深入說是本地下載，站長不停有限責任公司而來回憶新臺幣我和記憶獨立病毒興奮，屏東成員很久就是英雄幾天頻率傳說大家，剛才離線遇到二手意思證明天然價格上午找到，那位為此武器年代爆炸，安全今後博士休閒證明這麼，電子郵件文學部落格此外本類形勢傳真判斷廣泛，豐原永遠目前有效配套，條件內心想法堅決官方最近關係表明好多地址為何說明加速機構，笑容這場，不太神經生活，加入時間百度別人抽菸區，開心培訓繼續交換第一個熱情是誰加拿大印象我不只見，完了新聞比如，二級保護傳統基礎人口主角，醫學移動解決兩個媽媽全部我又只要招標家園領先爸爸維持論壇，一生根據，員工但在花蓮主機緊張，不可。
+
+        </p>
+        <h2>float-right</h2>
+        <img class="float-right" src="https://picsum.photos/300/200/?random=10">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus perspiciatis, soluta expedita
+            adipisci quidem fuga, exercitationem a eligendi possimus veniam aliquid ut, quis ipsam suscipit ea tempora
+            inventore architecto illo. Aliquam ducimus blanditiis cumque. Quam veritatis ab tenetur enim consequuntur
+            molestiae quasi excepturi, porro voluptatem suscipit quaerat magni blanditiis doloribus, accusantium,
+            dolores cupiditate natus earum consequatur expedita iure laudantium! Voluptas iste sit nostrum vel, quasi
+            ut, odit et asperiores eius, sint quae incidunt autem eligendi vero tempora? Quo dolores aliquam delectus
+            sequi atque corporis id sed mollitia quod quidem molestias voluptatum ipsam perferendis, voluptas maxime? Ex
+            consectetur sed ducimus at!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
+            perspiciatis, soluta expedita
+            nt autem eligendi vero tempora? Quo dolores aliquam delectus
+            sequi atque corporis id sed mollitia quod quidem molestias voluptatum ipsam perferendis, voluptas maxime? Ex
+            consectetur sed ducimus at!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
+            perspiciatis, soluta expedita
+            adipisci quidem fuga, exercitationem a eligendi possimus veniam aliquid ut, quis ipsam suscipit ea tempora
+            inventore architecto illo. Aliquam ducimus blanditiis cumque. Quam veritatis ab tenetur enim consequuntur
+            molestiae quasi excepturi, porro voluptatem suscipit quaerat magni blanditiis doloribus, accusantium,
+            dolores cupiditate natus earum consequatur expedita iure laudantium! Voluptas iste sit nostrum vel, quasi
+            ut, odit et asperiores eius, sint quae incidunt autem eligendi vero tempora? Quo dolores aliquam delectus
+            sequi atque corporis id sed mollitia quod quidem molestias voluptatum ipsam perferendis, voluptas maxime? Ex
+            consectetur sed ducimus at!
+
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>用float橫向排列span</h2>
+    <p>用浮動排版會造成浮動元素獨立出正常流向，父元素會無法包覆而失去背景顏色。</p>
+    <div class="parent">
+        <span>lorem</span>
+        <span>lorem</span>
+        <span>lorem</span>
+        <div>積分設備，預期無論。</div>
+    </div>
+</body>
+
+</html>

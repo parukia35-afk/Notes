@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const wdaf2e = {
+            name: '前端',
+            students: '15',
+            year: 114,
+            semester: 2,
+            classroom: 1114
+        }
+        // 指定key的資料
+        document.write(wdaf2e.name + '<br>')
+        document.write(wdaf2e['students'] + '<br>')
+
+        // 用變數值當作key取資料
+        const key = 'year'
+        // 答:114，相當於上面 document.write(wdaf2e['students'] + '<br>')的寫法
+        document.write(wdaf2e[key] + '<br>')
+        // undefined，因為wdaf2e裡沒有叫key的資料名稱
+        document.write(wdaf2e.key + '<br>')
+
+        // 物件不能用length取長度，這樣寫會變成找物件內資料名稱為length的資料
+        console.log(wdaf2e.length)
+        console.log(Object.keys(wdaf2e))
+        // =>找物件裡的keys，其名為wdaf2e
+        console.log(Object.values(wdaf2e))
+        // =>找物件裡的value，其名為wdaf2e
+        console.log(Object.keys(wdaf2e).length)
+        // =>找物件裡的keys，其名為wdaf2e，然後計算長度(有幾個keys)
+
+        // in
+        // 檢查指定的key有沒有在物件裡面
+        console.log('name' in wdaf2e)
+        // =>true
+        console.log('apple' in wdaf2e)
+        // =>false
+
+
+    </script>
+</body>
+
+</html>

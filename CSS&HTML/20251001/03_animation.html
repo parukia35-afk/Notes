@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 75%;
+            margin: auto;
+            padding: 1rem;
+            border: 1px solid black;
+        }
+
+        .wrap {
+            border: 5px dashed#333;
+            margin: 50px;
+            padding: 50px 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            color: wheat;
+            line-height: 100px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        /* 步驟1.建立關鍵影格keyframe */
+        /* 動畫名稱自取，設定from(0%)和to(100%)狀態 */
+        @keyframes myanimation {
+
+            /* 0%=from */
+            0% {
+                transform: translate(0, 0);
+                background-color: lightgreen;
+            }
+
+            50% {
+                background-color: aquamarine;
+            }
+
+            /* 100%=to */
+            100% {
+                transform: translate(50vw, 0);
+                background-color: lightblue;
+            }
+        }
+
+        /* 步驟2.建立一個動畫專用的class，用來設定動畫各種屬性 */
+        .animation {
+            /* 指定動畫名稱，也就是@keyframe的名稱 */
+            animation-name: myanimation;
+            /* 動畫持續時間 */
+            animation-duration: 2s;
+            /* 播放次數 預設1，無限次infinite */
+            animation-iteration-count: infinite;
+            /* 動畫速率，設定與transition相同 */
+            animation-timing-function: ease;
+            /* 動畫播放方向，預設normal，reverse=>100%>0%，alternate=>0%>100%>0% */
+            animation-direction: alternate;
+            /* none(預設):動畫結束時回到本來沒進入動畫的狀態
+            forwards:動畫結束時停在最後一個影格的狀態
+            backwards:一定要設定delay，才看得出此效果。動畫在delay期間會先套用0%狀態的樣式
+            both:同時套用forwards與backwards的效果。一般設定動畫都會選用both。 */
+            animation-fill-mode: both;
+            animation-delay: 2s;
+
+            /* 簡寫 */
+            /* 第一秒數duration 第二秒數delay */
+            animation-name: myanimation 2s 1s ease infinite normal both;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>動畫animation</h1>
+        <p>動畫與轉場的差異</p>
+        <h2>animation</h2>
+        <ul>
+            <li>可以設定關鍵影格(keyframe)控制動畫整體的進度，產生更複雜的動畫。</li>
+            <li>網頁載入時可以自動播放動畫，或是增加、刪除class名稱來控制動畫的縮放。</li>
+        </ul>
+        <h2>transitoin</h2>
+        <ul>
+            <li>只能設定開始與結束的狀態，無法像animation一樣設定關鍵影格。</li>
+            <li>通常用於簡單的動畫效果，例如滑動、淡入淡出等</li>
+        </ul>
+        <div class="wrap">
+            <div class="box animation"></div>
+        </div>
+    </div>
+</body>
+
+</html>

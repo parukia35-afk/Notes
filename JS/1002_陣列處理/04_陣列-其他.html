@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // .map(function)
+        // 陣列每個東西都執行function
+        // 將每個東西的return組成新的陣列
+        const numbers = [100, 200, 300]
+        const numbersMap = numbers.map((value) => {
+            return value * 2
+        })
+        console.log('map', numbersMap, numbers)  //map,[200,400,600],[100,200,300]
+
+        // .reduce(function,初始值)
+        // (累計值,現在值)=>{}
+        // 初始值不寫就是用陣列第一個值
+        const numbersTotal = numbers.reduce((total, value) => {
+            console.log(total, value)
+            return total + value
+        }, 1000)
+        console.log('reduce', numbersTotal)
+
+        // .sort((a,b)=>{})
+        // 兩兩一組比較
+        // a=前面的值
+        // b=後面的值
+        // *----排序的依據----*
+        // return=0-->順序不變
+        // return<0-->a在前面
+        // return>0-->b在前面
+        // *-----------------*
+        // return a-b-->小到大
+        // return b-a-->大到小
+        const numbers2 = [1, 100, 50, 123456789, 11223344, 5566, 778899, 114514]
+        const sort = numbers2.sort((a, b) => {
+            console.log(a, b)
+            return b - a
+        })
+        console.log(sort)
+
+        // a.localeCompare(b,語言代碼)
+        // 比較文字編碼的順序
+        // 0-->一樣
+        // 1-->b在前面
+        // -1-->a在前面
+        const str = ['a', '一', 'B', '二', 'A', '三', '四', 'D', 'e']
+        const strSort = str.sort((a, b) => {
+            return a.localeCompare(b, 'zh-TW')
+        })
+        console.log(strSort)
+    </script>
+</body>
+
+</html>

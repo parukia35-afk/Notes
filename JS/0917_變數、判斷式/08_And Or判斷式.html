@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		const dinner = prompt('晚餐吃什麼')
+		if (dinner === '牛排' || dinner === '日料') {
+			document.write('晚餐很爽')
+		}
+		else {
+			document.write('晚餐很普通')
+
+		}
+		//confirm(訊息)
+		//確認-->true
+		//取消-->false
+		const rain = confirm('今天會下雨嗎？')
+		const wind = confirm('今天會刮風嗎？')
+		if (!rain && !wind) {
+			document.write('出門')
+		} else {
+			document.write('待在家')
+		}
+	</script>
+
+</body>
+
+</html>

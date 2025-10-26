@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const like = confirm('你喜歡JS嗎')
+        // if (like) doucument.write('我也喜歡JS')
+        //滿足條件所執行的程式碼只有一行的話可以省略大括號
+        // else document.write('你怎麼可以不喜歡JS')
+        document.write(like ? '我也喜歡JS' : '你怎麼可以不喜歡JS')
+
+        const text = `我${like ? '喜歡' : '不喜歡'}JS`
+        document.write(text)
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        /*
+        解釋想要用迴圈一次刪除多個元素時，為甚麼只刪除了1、3、5?
+        */
+        // const ul = document.getElementById('ul')
+        // 只會刪除1 3 5
+        // for (const el of ul.children) {
+        //     console.log(el)
+        //     el.remove()
+        // }
+
+
+        // 正確解法
+        for(const el of Array.from(ul.children)){
+            console.log(el)
+            el.remove()
+        }
+    </script>
+
+</body>
+
+</html>

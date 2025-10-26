@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //prompt(訊息，輸入欄位的預設值)
+        // 出現一個對話框，讓使用者輸入資料，網頁是暫停狀態
+        // 會收到輸入的文字，使用者案取消則會收到null
+        const lunch = prompt('午餐吃甚麼', '披薩')
+        console.log(lunch, typeof lunch)
+        const text1 = '<p>午餐吃' + lunch + '</p>'
+        const text2 = `<p>午餐吃${lunch}</p>`
+        const text3 = '<p>午餐吃${lunch}</p>'//單引號不會解析變數，會當作一串文字
+        document.write(text1)
+        document.write(text2)
+        document.write(text3)
+    </script>
+
+</body>
+
+</html>

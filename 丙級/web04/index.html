@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網路行銷購物網</title>
+    <style>
+        #main {
+            width: 1024px;
+            height: 768px;
+            margin: auto;
+            background: blue;
+        }
+
+        #top {
+            width: 1024px;
+            height: 120px;
+            background: url(./img/0401.jpg);
+        }
+
+        #top a {
+            font-size: 52px;
+            font-family: '標楷體';
+            color: #fff;
+            text-shadow: 10px 10px 15px #333;
+            text-decoration: none;
+            /* 以下三行分別為點選任意範圍回首頁、水平置中、垂直置中 */
+            display: block;
+            text-align: center;
+            line-height: 120px;
+        }
+
+        #marquee {
+            width: 1024px;
+            height: 30px;
+            font-size: 19px;
+            line-height: 30px;
+            background: url(./img/0402.jpg);
+        }
+
+        #content {
+            width: 1024px;
+            height: calc(768px - 120px - 78px - 30px);
+            background: url(./img/0402.jpg);
+        }
+
+        /* iframe有自己的預設寬高，要設定成與#content一樣 */
+        #content iframe {
+            width: 100%;
+            height: calc(768px - 120px - 78px - 30px);
+        }
+
+        p {
+            margin: 0;
+        }
+
+        #footer {
+            width: 1024px;
+            height: 78px;
+            background: #660;
+            color: #fff;
+            font-family: '標楷體';
+            line-height: 2;
+            text-align: left;
+        }
+
+        #footer a {
+            /* a連結的預設色位階較高，不會被父元素的color影響，故要在額外設定 */
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #footer a:visited {
+            color: #f99;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 背景音樂 -->
+    <!-- 記得加上autoplay及回首頁點一下才會播放。chrome瀏覽器政策限制的原因 -->
+    <audio src="./music/0401.mp3" autoplay></audio>
+    <div id="main">
+        <div id="top"><a href="./index.html">流行精品購物網站</a></div>
+        <div id="marquee">
+            <marquee>大家來購物網！精品商品特價大拍賣！要買要快!</marquee>
+        </div>
+        <div id="content">
+            <iframe src="./main.html" frameborder="0" name="iframe"></iframe>
+        </div>
+        <div id="footer">
+            <a href="./result/message.html" target="iframe">訪客留言版</a>
+            <p>網頁設計及維護：03陳彥廷、最近更新日期：2025/11/14</p>
+        </div>
+    </div>
+</body>
+
+</html>

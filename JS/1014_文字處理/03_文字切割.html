@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let text = 'abcdefg'
+        //          0123456
+
+        // .substr(開始位置,長度)
+        // 開始位置可以寫負數
+        // 長度不寫取到結尾
+        console.log(text.substr(3, 1))   //d
+        console.log(text.substr(3))   //defg
+        console.log(text.substr(-3, 2)) //ef
+
+        // .substring(開始位置,結束位置)
+        // 不包含結束位置
+        // 結束位置不寫取到結尾
+        // 不能用負數
+        console.log(text.substring(2, 5))//cde
+
+        // .slice(開始位置,結束位置)
+        // 不包含結束位置
+        // 結束位置不寫取到結尾
+        // 可以用負數
+        // text.slice(-5,-1)=>text.slice(2,6)
+        // text.length=7
+        // -5=>7-5=2
+        // -1=>7-1=6
+        console.log(text.slice(-5, -1))//cdef
+
+    </script>
+</body>
+
+</html>

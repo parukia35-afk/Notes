@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="草" class="btn" data-title="草">
+    <input type="button" value="火" class="btn" data-title="火">
+    <input type="button" value="水" class="btn" data-title="水">
+    <hr>
+    <div>
+        <p class="win">贏:0</p>
+        <p class="lose">輸:0</p>
+        <p class="draw">平手:0</p>
+    </div>
+
+    <hr>
+    <ul id="record"></ul>
+
+    <script>
+        const box = ['草', '火', '水']
+
+        let win = 0
+        const winRecord = document.getElementsByClassName('win')
+
+        let lose = 0
+        const loseRecord = document.getElementsByClassName('lose')
+
+        let draw = 0
+        const drawRecord = document.getElementsByClassName('draw')
+
+        const record = document.getElementById('record')
+        const btn = document.getElementsByClassName('btn')
+        for (const el of btn) {
+            el.onclick = () => {
+                const title = el.dataset.title
+                const li = document.createElement('li')
+                let computer = box[Math.round((3 - 1) * Math.random())]
+                if (title == computer) {
+                    draw++
+                    drawRecord[0].innerText = `平手:${draw}`
+                    li.innerText = `你選了${title}，電腦選${computer}，平手`
+                    record.prepend(li)
+                } else if ((title == '草' && computer == box[2]) || (title == '火' && computer == box[0]) || title == '水' && computer == box[1]) {
+                    win++
+                    winRecord[0].innerText = `贏:${win}`
+                    li.innerText = `你選了${title}，電腦選${computer}，你贏了`
+                    record.prepend(li)
+                } else {
+                    lose++
+                    loseRecord[0].innerText = `輸:${lose}`
+                    li.innerText = `你選了${title}，電腦選${computer}，你輸了`
+                    record.prepend(li)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

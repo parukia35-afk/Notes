@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3]
+        // arr = [4, 5, 6]
+        // 改陣列裡的值，直接=換掉整個陣列會有const錯誤
+        arr[0] = 11
+        // 改其中索引0號的值
+        console.log(arr)
+
+        const obj = { a: 1, b: 2, c: 3 }
+        obj.a = 11
+        console.log(obj)
+
+
+        // ==========================================
+        // Pass by reference
+        const a = [1, 2, 3]
+        const b = a
+        b[0] = 100
+        console.log(a)        //100 2 3
+        console.log(b)        //100 2 3
+        console.log(a === b)  //true
+
+        const c = { x: 1, b: 2, z: 3 }
+        const d = c
+        d.a = 100
+        console.log(c)//{ x: 100, y: 2, z: 3 }
+        console.log(d)//{ x: 100, y: 2, z: 3 }
+
+        const e = {
+            x: 1,
+            y: 2,
+            z: [3, 4, 5]
+        }
+        const f = {
+            x: e.x,
+            y: e.y,
+            z: e.z
+        }
+        f.x = 100
+        f.z[0] = 123
+        console.log(e)
+        console.log(f)
+    </script>
+
+</body>
+
+</html>

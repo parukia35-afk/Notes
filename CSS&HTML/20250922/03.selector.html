@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*1. 宣告class
+        .自訂類別名稱{
+            屬性:值；
+        } 
+        */
+        .mycolor {
+            color: blue
+        }
+
+        .mybgcolor {
+            background-color: yellow
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+
+        .myfont {
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .card {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* 選擇到card裡面的所有圖片 */
+        .card img {
+            box-shadow: 0px 0px 20px red;
+        }
+
+        /* 選擇到card的.card-header裡面的圖片 */
+        .card .card-header img {  /*注意.card和.card-header有空格才是後代選擇器。
+            如果少了空格變成.card.card-header img，變成找同時有card和card-header類別的元素下的img*/
+            border: 5px solid blue;
+            max-width: 100%;
+        }
+
+
+        /* 
+        1.宣告id名稱
+        #自訂id名稱{
+        屬性: 值；
+        }
+
+        命名規則
+        1.不能以數字開頭
+        2.必須字元開頭(a-z A-Z)或底線(_)
+        3.區分大小寫
+        4.可以用中文命名(但不建議)
+        5.不可以有空格
+
+         */
+        #kaifu {
+            color: rgb(0, 255, 0);
+        }
+
+        /* 後代選擇器，半形空白 */
+        /* 後面出現的p都要被選擇(後代子孫) */
+        nav p {
+            color: blue;
+        }
+
+        /* 子代選擇器，>表示 */
+        /* 選擇到下一層p(兒子)而已 */
+        nav>p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>class類別選擇器</h1>
+    <!-- 2.使用class類別名稱 -->
+    <p class="mycolor mybgcolor">類別選擇器具有重複使用的特性，是CSS所有選擇器使用率最高的選擇器。</p>
+    <p>例如:劃一個盒子，並設定文字樣式。</p>
+    <p>根據需求去分類別名稱定義樣式(拆解問題)，再將類別給套用在元素上。</p>
+    <p class="box myfont">box</p>
+    <p class="box myfont">box</p>
+    <p class="box myfont">box</p>
+    <hr>
+    <h1>ID選擇器</h1>
+    <p>一份文件只允許一個獨一無二的id名稱，例如:kaifu</p>
+    <p>常被用在程式的選擇器去抓取元素，因為最快速，getElementById('kaifu')</p>
+    <p>常被用作布局區塊的名稱，例如#navbar、#sidebar、#footer，想成家裡布局:廚房、浴室、臥室...</p>
+    <div id="kaifu">該區塊的內容</div>
+    <!-- <div id="kaifu">這個不可以重複使用</div> -->
+
+    <!-- 區塊布局 -->
+    <div id="navbar">導覽列內容</div>
+    <div id="sidebar">側邊欄內容</div>
+    <div id="footer">頁尾內容</div>
+    <hr>
+
+    <h1>後代選擇器與子代選擇器</h1>
+    <!-- html5=>標籤具有語意化功能 -->
+    <nav>
+        <p>Lorem juice the uu.</p>
+        <div>
+            <p>Lorem juice the uu.</p>
+        </div>
+    </nav>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <div class="card-img">
+                <img src=" https://picsum.photos/300/200/?random=10">
+                <!-- picsum -->
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">iPhone17pro</h3>
+            <p>
+                <img src="https://picsum.photos/10/10/?random=10">
+                Lorem juice the uu.
+            </p>
+        </div>
+        <div class="card-footer">
+            <button>購買</button>
+        </div>
+    </div>
+</body>
+
+</html>

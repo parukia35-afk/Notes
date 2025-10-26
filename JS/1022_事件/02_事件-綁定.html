@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按鈕" id="mybtn">
+    <hr>
+    <input type="button" value="btn" class="btn">
+    <input type="button" value="btn" class="btn">
+    <input type="button" value="btn" class="btn">
+    <input type="button" value="btn" class="btn">
+    <input type="button" value="btn" class="btn">
+    <script>
+        const mybtn = document.getElementById('mybtn')
+
+        // mybtn.onclick = () => { }---->寫法1
+        // mybtn.onclick=function(){}---->寫法2
+
+        /*
+        const func=()=>{}---->寫法3
+        mybtn.onclick=func
+        */
+        mybtn.onclick = () => {
+            mybtn.value = '點了按鈕'
+        }
+        // 取消事件綁定
+        mybtn.onclick = null
+
+        // 當有多個按鈕時，點擊後都想執行相同的命令，可以用迴圈
+        const btn = document.getElementsByClassName('btn')
+        for (const el of btn) {
+            el.onclick = () => {
+                el.value = '點了按鈕'
+            }
+        }
+
+    </script>
+</body>
+
+</html>

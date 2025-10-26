@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .barrel {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+            background-image: linear-gradient(to right, transparent 9px, #000 1px);
+
+            background-position: left top;
+            background-size: 10px 10px;
+            background-repeat: repeat-x;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: right;
+        }
+
+        .barrel::after {
+            content: "";
+            width: 200px;
+            height: 100px;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5)50%, rgba(255, 255, 255, 0) 100%);
+            position: absolute;
+            left: 0;
+        }
+
+        .barrel::before {
+            content: "";
+            width: 200px;
+            height: 100px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 40%, black 41%, black 60%, rgba(250, 250, 124, 0.7) 61%);
+            position: absolute;
+            left: 0;
+        }
+
+        .plunger {
+            width: 30px;
+            height: 100px;
+            border-radius: 10%;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5)50%, rgba(255, 255, 255, 0) 100%);
+            border: 1px solid black;
+            position: absolute;
+            left: -31%;
+        }
+
+        .plunger::after {
+            content: "";
+            width: 30px;
+            height: 50px;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5)50%, rgba(255, 255, 255, 0) 100%);
+            border: 1px solid black;
+            position: absolute;
+            top: 25%;
+        }
+
+        .needle {
+            width: 30px;
+            height: 50px;
+            border-radius: 10%;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5)50%, rgba(255, 255, 255, 0) 100%);
+            border: 1px solid black;
+            position: absolute;
+            right: -15%;
+            top: 25%;
+            z-index: -1;
+        }
+        .needle::after{
+            content: "";
+            width: 30px;
+            height: 2px;
+            background-color: black;
+            position:absolute;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="barrel">
+        <div class="plunger"></div>
+        <div class="needle"></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var a = 1
+    {
+      var a = 2
+      console.log(a)//2
+    }
+    console.log(a)//2
+    // 內層區塊改變外層的值
+    let b = 1
+    {
+      let b = 2
+      console.log(b)//2
+    }
+    console.log(b)//1
+    // 內層區塊不會影響外層的值
+
+    let c = 1
+    {
+      c = 2
+      console.log(c)//2
+    }
+    console.log(c)//2
+
+    {
+      let d = 1
+    }
+    // console.log(d)//未定義
+    // Uncaught ReferenceError: d is not defined
+  </script>
+</body>
+
+</html>

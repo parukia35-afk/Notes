@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const GoodMorning = (time = '早上', item = '冰淇淋') => {
+            // 使用箭頭，可以少打function
+            // 箭頭無法用arguments和this
+            // arguments is not defined
+            // console.log(arguments)
+            console.log(arguments[0])
+            return `${time}好，現在我有${item}`
+            // return後的程式碼都不會執行
+        }
+        document.write(GoodMorning('中午', '便當'))
+
+        // 箭頭只有一個參數時，可省略()
+        const isOdd = input => {
+            // if (input%2===1){
+            //     return true
+            // }else{
+            //     return false
+            // }
+            return input % 2 === 1
+        }
+        // 剛好只有一行return時，可以省略{}和return
+        const isEven = input => input % 2 === 0
+        // 但，如果return的是物件，物件的{}會被當成function的而不是return的，需要用()包起來
+        const test = () => ({ a: 1, b: 2 })
+    </script>
+</body>
+
+</html>

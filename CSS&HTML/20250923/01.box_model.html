@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding-bottom: 100px;
+        }
+
+        .box1 {
+            width: 300px;
+            height: 300px;
+            background: #ffa;
+        }
+
+        .box2 {
+            width: 300px;
+            background: deeppink;
+        }
+
+        .box2-2 {
+            background: deepskyblue;
+        }
+
+        .box3 {
+            width: 300px;
+            height: 200px;
+            background: lightgreen;
+            overflow: hidden;
+            overflow-y: scroll;
+            /* 
+            auto讓瀏覽器決定哪邊內容超出就顯示卷軸
+            scroll強制險是卷軸，哪邊內容超出就可以滾動
+            hidden內容超出就隱藏起來，被裁切掉
+            overflow-x或overflow-y直接指定水平或垂直方向的溢出行為
+             */
+
+        }
+
+        .box4 {
+            width: 300px;
+            background-color: lightcoral;
+            color: white;
+            /* 設定margin */
+            margin-top: 50px;
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-bottom: 50px;
+            /* 
+            margin-top: -50px; 
+            marigin可以設定負值
+            */
+            /* 縮寫 */
+            /* 四值
+            top right bottom left(依順時針方向記憶t、r、b、l)
+            */
+            margin: 50px 50px 50px 50px;
+            /* 三值
+            第四值省略，會根據第二值
+            */
+            margin: 50px 30px 50px;
+            /* 雙值
+            第一值為top與bottom，第二值為left與right
+             */
+            margin: 50px 50px;
+            /* 單值
+            四個方向都是同一值
+            */
+            margin: 50px;
+
+            /* 設定padding(不能為負值) */
+            margin: 50px;
+            padding-top: 50px;
+            padding-right: 50px;
+            padding-bottom: 50px;
+            padding-left: 50px;
+
+            /* 縮寫 */
+            /* 四值
+            top right bottom left(依順時針方向記憶t、r、b、l)
+            */
+            padding: 50px 50px 50px 50px;
+            /* 三值
+            第四值省略，會根據第二值
+            */
+            padding: 50px 30px 50px;
+            /* 雙值
+            第一值為top與bottom，第二值為left與right
+             */
+            padding: 50px 50px;
+            /* 單值
+            四個方向都是同一值
+            */
+            padding: 50px;
+
+            /* border邊框 */
+            /* 設定每一邊各屬性 */
+            border-top-width: 10px;
+            border-top-style: solid;
+            border-top-color: #333;
+
+            border-right-width: 10px;
+            border-right-style: groove;
+            border-right-color: #f00;
+
+            border-bottom-width: 10px;
+            border-bottom-style: dashed;
+            border-bottom-color: #ff0;
+
+            border-left-width: 10px;
+            border-left-style: double;
+            border-left-color: #00f;
+
+            /* 同時對四邊設定各屬性 */
+            border-width: 30px;
+            border-style: groove;
+            border-color: #333;
+
+            /* 每一邊縮寫 */
+            border-top: 30px solid #f00;
+            border-right: 30px solid #0f0;
+            border-bottom: 30px solid #00f;
+            border-bottom: 30px solid #ff0;
+
+            /* 四邊縮寫 */
+            border: 30px solid #333;
+
+            /* 外框 */
+            /* 邊框、外框的差異在於外框不影響佈局，只呈現外觀使用 */
+            outline: 10px dashed orange;
+        }
+
+        .box5 {
+            width: 300px;
+            height: 300px;
+            background: mediumorchid;
+            margin-bottom: 20px;
+
+        }
+
+        .box6 {
+            width: 300px;
+            height: 300px;
+            background: mediumaquamarine;
+            margin-top: 50px;
+        }
+
+        .box7 {
+            background: lightpink;
+            width: 300px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-left: 5px solid #333;
+            border-right: 5px solid #333;
+            /* 計算總寬 */
+            /* 300+10+10+10+10+5+5=350 */
+        }
+
+        .box8 {
+            width: 300px;
+            height: 300px;
+            border: 10px solid #333;
+            /* 左上、右上、右下、左下 */
+            border-top-left-radius: 30px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 50px;
+            /* 單值 */
+            border-radius: 100px;
+            /* 雙值:左上+右下、右上+左下*/
+            border-radius: 20px 100px;
+            /* 四值:左上、右上、右下、左下 */
+            border-radius: 20px 100px 30px 50px;
+        }
+
+        .circle {
+            /* 畫圓一定要從正方形來改 */
+            width: 300px;
+            height: 300px;
+            border: 10px solid #333;
+            border-radius: 50%;
+            /* margin可設定水平置中 */
+            margin: auto;
+            /* 陰影:可以設定多重陰影以及內陰影 */
+            box-shadow:
+                inset 0 0px 50px rgba(255, 255, 0, 0.5),
+                0 20px 50px rgba(0, 0, 255, 0.5),
+                0 50px 50px rgba(255, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>box1畫一個盒子，設定寬、高、背景顏色</h2>
+    <div class="box1"></div>
+
+    <h2>box2不設定高度，高度以內容來長高</h2>
+    <div class="box2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, sequi.</div>
+
+    <h2>box2-2不設定寬度，寬度會以父元素為主</h2>
+    <div class="box2-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nisi quas, aliquam, ut
+        commodi culpa quo velit unde numquam aut aperiam eos, tempora repellat. Iusto dignissimos quod porro iste
+        aspernatur?
+    </div>
+
+    <h2>box3設定高度，內容太多超出高度會產生溢出，設定overflow防止溢出</h2>
+    <div class="box3">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nisi quas, aliquam, ut
+            commodi culpa quo velit unde numquam aut aperiam eos, tempora repellat. Iusto dignissimos quod porro iste
+            aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nisi quas, aliquam, ut
+            commodi culpa quo velit unde numquam aut aperiam eos, tempora repellat. Iusto dignissimos quod porro iste
+            aspernatur?Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nisi quas, aliquam, ut
+            commodi culpa quo velit unde numquam aut aperiam eos, tempora repellat. Iusto dignissimos quod porro iste
+            aspernatur?
+        </p>
+    </div>
+
+    <h2>box4設定盒子的margin,padding,border</h2>
+    <div class="box4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nisi quas, aliquam, ut
+        commodi culpa quo velit unde numquam aut aperiam eos, tempora repellat. Iusto dignissimos quod porro iste
+        aspernatur?
+    </div>
+
+    <h2>box5、box6說明margin的重疊現象</h2>
+    <p>垂直排列margin會發生重疊，以較大的margin值為準</p>
+    <p>水平排列則不會發生重疊</p>
+    <div class="box5"></div>
+    <div class="box6"></div>
+
+    <h2>box7計算一個盒子的總寬度</h2>
+    <p>實際總寬=width + padding + margin</p>
+    <div class="box7">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, sequi.</div>
+
+    <h2>box8圓角設定</h2>
+    <div class="box8"></div>
+
+    <h2>畫一個水平置中的圓形</h2>
+    <div class="circle"></div>
+</body>
+
+</html>

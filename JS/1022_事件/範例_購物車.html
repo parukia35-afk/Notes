@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            display: inline-block;
+            padding: 10px;
+            margin: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: 1px solid black;
+            box-shadow: 5px 5px 3px gray;
+            width: 200px;
+            text-align: center;
+        }
+
+        .card-img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img class="card-img"
+            src="https://www.takaratomy.co.jp/products/pokemon/pokepeace/light/images/light_pikachu_pochama_main_img.webp">
+        <p class="card-title">ポケピース ぷにキュンライト</p>
+        <p class="card-price">800</p>
+        <input type="button" value="加入購物車" class="card-btn" data-title="ポケピース ぷにキュンライト" data-price="800">
+    </div>
+    <div class="card">
+        <img class="card-img"
+            src="https://www.kotobukiya.co.jp/files_thumbnail/product/2023/202309/PV198_PK_hikari/PV198_PK_hikari_main.jpg/1000.jpg">
+        <p class="card-title">ヒカリ with ポッチャマ</p>
+        <p class="card-price">1200</p>
+        <input type="button" value="加入購物車" class="card-btn" data-title="ヒカリ with ポッチャマ" data-price="1200">
+    </div>
+    <div class="card">
+        <img class="card-img" src="https://www.pokemon.co.jp/PostImages/d8d001c5bcdc1606c319cb19e31b3ab05b80b848.jpg">
+        <p class="card-title">すやすやフレンド</p>
+        <p class="card-price">700</p>
+        <input type="button" value="加入購物車" class="card-btn" data-title="すやすやフレンド" data-price="700">
+    </div>
+    <hr>
+    <ul id="list"></ul>
+    <script>
+        const btn = document.getElementsByClassName('card-btn')
+        const list = document.getElementById('list')
+
+        for (const el of btn) {
+            el.onclick = () => {
+                const title = el.dataset.title
+                const price = el.dataset.price
+                const li = document.createElement('li')
+                li.innerText = `${title}:${price}`
+                list.prepend(li)
+            }
+        }
+    </script>
+</body>
+
+</html>

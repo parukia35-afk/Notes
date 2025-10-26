@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 第一種寫法
+        // function GoodMorning() {
+        //     document.write('早上好，現在我有冰淇淋')
+        // }
+        // 第二種寫法
+        // const GoodMorning = function () {
+        //     document.write('早上好，現在我有冰淇淋')
+        // }
+        // 第三種寫法:設定變數
+        // function GoodMorning(time, item) {
+        //     document.write(`${time}好，現在我有${item}`)
+        // }
+        // GoodMorning('早上', '冰淇淋')
+        // document.write('<br>')
+        // GoodMorning('中午', '便當')
+
+        // 給預設值
+        // function GoodMorning(time = '早上', item = '冰淇淋') {
+        //     document.write(`${time}好，現在我有${item}`)
+        // }
+        // GoodMorning() //沒給參數，代入預設值
+        // document.write('<br>')
+        // GoodMorning('中午') //只給第一個參數
+        // document.write('<br>')
+        // GoodMorning(undefined, '便當') //只想給第二個參數
+        // document.write('<br>')
+        // GoodMorning('晚上', '雞排')
+
+        function GoodMorning(time = '早上', item = '冰淇淋') {
+            console.log(arguments[0])
+            return `${time}好，現在我有${item}`
+            // return後的程式碼都不會執行
+            console.log(123)
+        }
+        document.write(GoodMorning('中午', '便當'))
+        console.log(GoodMorning('晚上', '雞排'))
+
+    </script>
+</body>
+
+</html>

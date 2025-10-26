@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 直接使用未宣告的變數會出錯
+        // Uncaught ReferenceError:abc is not defined
+        // console.log(abc)
+
+        // let不能先使用再宣告
+        // Uncaught ReferenceError:Cannot access 'abc' before initialization
+        // console.log(abc)
+        // let abc
+
+        // var可以先使用再宣告，但是宣告前是undefined
+        // 程式執行時，會把宣告動作移到使用之前，但是初始值設定不會
+        //  consile.log(abc)  //undefined
+        // var abc = 123
+
+        // function declaration可以提升，正常執行
+        // hi('abc')
+        // function hi(name){
+        // console.log('hi',name)
+        // }
+
+        // Uncaught TypeError: hi is not a function
+        // var 提升是undefined，undefined不是function
+        hi('abc')
+        var hi = function (name) {
+            consoe.log('hi', name)
+        }
+    </script>
+</body>
+
+</html>

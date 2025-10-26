@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let lang = '不知道'//取得瀏覽器的主要語言
+        if (navigator.language === 'zh') {
+            lang = '中文'
+        }
+        else if (navigator.language === 'en' || navigator.language === 'en-US') {
+            lang = '英文'
+        }
+        else if (navigator.language === 'ja') {
+            lang = '日文'
+        }
+        // case 值:
+        //   執行的內容
+        //   break
+        //}
+        //從符合的case往下執行到break
+        //如果沒有符合的case會執行defauly
+        //default不一定要有
+        switch (navigator.language) {
+            default:
+                lang = '窩不知道'
+                break
+            case 'zh':
+            case 'zh-TW':
+                lang = '中文台灣'
+                break
+            case 'en':
+                lang = '英文'
+                break
+            case 'ja':
+                lang = '日文'
+                break
+        }
+    </script>
+
+</body>
+
+</html>

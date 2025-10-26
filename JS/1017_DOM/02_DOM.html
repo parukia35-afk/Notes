@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text-blue {
+            color: blueviolet;
+        }
+
+        .outline {
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="links">
+        <a href="https://github.com">github</a>
+        <a href="https://google.com">google</a>
+    </div>
+    <ul id="list1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul id="list2">
+        <li>1</li>
+        <li>2</li>
+        <li id="list2li3">3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        // children 下一層所有元素
+        const links = document.getElementById('links').children//等同const links=querySlelectorAll('#links a')
+        for (const el of links) {
+            // getAttribute(屬性名) 或 元素名.屬性名 取得屬性的值
+            console.log(el.getAttribute('href'), el.href)
+            // 更改屬性的值:元素.屬性=值 或 元素.setAttribute(屬性,值)
+            el.href = 'https://x.com'
+            el.setAttribute('href', 'https//x.com')
+            el.innerText = 'Twitter'
+        }
+
+        const list1 = document.getElementById('list1')
+        // firstElementChild 下一層第一個元素
+        // lastElementChild 下一層最後一個元素
+        // className 列出所擁有的全部class，用空白分隔
+        list1.firstElementChild.classList.add('text-blue', 'outline')//新增class
+        const newClasses = ['text-blue', 'outline']
+        list1.lastElementChild.classList.add(...newClasses) //...意思是把陣列展開
+        console.log('className', list1.lastElementChild.className)
+        console.log('classList', list1.lastElementChild.classList)
+        console.log('classList[0]', list1.lastElementChild.classList[0])
+        console.log('classList[1]', list1.lastElementChild.classList[1])
+        console.log('classList.length', list1.lastElementChild.classList.length)
+        console.log('classList.value', list1.lastElementChild.classList.value)
+
+        const list2li3 = document.getElementById('list2li3')
+        // previousElementSibling 同層上一個元素
+        // nextElementSibling 同層下一個元素
+        list2li3.previousElementSibling.classList.add(...newClasses)//新增class
+        list2li3.previousElementSibling.classList.remove('outline')//移除class
+        list2li3.nextElementSibling.classList.toggle('outline')//toggle:有就移除，沒有就新增
+
+        // 選擇同層的上上個元素，需要串聯語法(形成一長串=_=)或使用迴圈
+        // let el=list2li3.previousElementSibling.previousElementSibling
+        let el = list2li3
+        for (let i = 1; i <= 2; i++) {
+            el = el.previousElementSibling
+        }
+        el.classList.add('text-blue')
+        console.log(el.classList.contains('text-blue'))
+
+        //parentElement上一層
+        list2li3.parentElement.style.background = 'pink'
+
+    </script>
+
+</body>
+
+</html>

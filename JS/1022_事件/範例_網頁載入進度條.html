@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #loading {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background: gray;
+            text-align: center;
+            align-content: center;
+            color: aliceblue;
+            transition: opacity.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading">
+        <p>載入中</p>
+        <p id="loading-progress">0%</p>
+    </div>
+    <div id="content">
+        <img src="https://picsum.photos/1000/1000/?random=1">
+        <img src="https://picsum.photos/1000/1000/?random=2">
+        <img src="https://picsum.photos/1000/1000/?random=3">
+        <img src="https://picsum.photos/1000/1000/?random=4">
+        <img src="https://picsum.photos/1000/1000/?random=5">
+    </div>
+    <script>
+        window.onload = () => {
+            console.log('window onload')
+        }
+        document.onreadystatechange = () => {
+            console.log('document onreadystatechange', document.readyState)
+        }
+
+        const img = document.getElementsByTagName('img')
+        const loadingProgress = document.getElementById('oading-progress')
+
+        let loaded = 0
+        for (const el of img) {
+            el.onload = () => {
+                loaded++
+                loadingProgress.innerText = Math.round(loaded / img.length * 100) + '%'
+            }
+        }
+
+    </script>
+</body>
+
+</html>

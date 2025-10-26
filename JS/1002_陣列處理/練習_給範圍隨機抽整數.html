@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const min = parseInt(prompt('較小的數'))
+        const max = parseInt(prompt('較大的數'))
+
+        for (let i = 0; i < 200; i++) {
+            function random(min, max) {
+                return Math.round(min + (max - min) * Math.random())
+            }
+            document.write(random(min, max) + '</br>')
+        }
+    </script>
+
+</body>
+
+</html>

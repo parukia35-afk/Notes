@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            // public屬性，可以在外部直接存取
+            firstName=''
+            lastName=''
+            // private屬性，#開頭，只能在class內存取
+            #phone=''
+            // 用class建立物件時會執行，在new時執行
+            constructor(firstName,lastName,phone){
+                this.firstName=firstName
+                this.lastName=lastName
+                this.#phone=phone
+            }
+            fullName(){
+                return this.firstName+this.lastName
+            }
+            getPhone(){
+                return this.#phone
+            }
+            static hi(){
+                return '你好'
+            }
+        }
+
+        // 用class當作模板產生物件
+        const person1=new Person('金','城武','0911')
+        // public可在外部存取
+        console.log(person1.firstName)
+        // console.log(person1.#phone)---->private在外部存取會報錯:
+        // Uncaught SyntaxError: Private field '#phone' must be declared in an enclosing class (at 06_物件導向.html:37:28)
+        console.log(person1.getPhone())
+        console.log(person1.fullName())
+        // static 靜態，不需要new就能執行
+        console.log(Person.hi())
+        // static不能透過new呼叫，只能透過class呼叫
+        console.log(person1.hi())//---->報錯
+    </script>
+</body>
+</html>

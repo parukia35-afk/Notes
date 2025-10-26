@@ -1,0 +1,161 @@
+body{
+	font-family: 'Noto Sans TC', sans-serif;
+	font-size: 14px;
+	margin: 0;
+}
+/* 指定字體大小 */
+.big{
+	font-size: 16px;
+}
+.medium{
+	font-size: 14px;
+}
+/* -------------------header開始------------------- */
+#navbar{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 56px;
+	margin: auto;
+	z-index: 1;
+	background: white;
+}
+/* 設定導覽列滑鼠移到按鈕的效果 */
+.left i,
+.left img,
+.center i,
+.right i{
+	cursor: pointer;}
+/* sidebar button 與 logo */
+.left{
+	width: 33%;
+	height: 56px;
+	text-align: left;
+	margin-left: 12px;
+	float: left;
+}
+.left .sidebar-button{
+	width: 25px;
+	height: 56px;
+	line-height: 56px;
+	font-size: 20px;
+	cursor: pointer;
+	float: left;
+	
+}
+.logo img{
+	width: 90px;
+	height: auto;
+}
+/* 搜尋欄 與 語音搜尋按鈕 */
+.center{
+	width: 33%;
+	height: 56px;
+	line-height: 56px;
+	text-align: center;
+	float: left;
+}
+.search{
+	width: 90%;
+}
+/* 右邊按鈕 */
+.right{
+	width: 33%;
+	height: 56px;
+	line-height: 56px;
+	text-align: right;
+	float: left;
+	font-size: 20px;
+}
+/* 設定右邊按鈕的間距 */
+.right i{
+	padding: 0 5px 0 5px;
+}
+/* -------------------header結束 -------------------*/
+
+
+/* -------------------sidebar開始------------------- */
+.sidebar{
+	position: relative;
+	top: 56px;
+	width: 13%;
+	height: 1000px;
+	float: left;
+	overflow-y:scroll;
+	overflow-x: hidden;
+}
+.sidebar div{
+width: 180px;
+height: 40px;
+padding: 0 12px;
+border-radius: 12%;
+text-align: left;
+line-height: 40px;
+cursor: pointer;
+}
+.sidebar div:hover{background: rgba(211, 211, 211, 0.313)}
+.sidebar div i{
+	margin-right: 20px;
+}
+/* -------------------sidebar結束------------------- */
+
+
+/* -------------------container開始------------------- */
+.container{
+	position: relative;
+	top: 56px;
+	width: 85%;
+	float: left;
+}
+/* 標籤欄 */
+.container .tag ul{list-style: none;font-size: 0;}
+.container .tag ul li{
+	display: inline-block;
+	height: 23.2px;
+	line-height: 23.2px;
+	text-align: center;
+	border-radius: 12%;
+	background: rgba(211, 211, 211, 0.313) ;
+	cursor: pointer;
+	margin: 0 5px;
+	padding: 3px;
+	font-size: 14px;
+}
+.container .tag ul li:active{
+background: lightgray;
+}
+/* 影片區 */
+.content{
+	width: 100%;
+	height: 100px;
+	margin-left: 40px;
+}
+.video{
+	width: 24%;
+	font-size: 0;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+	margin-top:10px ;
+}
+.video>img{
+	width: 100%;
+	height: auto;
+	border-radius: 5%;
+}
+.video>div{
+	width: 100%;
+}
+.video>div>img{
+	width: 100%;
+	height: auto;
+	border-radius: 50%;
+}
+.title{
+font-size: 14px;
+height: 40px;
+overflow: hidden;
+}
+.comment{
+	font-size: 12px;
+}

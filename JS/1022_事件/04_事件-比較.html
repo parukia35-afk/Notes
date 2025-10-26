@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="on" id="on">
+    <input type="button" value="listener" id="listener">
+    <script>
+        const on = document.getElementById('on')
+        const listener = document.getElementById('listener')
+        /*---------------------------------------------------------------*/
+        // onclick，後會覆蓋前
+        on.onclick = () => {
+            alert('on 1')
+        }
+        on.onclick = () => {
+            alert('on 2')
+        }
+        /*---------------------------------------------------------------*/
+        // addEventListener，兩個都會執行
+        listener.addEventListener('click', () => {
+            alert('listener 1')
+        })
+        listener.addEventListener('click', () => {
+            alert('listener 2')
+        })
+    </script>
+</body>
+
+</html>

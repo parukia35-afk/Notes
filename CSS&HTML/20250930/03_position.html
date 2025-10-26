@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.box{
+    background: lightblue;
+    /* width: 100%; */
+    position: absolute;
+
+    /* 寬、高填滿父元素 */
+    /* top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; */
+    height: 100px;
+
+    /* 對其下方且左右填滿父元素 */
+    /* bottom: 0;
+    left: 0;
+    right: 0; */
+
+    /* 對其左下方且填滿1/4父元素 */
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+}
+    </style>
+</head>
+<body>
+    <!-- 
+    在使用position absolute或fixed時，
+    1.若沒有設定寬度，會緊縮成內容的寬度
+    2.會自動轉型成block元素
+    3.會脫離原本的文件流， 可以使用z-index調整層級。
+    -->
+    <div class="box">Lorem ipsum dolor sit amet.</div>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const decrypt = (text) => {
+            let array = text.split('')
+            let newArray = []
+            for (i = 0; i < array.length - 1; i++) {
+                newArray.push(Math.abs(array[i].charCodeAt(0) - array[i + 1].charCodeAt(0)))
+            }
+            return newArray.join('')
+        }
+        const input = prompt('輸入文字')
+        console.log(decrypt(input))
+
+        // const decrypt = (text) => {
+        //     let newArray = ''
+        //     for (i = 0; i < text.length - 1; i++) {
+        //         newArray += (Math.abs(text.charCodeAt(i) - text.charCodeAt(i + 1)))
+
+        //     }
+        //     return newArray
+        // }
+        // const input = prompt('輸入文字')
+        // console.log(decrypt(input))
+    </script>
+</body>
+
+</html>

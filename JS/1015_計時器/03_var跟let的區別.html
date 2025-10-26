@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 當var i=1，3秒後會印出甚麼呢?---->66666
+        // for (var i = 1; i <= 5; i++) {
+        //     setTimeout(() => { document.write(i) }, 3000)
+        // }
+
+        for (let i = 1; i <= 5; i++) {//---->12345
+            setTimeout(() => {
+                document.write(i)
+            }, 3000)
+        }
+    </script>
+</body>
+
+</html>

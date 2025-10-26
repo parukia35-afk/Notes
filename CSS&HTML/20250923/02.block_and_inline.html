@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 拿掉預設的margin 8px */
+        body {
+            margin: 0;
+        }
+
+        /* 選擇到ul身上有class是menu的元素 */
+        /* ul和menu中間沒有空白!!!有的話會變成後代選擇器 */
+        ul.menu {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            background: yellow;
+            /* 1.消除幽靈空白 */
+            font-size: 0;
+            text-align: center;
+        }
+
+        ul.menu li {
+            /* 讓li轉成inline-block，因inline特性會產生幽靈空白 */
+            display: inline-block;
+            background: dodgerblue;
+            /* 消除幽靈空白後設定回文字 */
+            font-size: 1rem;
+            /* 因為block的優點，可以設定寬度 */
+            width: 100px;
+            border: 2px solid #333;
+            text-align: center;
+        }
+
+        ul.menu a {
+            background: deeppink;
+            text-decoration: none;
+            display: block;
+            /* 可以佔據整個父元素空間，更好點擊 */
+        }
+
+        ul.menu a:hover {
+            background: black;
+            color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>區塊級與行內級</h1>
+    <p>CSS是盒子的世界，盒子分為區塊級、行內級兩種基本型。</p>
+
+    <h3>說出下面兩行的差異</h3>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, alias?</div>
+    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, alias?</span>
+
+    <h3>試著加上背景顏色...</h3>
+    <!-- div是區塊級元素家族的一種，span是行內級元素家族的一種 -->
+    <div style="background: gold;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, alias?</div>
+    <span style="background: deepskyblue;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+        alias?</span>
+
+    <h3>區塊級元素</h3>
+    <p>例子:div、h1~h6、p、ul、li、table、td、tr...</p>
+    <p>特性1:獨佔一整行，占滿整個父元素的寬度。即便設定寬度，下方的元素也不能使用它剩餘的空間(前、後換行)。</p>
+    <p>特性2:可以<b>"正常設定"</b>width,padding,margin,border等屬性。</p>
+    <p>特性3:不可被vertical-align屬性影響</p>
+
+    <div style="background: gold;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, alias?</div>
+    <div style="background: gold;width: 500px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+        alias?</div>
+    <div style="background: gold;width: 500px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+        alias?
+    </div>
+    <div style="background: gold;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, alias?</div>
+
+    <hr>
+    <h3>行內級元素</h3>
+    <p>例子:span,a,strong,em,b,i...</p>
+    <p>特性1:本身內容寬度多少，行內元素寬度就多少</p>
+    <p>特性2:inline元素之間會有空隙(幽靈空白)產生，這是行內元素的特性所致</p>
+    <p>特性3:會在文件流向由左至右、由上而下排列(當父元素容納不下時)。</p>
+    <p>特性4:無法設定width,height</p>
+    <p>特性5:可以被vertical-align屬性影響</p>
+
+    <!-- 圖片屬於replacement element屬於inline，但可以設定寬、高 -->
+    <img src="https://picsum.photos/300/200/?random=10" style="width:500px;">
+    <!-- width:100000px不會有作用 -->
+    <span style="background: cyan;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+        alias?</span>
+    <span style="background: deeppink;vertical-align: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eligendi,
+        alias?</span>
+    <span style="background: cyan;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+        alias?</span>
+    <span style="background: cyan;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+        alias?</span>
+
+    <hr>
+
+    <h3>使用display替盒子轉型，例如:display: inline-block</h3>
+    <p>使用display: inline-block製作橫向選單</p>
+    <p>li是block塊級元素，要被轉成inline-block。</p>
+    <p>inline-block可以看在外在排列的行為像inline，使用width,height,margin,padding,border屬性</p>
+    <p>inline-block取block與inline各自的優點來橫向排列。</p>
+
+    <!-- ul.menu>i*5>a{link$} -->
+    <ul class="menu">
+        <li><a href="#">link1</a></li>
+        <li><a href="#">link2</a></li>
+        <li><a href="#">link3</a></li>
+        <li><a href="#">link4</a></li>
+        <li><a href="#">link5</a></li>
+    </ul>
+
+
+
+
+</body>
+
+</html>

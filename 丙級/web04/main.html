@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            height: 150px;
+            /* 重要常用!!對圖片做vertical-align消除圖片下方的怪異空白 */
+            vertical-align: middle;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            text-align: center;
+
+        }
+
+        td:nth-child(1) {
+            width: 200px;
+        }
+
+        td:nth-child(2),
+        td:nth-child(3) {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><a href="./result/purrchase.html">流行皮件</a></td>
+            <td><a target="_blank" href="./result/leather1.html"><img src="./img/0403.jpg" alt=""></a></td>
+            <td><a target="_blank" href="./result/leather2.html"><img src="./img/0404.jpg" alt=""></a></td>
+        </tr>
+        <tr>
+            <td>流行鞋區</td>
+            <td><img src="./img/0405.jpg" alt=""></td>
+            <td><img src="./img/0406.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td>流行飾品</td>
+            <td><img src="./img/0407.jpg" alt=""></td>
+            <td><img src="./img/0408.jpg" alt=""></td>
+        </tr>
+    </table>
+</body>
+
+</html>

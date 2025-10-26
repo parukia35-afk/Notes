@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 通用選擇器，除了偽元素before、after，全部元素都選 */
+        /* 暴力的reset，適合用在練習，一次清掉預設的padding、margin，不會被預設干擾比較好排版 */
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 600px;
+            height: 600px;
+            border: 5px solid #ffa;
+            margin: 100px auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+            font-size: 3rem;
+            color: yellow;
+            text-shadow: 50px 0px 3px rgb(0, 0, 0);
+            /* 可以讓盒子模糊的地方 */
+            backdrop-filter: blur(10px);
+            backdrop-filter: brightness(0.3);
+        }
+
+        .bg-color {
+            background-color: #faa;
+
+        }
+
+        /* 沒有限制background-repeat，由左至右，由上至下鋪 */
+        .bg-image {
+            background-image: url("https://picsum.photos/300/200/?random=1");
+        }
+
+        /* 限制水平平鋪 */
+        .bg-repeat-x {
+            background-repeat: repeat-x;
+        }
+
+        /* 限制垂直平舖 */
+        .bg-repeat-y {
+            background-repeat: repeat-y;
+        }
+
+        .bg-no-repeat {
+            background-repeat: no-repeat;
+        }
+
+        /* 背景尺寸 */
+        .bg-size {
+            background-image: url("https://picsum.photos/300/200/?random=1");
+            background-repeat: no-repeat;
+            /* 會等比例縮放 */
+            /* contain會完全顯示圖片，但可能會有空白 */
+            background-size: contain;
+            /* cover會完全蓋住容器，但可能會裁切 */
+            background-size: cover;
+            /* 單值，第一個值指的是寬度，第二個互省略被設定為auto */
+            /* 單值px、rem、em、%... */
+            background-size: 400px;
+            /* 雙值，寬度、高度都指定 */
+            background-size: 400px 500px;
+        }
+
+        .bg-position {
+            background-position: 50% center;
+            background-position: left top;
+            /* 雙值，第一個是水平，第二個是垂直
+            第一個關鍵字 left(0%)center(50%)right(100%)
+            第二個關鍵字 top(0%)center(50%)bottom(100%) */
+            /* 單值，另一個值會被設定為center */
+
+            /* 也能以px當單位 */
+            /* 0 0是左上角，往下為+，往左為- */
+            background-position: 300px 100px;
+        }
+
+        .bg-abbr {
+            /* 縮寫版 */
+            /* color image repeat position/size*/
+            /* 注意position與size的寫法，中間一定要/ */
+            background: #aaa url("https://picsum.photos/300/200/?random=10")no-repeat center center/100px 100px;
+        }
+
+        .bg-three {
+            /* 圖片出現順序，由上而下排列，上方會蓋住下方(這與元素出現的順序不同，元素是後面蓋前面) */
+            background-image: url("https://picsum.photos/600/100/?random=1"),
+                url("https://picsum.photos/600/400/?random=2"),
+                url("https://picsum.photos/600/100/?random=1");
+            /* 寫一次值是對三張做設定，等同no-repeat no-repeat no-repeat*/
+            background-repeat: no-repeat;
+            background-position: left top, left 100px, left bottom;
+            /* 縮寫版 */
+            background: url("https://picsum.photos/600/100/?random=1")no-repeat left top,
+                url("https://picsum.photos/600/400/?random=2")no-repeat left 100px,
+                url("https://picsum.photos/600/100/?random=1")no-repeat left bottom;
+        }
+
+        .linear-gradient {
+            /* 漸層是background-image的一種，不是background-color */
+            background-image: linear-gradient(red, yellow, white);
+            /* 預設是180deg */
+            /* 漸變角度:12點鐘為0deg,6點鐘為180deg，漸變的過程是指針軸心往指珍的方向漸變 */
+            background-image: linear-gradient(90deg, red, yellow, white);
+            /* 可以設定漸層站點(渲染範圍)，以百分比標示，如下:0~25由白~淺藍，25~50由淺藍~白，50~75由白~淺綠，75~100由淺綠~白 */
+            background-image: linear-gradient(to right top, #fff 0%, lightblue 25%, #fff 50%, lightgreen 75%, #fff 100%);
+        }
+
+        .radial-gradient {
+            background-image: radial-gradient(white 0%, yellow 10%, pink 100%);
+        }
+
+        body {
+            background-image: url("https://picsum.photos/1920/1080/?random=10");
+            background-repeat: no-repeat;
+            /* 固定背景使其不會隨滾輪移動 */
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <ul>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+        <li>ListItem</li>
+    </ul>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <p>Lorem ipsum dolor sit amet.</p> -->
+    <!-- div的快速打法: -->
+    <!-- .box.bg-color -->
+    <div class="box bg-color">background-color</div>
+    <div class="box bg-image">background-img</div>
+    <div class="box bg-image bg-repeat-x">background-repeat-x</div>
+    <div class="box bg-image bg-repeat-y">background-repeat-y</div>
+    <div class="box bg-image bg-no-repeat">background-no-repeat</div>
+    <div class="box bg-size">background-size</div>
+    <div class="box bg-image bg-no-repeat bg-position">background-position</div>
+    <div class="box bg-abbr">縮寫版</div>
+    <div class="box bg-three">多張背景圖</div>
+    <div class="box linear-gradient">漸層是background-image的一種</div>
+    <div class="box radial-gradient">放射漸層</div>
+
+</body>
+
+</html>

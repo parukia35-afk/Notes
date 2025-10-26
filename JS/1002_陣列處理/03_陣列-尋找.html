@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numbers = [100, 200, 300, 400, 500, 100]
+
+        // .includes(資料)
+        // 是否有包含資料，回傳boolean
+        console.log(numbers.includes(100))  //true
+
+        // .indexOf(資料,開始索引) //由前往後找
+        // 是否有包含資料，回傳第一個符合的索引，沒有符合回傳-1
+        console.log(numbers.indexOf(100))    //0
+        console.log(numbers.indexOf(200, 3))//-1
+
+        // .lastIndexOf(資料,開始索引) //由後往前找
+        // 是否有包含資料，回傳第一個符合的索引，沒有符合回傳-1
+        console.log(numbers.lastIndexOf(100))     //5
+        console.log(numbers.lastIndexOf(200, 3))  //1
+
+        // .some(function)
+        // 陣列每個東西都執行function
+        // 是否有東西執行後 return true
+        // 回傳boolean
+        const some = numbers.some((value, index, array) => {
+            return value > 300
+        })
+        // 簡寫:const some=numbers.some(value=>value>300)
+        console.log('some', some)  //true
+
+        // .every(function)
+        // 陣列每個東西都執行function
+        // 是否每個東西執行後 return true
+        // 回傳boolean
+        const every = numbers.every((value, index, array) => {
+            return value > 300//false
+        })
+        // 簡寫:const every=numbers.every(value=>calue>300)
+        console.log('every', every)  //false
+
+        // .find(function)
+        // 陣列每個東西都執行function
+        // 回傳第一個 return true的東西的值
+        // 都沒有符合，回傳undefined
+        const find = numbers.find((value, index, array) => {
+            return value > 300
+        })
+        // 簡寫:const find=numbers.find(value=>calue>300)
+        console.log('find', find)  //400
+
+        // .findIndex(function)
+        // 陣列每個東西都執行function
+        // 回傳第一個 return true的東西的索引
+        // 都沒有符合，回傳-1
+        const findIndex = numbers.findIndex((value, index, array) => {
+            return value > 300
+        })
+        // 簡寫:const findIndex=numbers.findIndex(value=>calue>300)
+        console.log('findIndex', findIndex)  //3
+
+        // .findLast(function)
+        // 陣列每個東西都執行function
+        // 回傳最後一個 return true的東西的值
+        // 都沒有符合，回傳undefined
+        const findLast = numbers.findLast((value, index, array) => {
+            return value > 300
+        })
+        // 簡寫:const findLast=numbers.findLast(value=>calue>300)
+        console.log('findLast', findLast)  //500
+
+        // .findLastIndex(function)
+        // 陣列每個東西都執行function
+        // 回傳最後一個 return true的東西的值
+        // 都沒有符合，回傳-1
+        const findLastIndex = numbers.findLastIndex((value, index, array) => {
+            return value > 300
+        })
+        // 簡寫:const findLastIndex=numbers.findLastIndex(value=>calue>300)
+        console.log('findLastIndex', findLastIndex)  //4
+
+        // .filter(function)
+        // 陣列每個東西都執行function
+        // 將所有return true的東西組成新陣列
+        const filter = numbers.filter((value, index, array) => {
+            return value > 300
+        })
+        // 簡寫:const filter=numbers.filter(value=>calue>300)
+        console.log('filter', filter)  //[400,500]
+
+    </script>
+
+</body>
+
+</html>

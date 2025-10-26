@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://picsum.photos/id/393/600/400/?random=10");
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-attachment: fixed;
+            background-size: 120%;
+        }
+
+        #div {
+            height: 5000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+    <script>
+        window.onscroll = () => {
+            // document.documentElement=<html>
+            // scrollTop 捲動的高度
+            const top = document.documentElement.scrollTop
+            console.log(top)
+            document.body.style.backgroundPosition = `center -${top / 50}px`
+        }
+    </script>
+</body>
+
+</html>

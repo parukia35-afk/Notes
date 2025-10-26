@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心情時鐘</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #fceabb, #f8b500);
+      transition: background 1s;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    .time {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="emoji">☀️</h1>
+  <p id="message">早安！新的一天開始囉！</p>
+  <div class="time" id="clock"></div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hour = now.getHours();
+      const minute = String(now.getMinutes()).padStart(2, '0');
+      const second = String(now.getSeconds()).padStart(2, '0');
+      const clock = document.getElementById("clock");
+      clock.textContent = `${hour}:${minute}:${second}`;
+
+      const emoji = document.getElementById("emoji");
+      const message = document.getElementById("message");
+      const body = document.body;
+
+      if (hour >= 5 && hour < 11) {
+        emoji.textContent = "☀️";
+        message.textContent = "早安！新的一天開始囉！";
+        body.style.background = "linear-gradient(to bottom, #fceabb, #f8b500)";
+      } else if (hour >= 11 && hour < 17) {
+        emoji.textContent = "🌤️";
+        message.textContent = "下午好～記得補充水分喔！";
+        body.style.background = "linear-gradient(to bottom, #a8edea, #fed6e3)";
+      } else if (hour >= 17 && hour < 21) {
+        emoji.textContent = "🌇";
+        message.textContent = "傍晚了～準備放鬆一下吧！";
+        body.style.background = "linear-gradient(to bottom, #f7971e, #ffd200)";
+      } else {
+        emoji.textContent = "🌙";
+        message.textContent = "晚安～辛苦了一天，好好休息💤";
+        body.style.background = "linear-gradient(to bottom, #141E30, #243B55)";
+      }
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>

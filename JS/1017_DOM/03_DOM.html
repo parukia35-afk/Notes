@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="test">P TEST</p>
+    <div id="div1" style="border: 1px solid blue;">
+        <p>div1</p>
+    </div>
+    <br>
+    <div id="div2" style="border: 1px solid purple;">
+        <p>div2</p>
+    </div>
+    <br>
+    <div id="div3" style="border: 1px solid green;">
+        <p>div3</p>
+    </div>
+    <br>
+    <div id="div4" style="border: 1px solid red;">
+        <p>div4-1</p>
+        <p>div4-2</p>
+        <p>div4-3</p>
+        <p>div4-4</p>
+    </div>
+    <br>
+    <div id="div5" style="border: 1px solid gray;">
+        <p>div5</p>
+    </div>
+    <br>
+    <div id="div6" style="border: 1px solid orangered;">
+        <p>div6-1</p>
+        <p>div6-2</p>
+        <p>div6-3</p>
+    </div>
+    <script>
+        const div1 = document.getElementById('div1')
+        // 修改innerHTML，會需要重新解析DOM，效能較差
+        div1.innerHTML += '<p>+=innerHTML</p>'
+        // insertAdjacentHTML(新增位置,HTML文字)
+        div1.insertAdjacentHTML('beforebegin', '<p>beforebegin</p>')
+        div1.insertAdjacentHTML('afterbegin', '<p>afterbegin</p>')
+        div1.insertAdjacentHTML('beforeend', '<p>beforeend</p>')
+        div1.insertAdjacentHTML('afterend', '<p>afterend</p>')
+
+        const div2 = document.getElementById('div2')
+        // 建立指定標籤名稱的元素
+        const p2 = document.createElement('p')
+        p2.innerText = 'div2 p2'
+        // insertAdjacentElement(新增位置,元素)
+        // 已存在的會移動，新建立的放進去
+        div2.insertAdjacentElement('beforeend', p2)
+
+        const pTest = document.getElementById('test')
+        div2.insertAdjacentElement('afterbegin', pTest)
+
+        const div3 = document.getElementById('div3')
+        const p3 = document.createElement('p')
+        p3.innerText = 'div3 p3'
+        const a3 = document.createElement('a')
+        a3.href = 'https://google.com'
+        a3.innerText = 'div3 a3'
+        // append(元素1,元素2...)      放到裡面的後面
+        // prepend(元素1,元素2...)     放到裡面的前面
+        // appendChild(元素)          放到裡面的後面，只能放一個
+        div3.append(p3, a3)
+        // div3.prepend(pTest)
+
+        const div4 = document.getElementById('div4')
+        // remove()---->刪除    //removeChild(下層元素)---->刪除指定的下層元素
+        // div4.children[0].remove()
+        // div4.firstElementChild.remove()
+        // div4.lastElementChild.remove()
+        // div4.remove()
+        // div4.removeChild(div4.firstElementChild)
+
+        // div4.innerHTML = ''//----->刪除內容，但容器div4會留著
+
+        // 為甚麼for of只會刪除1、3?-------------->詳見"用for of刪元素錯誤.html"
+        // for (const el of div4.children) {
+        //     el.remove()
+        // }
+
+        while (div4.firstElementChild) {
+            div4.firstElementChild.remove()
+        }
+
+        const div5 = document.getElementById('div5')
+        const img5 = document.createElement('img')
+        img5.src = 'https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/f3868a6a16c75d75435819deab8bab97926fc54c.png'
+        img5.width = 100
+        // 元素.replaceChild(新,舊)
+        // 用新取代元素內的舊
+        // 舊一定要在元素內
+        div5.replaceChild(img5, div5.firstElementChild)
+
+        const div6 = document.getElementById('div6')
+        // 元素.insertBefore(A,B)
+        // 把A放到B前面
+        // B一定要在元素內
+        // B如果是null,會放到元素內後面
+        div6.insertBefore(div6.firstElementChild, div6.lastElementChild)
+    </script>
+</body>
+
+</html>

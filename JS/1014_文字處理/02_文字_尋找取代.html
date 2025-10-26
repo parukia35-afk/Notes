@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let text = '外賣 咖哩拌飯 咖哩烏冬'
+
+        // .includes(尋找文字,開始索引)
+        // 從指定的索引開始找有沒有符合的文字，回傳布林值
+        let includes = text.includes('咖哩', 9)
+        console.log('includes', includes)
+
+        // .indexOf(尋找文字,開始索引)
+        // 從指定的索引往後找有沒有符合的文字，回傳索引，找不到是-1
+        let indexOf = text.indexOf('咖哩', 9)
+        console.log('indexOf', indexOf)
+
+        // .lastindexOf(尋找文字,開始索引)
+        // 從指定的索引往前找有沒有符合的文字，回傳索引，找不到是-1
+        let lastIndexOf = text.lastIndexOf('咖哩', 9)
+        console.log('lastIndexOf', lastIndexOf)
+
+        // .replace(尋找文字,取代文字)
+        // 尋找參數是文字時，只會取代第一個
+        let replace = text.replace('咖哩', '三色豆')
+        console.log('replace', replace)
+
+        let replaceAll = text.replace(/咖哩/g, '三色豆')
+        console.log('replaceAll', replaceAll)
+
+        // .match(Regex)
+        // 回傳符合的第一個，找不到回傳null
+        let email = 'aaa@gmail.com'
+        // let match = email.match(/^[a-z1-9]+@[a-z1-9]+\.[a-z1-9]+$/)
+        // let match = email.match(/^([a-z1-9]+)@([a-z1-9]+\.[a-z1-9]+)$/)--->用小括號分群組(groups)
+        let match = email.match(/^(?<account>[a-z1-9]+)@(?<domain>[a-z1-9]+\.[a-z1-9]+)$/)  //--->對群組命名
+        console.log('match', match, match['groups']['account'])
+
+        let replaceEmail = email.replace(/^(?<account>[a-z1-9]+)@(?<domain>[a-z1-9]+\.[a-z1-9]+)$/, '帳號是$<account>')
+        console.log('replaceEmail', replaceEmail)
+    </script>
+
+</body>
+
+</html>

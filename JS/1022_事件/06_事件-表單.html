@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="emial" name="" id="email">
+    <br>
+    <input type="range" id="range" min="0" max="255" step="1" value="0">
+    <p id="range-text"></p>
+    <script>
+        const email = document.getElementById('email')
+        email.onfocus = () => {
+            console.log('focus')
+        }
+
+        email.onblur = () => {
+            console.log('blur')
+        }
+        // 在輸入框輸入時觸發
+        email.oninput = () => {
+            console.log('input')
+            if (email.value.includes('@')) {
+                email.style.outline = '5px solid green'
+            } else {
+                email.style.outline = '5px solid red'
+            }
+        }
+        // 當點擊輸入框以外的視窗，偵測到輸入框內字元有變動的話觸發
+        email.onchange = () => {
+            console.log('change')
+        }
+        /*---------------------------------------------------------------*/
+        const range = document.getElementById('range')
+        const rangeText = document.getElementById('range-text')
+        range.oninput = () => {
+            console.log('range input')
+            rangeText.innerText = range.value
+        }
+        range.onchange = () => {
+            console.log('range change')
+        }
+    </script>
+</body>
+
+</html>

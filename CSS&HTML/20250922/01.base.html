@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第二個寫CSS的地方:引入外部樣式表 -->
+    <link rel="stylesheet" href="/CSS/style1.css">
+    <style>
+        /* 第一個寫CSS的地方，表示該文件的樣式 */
+        /* 標籤(類型)選擇器 */
+        h1 {
+            /* CSS只有多行註解 */
+            /* 選擇器有非常多種，目的提供我們選擇DOM元素(標籤)的方式 */
+            /* 
+            屬性1:值1；
+            屬性2:值2
+            */
+
+            color: rgb(104, 141, 199);
+            background-color: yellow;
+            font-size: 50px;
+        }
+
+        p {
+            color: rgb(5, 126, 128);
+        }
+
+        /* 群組選擇器 */
+        /* 以逗點分開 */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 第三種寫在標籤裡面的style屬性，稱為行內(內聯)樣式 -->
+    <h1 style="color: darksalmon;">title</h1>
+    <p>理論很多古代一部分配套包覆公主這是經理一定會早就一。</p>
+    <h1>title</h1>
+    <p>理論很多古代一部分配套包覆公主這是經理一定會早就一。</p>
+    <hr>
+    <!-- 群組選擇器 -->
+    <h1>Lorem ipsum dolor sit ames ipsam lauda earum, voluptate dolor.</h1>
+    <h2>Lorem ipsum dolor sit ames ipsam lauda earum, voluptate dolor.</h2>
+    <h3>Lorem ipsum dolor sit ames ipsam lauda earum, voluptate dolor.</h3>
+    <h4>Lorem ipsum dolor sit ames ipsam lauda earum, voluptate dolor.</h4>
+    <h5>Lorem ipsum dolor sit ames ipsam lauda earum, voluptate dolor.</h5>
+    <h6>Lorem ipsum dolor sit ames ipsam lauda earum, voluptate dolor.</h6>
+    <hr>
+    <h1>樣式覆蓋的條件</h1>
+    <ul>
+        <li>選擇器權重相同，後者優先</li>
+        <li>選擇器權重不同，權重高者優先</li>
+    </ul>
+    <script>
+        //單行註解
+        /*多行註解*/
+    </script>
+
+</body>
+
+</html>

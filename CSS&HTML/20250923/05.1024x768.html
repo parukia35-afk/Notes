@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        練習
+        1.設計一個1024x768水平置中版面，包含
+        四個區塊:header,left,right,footer。
+        2.區塊顏色不拘
+        3.字型需用微軟正黑體
+        4.文字需水平垂直置中
+        */
+        .container {
+            width: 1024px;
+            height: 768px;
+            margin: auto;
+            color: white;
+            text-align: center;
+            font-family: '微軟正黑體';
+        }
+
+        .header {
+            height: 100px;
+            background: black;
+            line-height: 100px;
+        }
+
+        .left {
+            width: 205px;
+            height: 568px;
+            background: pink;
+            float: left;
+            line-height: 568px;
+        }
+
+        .right {
+            width: 819px;
+            height: 568px;
+            background: lightblue;
+            float: right;
+            line-height: 568px;
+        }
+
+        .footer {
+            height: 100px;
+            background: black;
+            line-height: 100px;
+            clear: both
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="left">Left</div>
+        <div class="right">Right</div>
+        <div class="footer">Footer</div>
+    </div>
+
+</body>
+
+</html>

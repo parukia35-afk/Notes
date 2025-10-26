@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按鈕" class="btn">
+    <input type="button" value="按鈕" class="btn">
+    <input type="button" value="按鈕" class="btn">
+    <input type="button" value="取消" id="mybtn">
+
+    <script>
+        // function 的 this 會代表發生事件的元素
+        // 箭頭函式的 this 還是代表 window
+        const hi = function () {
+            this.value = '點了按鈕'
+        }
+
+        const btn = document.getElementsByClassName('btn')
+        for (const el of btn) {
+            // el.addEventListener('click', () => {
+            //     el.value = '點了按鈕'
+            // })
+            el.addEventListener('click', hi)
+        }
+
+        const mybtn = document.getElementById('mybtn')
+        mybtn.addEventListener('click', () => {
+            for (const el of btn) {
+                // removeEventListener必須要綁和 addEventListener相同的function才有效
+                // el.removeEventListener('click', () => {
+                //     el.value = '點了按鈕'
+                // })
+                el.removeEventListener('click', hi)
+            }
+        })
+    </script>
+
+</body>
+
+</html>

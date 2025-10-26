@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 75%;
+            margin: 0 auto;
+            border: 1px solid #CCC;
+            padding: 10px
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            color: white;
+            background: deeppink;
+            margin: 20px auto;
+            /* 讓.box變成相對定位，如此偽元素就會以.box為參考點，鎖在裡面 */
+            position: relative;
+        }
+
+        /* 在.box身上建立一個偽元素 */
+        .box::before {
+            /* 1.一定要有content */
+            content: "before";
+            /* 2.偽元素誕生時是inline */
+            width: 100px;
+            height: 100px;
+            border: 5px solid green;
+            color: white;
+            /* 3.absolute自動轉型成block，可以設定寬高了 */
+            position: absolute;
+            left: -100%;
+            top: 0;
+            background: url("https://picsum.photos/100/100/?random=10")no-repeat center/cover;
+            transition: 0.5s;
+        }
+
+        .box::after {
+            content: "after";
+            width: 100px;
+            height: 100px;
+            border: 5px solid yellow;
+            color: white;
+            position: absolute;
+            right: -100%;
+            top: 0;
+            background: url("https://picsum.photos/100/100/?random=10")no-repeat center/cover;
+            transition: 0.5s;
+        }
+
+        /* 當摸到box時，他的before做動作 */
+        /* .box:hover ::before是錯誤寫法，hover後面沒空格*/
+        .box:hover::before {
+            left: 100%;
+            transform: rotate(360deg);
+        }
+
+        .box:hover::after {
+            right: 100%;
+            transform: rotate(360deg);
+
+        }
+/* 背景圖片 */
+        .bg {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        .bg::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("https://picsum.photos/500/500/?random=10")no-repeat center/cover;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+/* 清除浮動 clearfix */
+        .box2 {
+            width: 500px;
+            background: lemonchiffon;
+        }
+
+        .left {
+            float: left;
+            width: 30%;
+            background: pink;
+        }
+
+        .right {
+            float: right;
+            width: 30%;
+            background: lightblue;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+    position: absolute/fixed: 讓元素脫離文件流，獨立出去 (更高的層級，雲)(z-index:1+)
+    float: 讓元素脫離文件流，往左或右浮動 (浮在半空中的建築物)
+    文件流: normal flow 正常流向 (地面人、建築物)
+    z-index: -1
+    -->
+    <div class="container">
+        <h1>偽元素::before ::after</h1>
+        <p>偽元素主要用於輔助裝飾或繪圖時使用，也可以用於清除浮動，讓主元素擁有兩個分身來做事</p>
+        <p>在結構上，before被建立在內容區域上方，after則在內容區域下方</p>
+        <p>偽元素不能再建立偽元素，如.box::before::before是不行的。</p>
+        <p>無法使用在img、input、iframe等元素上</p>
+        <div class="box">
+            <div class="content">lorem</div>
+        </div>
+    
+
+    <hr>
+
+    <h2>背景圖片</h2>
+    <div class="bg">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi temporibus ratione minus unde illo eveniet
+        iste iusto, adipisci laborum laboriosam id doloribus dicta eaque tempora impedit soluta reiciendis eligendi
+        optio maxime. Expedita accusamus a tenetur, atque fugiat, esse libero asperiores blanditiis minima culpa autem
+        aliquid, recusandae illum quis totam ipsa.
+    </div>
+
+    <h2>清除浮動 clearfix</h2>
+    <div class="box2 clearfix">
+        <!-- before -->
+        <div class="left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi voluptates, quaerat
+            tempore, veniam deserunt aut quis iusto voluptate molestiae earum exercitationem laborum, quas aperiam!
+            Ipsum eligendi odit iusto perspiciatis praesentium!
+        </div>
+        <div class="right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi voluptates, quaerat
+            tempore, veniam deserunt aut quis iusto voluptate molestiae earum exercitationem laborum, quas aperiam!
+            Ipsum eligendi odit iusto perspiciatis praesentium!
+        </div>
+        <!-- <div style="clear: both;"></div> -->
+            <!-- after做clear:both -->
+    </div>
+    <p>顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。顧客回家全文吸引，你說頻道，奇蹟堅持經。
+    </p>
+    </div>
+
+</body>
+
+</html>

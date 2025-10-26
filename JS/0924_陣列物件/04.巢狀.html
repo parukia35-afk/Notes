@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const menu = [
+            { name: '辣味卡拉腿排飯', price: 85, quantity: 2 },
+            { name: '去骨脆皮大雞腿飯', price: 100, quantity: 1 },
+            { name: '特級鯖魚飯', price: 85, quantity: 1 },
+        ]
+        document.write('<ul>')
+        for (let i = 0; i < menu.length; i++) {
+            document.write(`<li>${menu[i].name}，${menu[i].price}元，${menu[i].quantity}個共${menu[i].quantity * menu[i].price}元</li>`)
+        }
+        document.write('</ul>')
+
+        const store = {
+            name: 'PCHome',
+            url: 'http://24h.pchome.com.tw/',
+            product: [
+                { name: 'NOTHINGPhone 3', price: 27990 },
+                { name: 'NOTHINGPhone 2', price: 21900 },
+                { name: 'IPhone17proMax', price: 44900 }
+            ]
+        }
+        document.write('<table border="1">')
+        document.write('<capation>')
+        document.write(`<a href="${store.url}">${store.name}</a>`)
+        document.write('</capation>')
+        for (let i = 0; i < store.product.length; i++) {
+            document.write('<tr>')
+            document.write(`<td>${store.product[i].name}</td>`)
+            document.write(`<td>${store.product[i].price}</td>`)
+            document.write('</tr>')
+        }
+        document.write('</table>')
+    </script>
+</body>
+
+</html>

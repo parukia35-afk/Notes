@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 01.連結google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* root=>html元素 */
+        /* html預設字體大小是16px */
+        :root {
+            font-size: 20px;
+        }
+
+        body {
+            /* 對文件設定字型家族 */
+            /* 對方電腦如果有微軟正黑體就會優先使用微軟正黑體；沒有則使用下一順位 */
+            font-family: '微軟正黑體', Arial, sans-serif;
+        }
+
+        .font-style {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            /* 字體大小px、em、rem */
+            font-size: 30px;
+            /* 斜體 */
+            font-style: italic;
+            /* bold、bolder、lighter */
+            /* 100~900 */
+            font-weight: 600;
+            /* 全部變成大寫，但第一個又更大 */
+            font-variant: small-caps;
+        }
+
+        /* 自訂字型 */
+        @font-face {
+            /* 1.自訂字型名稱 */
+            font-family: 'myfont';
+            /* 2.字型來源 */
+            src:
+                url(./font/Antro_Vectra_Bolder.otf),
+                url(./font/waltograph42.otf),
+                url(./font/Adine\ Kirnberg.ttf);
+
+        }
+
+        .font-set {
+            font-family: 'myfont';
+            font-size: 40px;
+        }
+
+        /* 02.使用google fonts */
+        .google-font {
+            font-family: "Londrina Solid", sans-serif;
+            font-size: 50px;
+        }
+
+        .text-style {
+            font-size: 20px;
+            /* 文字對齊 left,center,right */
+            text-align: center;
+            /* none,underline,overline,line-through */
+            text-decoration: line-through;
+            /* 縮排 */
+            text-indent: 32px;
+            /* 文字陰影 */
+            /* 水平位移、垂直位移、模糊程度、顏色 */
+            /* 可用F12去查看屬性值各部分 */
+            text-shadow: 30px 5px 5px rgba(0, 0, 0, 0.5);
+            /* 字元間隔 */
+            letter-spacing: 16px;
+            /* 單詞間隔 */
+            word-spacing: 32px;
+            /* 行高 */
+            /* 倍數是參考font-size為準，例如16px，2倍行高為32px */
+            line-height: 2;
+            line-height: 100px;
+        }
+
+        /* 連結樣式 */
+        /* :link、:visited、:hover、:active有:稱為虛擬類別(偽類) */
+        a:link {
+            color: aquamarine
+        }
+
+        /* 點擊拜訪過後的樣式 */
+        a:visited {
+            color: gray;
+        }
+
+        /* 滑鼠移到連結上的樣式 */
+        a:hover {
+            color: darkgoldenrod;
+            background-color: black;
+            text-decoration: underline;
+        }
+
+        /* 點擊時連結的樣式 */
+        a:active {
+            color: red;
+        }
+        /* hover也可以用在其他元素上 */
+         .img-hover img{
+            /* 轉場 */
+            transition: 0.5s;
+        }
+        
+        .img-hover img:hover{
+            /* 變形 */
+            transform: scale(1.5);
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <h1>1.Font樣式設定</h1>
+    <p class="font-style">Lorem juice the uu.</p>
+
+    <hr>
+
+    <h1>2.自訂字型</h1>
+    <p class="font-set">Lorem juice the uu.</p>
+
+    <hr>
+
+    <h1>3.google fonts</h1>
+    <p class="google-font">Lorem juice the uu.</p>
+
+    <hr>
+
+    <h1>4.Text樣式設定</h1>
+    <p class="'text-style">Lorem juice the uu.</p>
+    
+    <h3>刪除線</h3>
+    <s>lorem</s>
+    <br>
+    <del>lorem</del>
+    <br>
+    <span style="text-decoration: line-through;">lorem</span>
+
+    <hr>
+
+    <h1>5.Hover效果</h1>
+    <a href="#">Googe</a>
+    <div class="img-hover">
+        <img src="https://picsum.photos/300/200/?random=10">
+    </div>
+
+    <hr>
+
+    <h1>6.rem與em差異</h1>
+    <hr>
+    <h2>rem</h2>
+    <!-- 為root(html)(根元素)預設font-size的倍數，預設是16px -->
+    <div style="font-size: 1rem;">
+        font
+        <div style="font-size: 2rem;">
+            font
+            <div style="font-size: 3rem;">font</div>
+        </div>
+    </div>
+    <hr>
+    <h2>em</h2>
+    <p>父層有設定文字尺寸以它為準去乘倍數，若沒有會往外面找，有找到就會以它為基準；若都沒有，就會以html(root)為主。</p>
+    <!-- 為root(html)(根元素)預設font-size的倍數，預設是16px -->
+    <div style="font-size: 1em;">
+        font
+        <div style="font-size: 2em;">
+            font
+            <div style="font-size: 3em;">font</div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

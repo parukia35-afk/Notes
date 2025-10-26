@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 2.起始樣式 */
+        .hover {
+            width: 100px;
+            height: 100px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-size: 2rem;
+            background: black;
+            /* 設定想要轉場的屬性 
+            但並非所有屬性皆有一個完整的轉場過程，如text-align*/
+            transition-property: width, background-color, text-align;
+            /* 轉場過程的時間，預設為0s */
+            transition-duration: 2s;
+            /* 轉場速率 */
+            transition-timing-function: linear;
+            transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            /* 延遲時間，預設為0 */
+            transition-delay: 1s;
+
+            /* 簡寫 */
+            /* transition: width 0.5s ease-in, background-color 3s ease-in-out, font-size 5s ease-out */
+
+
+        }
+
+        /* 1.hover觸發transition */
+        .hover:hover {
+            /* 3.要有結束樣式 */
+            width: 50vw;
+            background-color: orange;
+            font-size: 3rem;
+            text-align: right;
+        }
+
+        .hover span {
+            display: inline-block;
+            transition: 1s;
+        }
+
+        .hover span:hover {
+            margin-left: 1000px;
+            transform: rotate(360deg);
+            color: black;
+        }
+
+        label {
+            background: blue;
+            color: white;
+            padding: 0.5rem 0.75rem;
+            display: inline-block;
+            /* 滑鼠樣式 */
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .sidebar {
+            width: 100px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 1rem;
+            /* 做成點擊checkbox，sidebar進場 */
+            transform: translateX(-100%);
+            transition: 0.5s;
+        }
+
+        #checked-me:checked+.sidebar {
+            transform: translateX(0);
+        }
+
+        #checked-me {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>轉場transition或稱為過渡</h1>
+    <ul>
+        <li>轉場是兩組樣式之間漸進式的轉換過程，分為起始、結束樣式，瀏覽器會在兩組樣式之間形成補間動畫</li>
+        <li>必須要有狀態的觸發。常見的有:hover或media query媒體查詢尺寸的改變也能造成轉場。</li>
+    </ul>
+
+    <h1>hover狀態</h1>
+    <div class="hover">
+        <span>hover</span>
+    </div>
+
+    <h1>checked狀態</h1>
+    <p>:checked狀態改變，也可以產生transition</p>
+    <label for="checked-me">Checked Me</label>
+    <input id="checked-me" type="checkbox">
+    <div class="sidebar">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus quam tempora magni maxime,
+        accusantium illum debitis quo recusandae ipsa dolore dolorem vel natus consequatur molestiae asperiores
+        similique praesentium aliquam aut!</div>
+
+</body>
+
+</html>

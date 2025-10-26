@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 影響只圍繞在盒子周圍 */
+        .box-shadow {
+            width: 489px;
+            /* box-shadow多屬性值中間用逗號分隔 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5),
+                /* box-shadow有第四個數值可讓陰影便更強烈點 */
+                0 0 20px 30px rgba(255, 0, 0, 0.5);
+
+        }
+
+        /* 陰影會影響文字、圖片(png) */
+        .drop-shadow {
+            width: 489px;
+            /* drop-shadow多屬性值中間不用逗號分隔 */
+            /* drop-shadow只有三個數值 */
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) 0 0 20px rgba(255, 0, 0, 0.5)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-shadow">
+        <h1>盒子陰影Box shadow</h1>
+        <img src="./images/logo.png">
+
+    </div>
+    <div class="drop-shadow">
+        <h1>filter陰影(drop shadow)</h1>
+        <img src="./images/logo.png">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 作業題目:輸入西元年月日，計算當日是該年第幾天 -->
+
+<body>
+    <script>
+        // parseInt(文字或變數)
+        // 將提供的資料轉成整數，如果要轉成小數用parseFloat
+        // 如果將abc之類的文字放到parseInt或parseFloat裡面，會得到NaN
+        // parseInt('abc')==NaN會得到false
+        // isNaN(parseInt('abc'))會得到true
+
+        // 要考慮閏年
+        // 要考慮大小月
+        const year = parseInt(prompt('年'))
+        const month = parseInt(prompt('月'))
+        const day = parseInt(prompt('日'))
+
+let dayofyear=0
+if(year%4!==0){febDay=28}
+if(year%4==0){febDay=29}
+
+for(let i=1;i<month;i++){
+    if(i==1||i==3||i==5||i==7||i==8||i==10||i==12){
+        dayofyear+=31
+    }
+    else if(i==4||i==6||i==9||i==11){
+        dayofyear+=30
+    }
+    else if(i==2){dayofyear+=febDay}
+}
+dayofyear+=day
+document.write("是該年第"+dayofyear+"天")
+        
+    </script>
+
+</body>
+
+</html>

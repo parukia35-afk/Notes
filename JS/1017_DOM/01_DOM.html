@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test {
+            color: indianred;
+        }
+
+        #test::before {
+            content: 'test before';
+            color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">網站標題</h1>
+    <h2>
+        <i>h2-1</i>
+    </h2>
+    <h2>
+        <i>h2-2</i>
+    </h2>
+    <hr>
+    <h3 class="text-red">aaa</h3>
+    <h3 class="text-red">bbb</h3>
+    <h3 class="text-center">qqq</h3>
+    <h3 class="text-center">bbb</h3>
+    <h4 id="test">TEST</h4>
+    <script>
+        // 用id抓取元素
+        // 沒有取到時是null
+        const title = document.getElementById('title')
+        console.log(`title的文字是"${title.innerText}"`)
+        title.innerText = '標題修改了'
+
+        // 用標籤名稱抓取元素
+        // 取得結果是陣列
+        const h2 = document.getElementsByTagName('h2')
+        console.log(h2)
+        console.log(h2.length + '個h2')
+
+        console.log(h2[0].innerHTML.trim()) //h2[0].innerHTML會連程式碼前面的縮排一起取出，故用.trim()刪掉空白
+        h2[0].innerHTML = `<del>你好</del>`
+        // HTMLCollection不能使用forEach
+        // h2.forEach is not a function
+        //h2.forEach(()=>{})
+
+        // 使用for去迴圈每個元素
+        for (let i = 0; i < h2.length; i++) {
+            console.log('for i', h2[i])
+        }
+        // 使用for of 迴圈
+        for (const element of h2) {
+            console.log('for of', element)
+        }
+        // Array.from將類似陣列的東西轉成一般陣列
+        Array.from(h2).forEach(element => {
+            console.log('array from forEach', element)
+        })
+
+        // 用class抓取元素
+        const red = document.getElementsByClassName('text-red')
+        for (const element of red) {
+            element.style.color = 'red'
+            console.log(element.style.color)
+        }
+
+        // 用CSS選擇器抓取元素
+        // querySelector(選擇器)=>抓第一個符合的
+        // querySelectorAll(選擇器)=>抓權不符合的
+        const center = document.querySelectorAll('.text-center')
+        for (const element of center) {
+            // element.style.text-align = 'center'----->text-align因"-"不能這樣寫，應改寫成小駝峰或用中括號包起來
+            element.style.textAlign = 'center'
+            element.style['text-align'] = 'center'
+        }
+
+        const test = document.querySelector('#test')
+        // 空白，因為 .style 是取行內樣式
+        console.log('test color', test.style.color)//此處為寫在head裡的style屬性，故不會印出具體顏色
+        // 若要取得最終樣式就要使用getComputedStyle(元素,偽元素).屬性名
+        console.log(getComputedStyle(test).color)
+        console.log(getComputedStyle(test, '::before').color)
+    </script>
+
+</body>
+
+</html>

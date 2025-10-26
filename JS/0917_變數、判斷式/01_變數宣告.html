@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var 全域變數
+    // 可以重複宣告，新的會覆蓋舊的
+    var a = 1
+    // 用var宣告a的初始值為1
+    console.log(a)
+    // 修改變數值的時候，不需要重複宣告變數，用=修改
+    a = 2
+    console.log(a)
+    // var可以重複宣告
+    var a = 3
+    console.log(a)
+
+    // let區域變數
+    // {}區域內不能重複
+    let b = 1
+    console.log(b)
+    // 修改變數值的時候，不需要重複宣告變數，用=修改
+    b = 2
+    console.log(b)
+    // 同一區域重複宣告會報錯:Uncaught SyntaxError: Identifier 'b' has already been declared
+    // let b = 3
+
+    // const 區域常數
+    const c = 1
+    console.log(c)
+    // 宣告後不能修改
+    // c = 2
+    // Uncaught TypeError: Assignment to constant variable.
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const alphabets = ['a', 'b', 'c', 'd']
+        // const apple=alphabets[0]
+        // const banana=alphabets[1]
+        // const others = [alphabets[2], alphabets[3]]
+        const [apple, banana, ...others] = alphabets
+
+        console.log(apple)
+        console.log(banana)
+        console.log(others)
+        console.log(alphabets)
+
+        const wdaf2e = {
+            name: '前端',
+            students: '15',
+            year: 114,
+            semester: 2,
+            classroom: 1114
+        }
+        // const { name, students } = wdaf2e
+        // const name = wdaf2e.name
+        // const students = wdaf2e.students
+
+        const year = 2025
+        const { name, students, year: wdaYear, ...wdaOthers } = wdaf2e
+        // const wdaYear=wdaf2e.year
+        // =>由於先前已經宣告year=2025，未避免變數名稱重複，將year改名為wdaYear來宣告
+        console.log(name)
+        console.log(students)
+        console.log(wdaYear)
+        console.log(wdaOthers)
+        console.log(wdaf2e)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 使用display設計一個960px三欄且水平置中的版型 */
+        /* 
+        1.讓container置中
+        2.col三欄總寬度平均分配
+        3.誰要轉型水平排列
+        4.可用背景顏色觀察元素範圍
+        */
+        .container {
+            width: 960px;
+            /* 有寬度可以設定margin水平置中 */
+            margin: auto;
+            background-color: black;
+            color: white;
+            font-size: 0;
+        }
+
+        /* 每個col寬度320px */
+        .col {
+            display: inline-block;
+            background: dodgerblue;
+            width: 300px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col">
+            <img src="https://picsum.photos/300/200/?random=10">
+            <h2>title</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, inventore?
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/300/200/?random=10">
+            <h2>title</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, inventore?
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/300/200/?random=10">
+            <h2>title</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, inventore?
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

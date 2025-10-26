@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*---------------使用匿名函式---------------*/
+        // setTimeout(function,延遲毫秒)
+        setTimeout(() => {
+            document.write('三秒鐘')
+        }, 3000)
+        /*---------------使用定義好的function---------------*/
+        const write = (text, ms) => {
+            document.write(`經過${ms}毫秒，${text}`)
+        }
+        // setTimeout(function,延遲毫秒,傳入function的參數)
+        setTimeout(write, 5000, '你好', 5000)
+        /*---------------如何清除計時器---------------*/
+        const timer = setTimeout(write, 5000, '你好', 5000)
+        clearTimeout(timer)
+    </script>
+</body>
+
+</html>

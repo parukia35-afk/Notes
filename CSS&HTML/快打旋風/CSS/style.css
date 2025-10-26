@@ -1,0 +1,319 @@
+/* 抓瀏覽器的高度 */
+html,
+body {
+	height: 100%;
+}
+
+body {
+	/* 設定文件字型 */
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 建立一個寬度一致且水平置中的容器，重複用於每個區塊 */
+.container {
+	width: 75%;
+	margin: auto;
+}
+
+/* 讓區塊高度填滿父元素，主要適用於滿版區塊 */
+.h-100 {
+	height: 100%;
+}
+
+/* header導覽列 */
+#header {
+	width: 75%;
+	height: 60px;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	background: red;
+	/* filter多屬性值之間不用逗點 */
+	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+
+	z-index: 1;
+}
+
+#header .menu {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: url(../images/nav-bg-full.jpg) repeat-x center;
+	/* 消除幽靈空白:父層字大小設0，子層設1 */
+	font-size: 0;
+
+	position: absolute;
+	top: 25px;
+	/* menu和logo都是absolute定位，但menu寫的比logo後面，故logo會被menu蓋住，透過z-index讓meun降一級 */
+	z-index: -1;
+}
+
+#header li {
+	display: inline-block;
+	font-size: 1rem;
+	padding: 1rem 0;
+}
+
+/* 選擇時盡量在三層就結束 */
+#header .menu a {
+	/* a本身有預設的文字顏色，在父層改色是沒用的 */
+	color: white;
+	text-decoration: none;
+	display: block;
+	padding: 0.5rem 1rem;
+	transition: 0.5s;
+}
+
+#header .menu a:hover {
+	background: rgba(255, 60, 0, 0.3);
+}
+
+/* 第三個li右側推移15%空間 */
+#header .menu li:nth-child(3) {
+	/* margin百分比會依據父元素的寬度 */
+	margin-right: 15%;
+}
+
+/* logo是圖片的容器，只是建立了一個容器的寬度 */
+#header .logo {
+	width: 15%;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	/* background: blue; */
+}
+
+#header .logo img {
+	/* 限制片最大寬度(依據父元素)，前提是圖片寬度比容器還大、塞不下 */
+	max-width: 100%;
+	/*
+    強制圖片寬度填滿容器 
+    width: 100%;
+     */
+}
+
+#header .menu::before {
+	content: '';
+	background: url('../images/nav-bg-left.png') no-repeat left top/cover;
+	width: 12px;
+	height: 60px;
+	/* 將偽元素轉型成塊級元素 */
+	position: absolute;
+	left: -10px;
+}
+
+#header .menu::after {
+	content: '';
+	background: url('../images/nav-bg-right.png') no-repeat right top/cover;
+	width: 12px;
+	height: 60px;
+	/* 將偽元素轉型成塊級元素 */
+	position: absolute;
+	right: -10px;
+}
+/* section01------------------------------------------------------- */
+#section01,
+#section02,
+#section03 {
+	position: relative;
+}
+
+#section01 {
+	background: url(../images/section01-bg.jpg) no-repeat center/cover;
+}
+
+#section01 .main-news {
+	width: 100%;
+	text-align: center;
+
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#section01 .main-news h1 {
+	font-size: 2.5rem;
+	font-style: italic;
+	color: yellow;
+	text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black;
+}
+/* section02---------------------------------------------------- */
+/* 原生已支援巢狀語法 */
+#section02 {
+	background: url(../images/section02-bg.jpg) no-repeat center/cover;
+	.container {
+		height: 100%;
+		position: relative;
+		/* background: red; */
+	}
+
+	.row {
+		/* 絕對定位會緊縮程內容的寬度 */
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		/* background: yellow; */
+		font-size: 0;
+		.col {
+			/* border-box改變盒模型的計算 */
+			box-sizing: border-box;
+			color: white;
+			font-size: 1rem;
+			display: inline-block;
+			padding: 5rem 1rem;
+			width: 50%;
+			vertical-align: middle;
+		}
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+		p {
+			line-height: 1.5;
+			text-indent: 2rem;
+			letter-spacing: 1px;
+			margin-bottom: 1rem;
+		}
+		iframe {
+			width: 100%;
+			height: 300px;
+			border: 5px solid rgba(0, 0, 0, 0.5);
+			box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.8);
+		}
+	}
+}
+/* section03------------------------------------------------------ */
+#section03 {
+	background-image: linear-gradient(45deg, #222 40%, #aaa 40%);
+}
+/* 上方角色資料容器 */
+#section03 .col:nth-child(1) {
+	height: 65%;
+	/* background-color: lightcyan; */
+}
+/* 下方角色選單容器 */
+#section03 .col:nth-child(2) {
+	height: 35%;
+	/* background-color: lightgreen; */
+}
+
+/* 人物大圖 */
+#section03 .role_info .role {
+	box-sizing: border-box;
+	width: 50%;
+	height: 100%;
+	padding: 5rem 1.5rem 0;
+	float: left;
+}
+
+#section03 .role img {
+	width: 100%;
+	height: 100%;
+}
+/* 人物資料 */
+#section03 .role_info .info {
+	box-sizing: border-box;
+	width: 50%;
+	height: 100%;
+	padding: 8rem 1rem 5rem;
+	float: right;
+}
+
+#section03 .info h1 {
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+}
+
+#section03 .info p {
+	padding: 0.5rem 0;
+	line-height: 1.2;
+}
+
+#section03 .role_list {
+	font-size: 0;
+	text-align: center;
+}
+
+/* 先全部隱藏之後，再用checked狀態開啟 */
+#section03 .role_info > div {
+	display: none;
+	height: 100%;
+}
+/* 使用checked狀態與同層相鄰選擇器選擇到隔壁的div */
+#section03 .role_info input:checked + div {
+	display: block;
+}
+/* 確認checked狀態可以切換後，隱藏起來 */
+#section03 .role_info input {
+	display: none;
+}
+
+/* 
+inline-block=>外在排版行為是inline，內在盒模型行為是block
+*/
+
+#section03 .role_list label {
+	width: 7%;
+	display: inline-block;
+	margin-bottom: 5px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+#section03 .role_list img {
+	width: 100%;
+}
+
+#section03 .role_list label:hover {
+	filter: drop-shadow(0 0 5px red) drop-shadow(0 0 10px red);
+}
+
+/* ~同層全體選擇 */
+/* 第三個之後的label都是無法選擇 */
+#section03 .role_list label:nth-child(3) ~ label {
+	filter: brightness(0.4);
+	cursor: auto;
+}
+/* footer------------------------------------------------ */
+#footer {
+	background-color: black;
+	color: white;
+	padding: 2rem 0;
+}
+
+#footer .row {
+	overflow: hidden;
+}
+
+#footer .row .col {
+	width: 25%;
+	float: left;
+}
+
+#footer .card {
+	box-sizing: border-box;
+	padding: 1rem;
+}
+
+#footer li {
+	line-height: 1.4;
+	padding-left: 1.5rem;
+}
+
+#footer .card h3 {
+	margin: 1rem 0;
+}
+
+#footer .card i {
+	width: 30px;
+	/* fontawesome icon是文字，可用以下屬性 */
+	font-size: 1.5rem;
+	color: white;
+}
+#footer .copyright {
+	text-align: center;
+	padding: 2rem 0 0;
+}

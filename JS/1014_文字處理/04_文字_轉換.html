@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let number = '123456.789'
+
+        // 無條件捨去轉整數
+        console.log(parseInt(number))
+        // 轉小數
+        console.log(parseFloat(number))
+        // Number
+        console.log(Number(number))
+        // *1
+        console.log(number * 1)
+        // -----------------------------------------------------------------
+        let text = 'abcd'
+        console.log(parseInt(text))
+        console.log(parseFloat(text))
+        console.log(Number(text))
+        console.log(text * 1)
+        // 在JS裡，NaN是唯一一個不等於自己的值，故輸出結果會是false
+        console.log(text * 1 == NaN)
+        console.log(text * 1 === NaN)
+        console.log(isNaN(text * 1))
+        // -----------------------------------------------------------------
+
+        // .split(分隔符號)
+        let csv = 'a1,b1,c1'
+        let array = csv.split(',')//將文字轉成陣列
+        console.log(array)
+        let csv2 = array.join('-')//將陣列轉成文字並連接
+        console.log(csv2)
+    </script>
+</body>
+
+</html>

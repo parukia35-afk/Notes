@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blue {
+            color: blue;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p id="text" class="blue">炸彈</p>
+    </div>
+
+    <script>
+        let time = parseInt(prompt('輸入秒數'))
+        const countdown = () => {
+            const text = document.getElementById('text')
+            text.innerText = `剩餘${time}秒`
+            if (time == 0) {
+                text.classList.add('red')
+                text.classList.remove('blue')
+                text.innerText = `時間到`
+            }
+            time--
+
+            if (time < 0) { clearTimeout(timer) }
+        }
+        const timer = setInterval(countdown, 1000)
+    </script>
+</body>
+
+</html>

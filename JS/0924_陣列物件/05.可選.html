@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const users = [
+            {
+                name: 'aaa',
+                info: {
+                    emaii: 'aaa@gmail.com',
+                    address: {
+                        city: '新北市'
+                    }
+
+                }
+            },
+            {
+                name: 'bbb',
+                info: {
+                    emaii: 'bbb@gmail.com',
+                }
+            },
+            {
+                name: 'ccc',
+                info: {
+                    emaii: 'ccc@gmail.com',
+                    address: {
+                        city: '高雄市'
+                    }
+
+                }
+            }
+
+        ]
+        console.log(users[0].info.address.city)
+        console.log(users[1].info.address?.city)
+        for (let i = 0; i < users.length; i++) {
+            document.write(`${users[i].name}住在${users[i].info.address?.city || '不知道'}<br>`)
+        }
+        // 
+        // ?.加一個問號可解決程式報錯"Cannot read properties of undefined (reading 'city')"
+        // 短路求值:判斷users[i].info.address?.city是否為真，"否"則抓後面的'不知道'。
+        // bbb的address.city沒填，故為undefined，故短路求值為false，顯示'不知道'。
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">
+        123456
+        <p id="p"><!-- 註解 -->ABCD</p>
+
+    </div>
+    <script>
+        const div = document.getElementById('div')
+        const p = document.getElementById('p')
+
+        console.log(div.firstChild)//取得第一個子節點
+        console.log(div.firstElementChild)//取得第一個子元素節點
+
+        console.log(p.firstChild)//取得第一個子節點
+        console.log(p.firstChild.nodeType == Node.COMMENT_NODE)//節點類型是否是註解節點?
+        console.log(p.firstElementChild)//取得第一個子元素節點
+
+
+    </script>
+</body>
+
+</html>

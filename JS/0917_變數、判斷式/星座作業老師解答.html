@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      牡羊座：3/21~4/19
+      金牛座：4/20~5/20
+      雙子座：5/21~6/21
+      巨蟹座：6/22~7/22
+      獅子座：7/23~8/22
+      處女座：8/23~9/22
+      天秤座：9/23~10/23
+      天蠍座：10/24~11/22
+      射手座：11/23~12/21
+      摩羯座：12/22~1/19
+      水瓶座：1/20~2/18
+      雙魚座：2/19~3/20
+    */
+    const name = prompt('名')
+    const month = prompt('月')
+    const day = prompt('日')
+
+    let sign = '不知道'
+
+    if (
+      (month == 3 && day >= 21) || 
+      (month == 4 && day <= 19)
+    ) {
+      sign = '牡羊座'
+    } else if (
+      (month == 4 && day >= 20) || 
+      (month == 5 && day <= 20)
+    ) {
+      sign = '金牛座'
+    } else if (
+      (month == 5 && day >= 21) || 
+      (month == 6 && day <= 21)
+    ) {
+      sign = '雙子座'
+    } else if (
+      (month == 6 && day >= 22) || 
+      (month == 7 && day <= 22)
+    ) {
+      sign = '巨蟹座'
+    } else if (
+      (month == 7 && day >= 23) || 
+      (month == 8 && day <= 22)
+    ) {
+      sign = '獅子座'
+    } else if (
+      (month == 8 && day >= 23) || 
+      (month == 9 && day <= 22)
+    ) {
+      sign = '處女座'
+    } else if (
+      (month == 9 && day >= 23) || 
+      (month == 10 && day <= 23)
+    ) {
+      sign = '天秤座'
+    } else if (
+      (month == 10 && day >= 24) || 
+      (month == 11 && day <= 22)
+    ) {
+      sign = '天蠍座'
+    } else if (
+      (month == 11 && day >= 23) || 
+      (month == 12 && day <= 21)
+    ) {
+      sign = '射手座'
+    } else if (
+      (month == 12 && day >= 22) || 
+      (month == 1 && day <= 19)
+    ) {
+      sign = '摩羯座'
+    } else if (
+      (month == 1 && day >= 20) || 
+      (month == 2 && day <= 18)
+    ) {
+      sign = '水瓶座'
+    } else if (
+      (month == 2 && day >= 19) || 
+      (month == 3 && day <= 20)
+    ) {
+      sign = '雙魚座'
+    }
+    
+    document.write(`${name}你好，你的星座是${sign}`)
+  </script>
+</body>
+</html>

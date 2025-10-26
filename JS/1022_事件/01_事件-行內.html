@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按鈕" onclick="alert('abcd')">
+    <!-- 行內事件的this代表標籤本身 -->
+    <!-- 也可以在行內寫多個命令，命令太多時建議寫在函式 -->
+    <input type="button" value="0" onclick="this.value++;alert('abc')">
+    <input type="button" value="0" onclick="onBtnClick()">
+    <input type="button" value="0" onclick="onBtnClick2(this)">
+    <script>
+        const onBtnClick = () => {
+            alert('點了按鈕')
+        }
+        const onBtnClick2 = (el) => {
+            el.style.color = 'red'
+        }
+    </script>
+</body>
+
+</html>

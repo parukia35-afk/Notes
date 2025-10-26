@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numbers = [100, 200, 300, 400, 500]
+        const aaa = numbers
+            .filter((value, index) => value > 300)
+            .map((value, index) => value * 2)
+        console.log(aaa)
+        // .forEach(function)
+
+        // 使用一般的functuion
+        // numbers.forEach(function(){})
+
+        // // 使用箭頭函式
+        // numbers.forEach(()=>{})
+
+        // // 獨立寫function，很少用
+        // const func=()=>{
+
+        // }
+        // numbers.forEach(func)
+
+        // .forEach(function)
+        // 陣列裡面的每個東西都執行提供的function
+        // value=現在執行的東西的值
+        // index=現在執行的東西的索引
+        // array=陣列本身(少用)
+        numbers.forEach((value, index, array) => {
+            // value+=1
+            // Pass by value的方式將值傳入function
+            // 所以改function收到的值時，不會改到原陣列
+            numbers[index] += 1
+            console.log(value, index, array)
+        })
+
+        const fruits = ['蘋果', '香蕉', '西瓜']
+        const otherFruits = ['葡萄', '櫻桃']
+        // .push(資料)
+        // 將資料新增到陣列後面
+        fruits.push('草莓')
+        fruits.push('橘子', '芭樂')
+        fruits.push(...otherFruits)     //等同於fruits.push('葡萄', '櫻桃')
+        console.log(fruits)
+        // .unshift(資料)
+        // 將資料新增到陣列前面
+        fruits.unshift('檸檬')
+        console.log(fruits)
+        // .pop()
+        // 刪除並回傳陣列的最後一個
+        const a = fruits.pop()
+        console.log(a, fruits)
+        // .shift()
+        // 刪除並回傳陣列的第一個
+        const b = fruits.shift()
+        console.log(b, fruits)
+        // .splice(索引,刪除數量,插入資料1,插入資料2...)
+        fruits.splice(1, 2)
+        console.log(fruits)
+        fruits.splice(1, 0, '柳丁', '鳳梨')
+        console.log(fruits)
+
+        // .slice(開始索引,結束索引)
+        // 切割陣列
+        // 不包含結束索引，結果索引不會取到底
+        // 索引可以負數
+        const text = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        //             0    1    2    3    4    5    6
+        console.log(text.slice(2, 5))  //cde
+        // text.slice(-6,-2)
+        // text.length = 7
+        // -6 => 7 - 6 = 1
+        // -2 => 7 - 2 = 5
+        // text.slice(1,5)
+        console.log(text.slice(-6, -2))  //bcde
+
+        // reverse()
+        // 反轉陣列
+        text.reverse()
+        console.log(text)
+
+        // .concat()
+        // 連接陣列
+        const newArray = text.concat(fruits, numbers)
+        console.log(newArray)
+
+    </script>
+</body>
+
+</html>

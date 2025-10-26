@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const weather = prompt('今天天氣如何?1.雨天2.晴天')
+        const umbrella = confirm('有帶傘嗎?')
+
+        if (weather === '1') {
+            if (umbrella) {
+                document.write('下雨有傘，沒事')
+            } else { document.write('GG') }
+
+        } else { document.write('出門吧') }
+    </script>
+</body>
+
+</html>

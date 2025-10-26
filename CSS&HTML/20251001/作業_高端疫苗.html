@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* 針筒主體 */
         .barrel {
-            width: 200px;
+            width: 300px;
             height: 100px;
             border: 1px solid #000;
             background-image: linear-gradient(to right, transparent 9px, #000 1px);
-
             background-position: left top;
             background-size: 10px 10px;
             background-repeat: repeat-x;
@@ -21,25 +21,25 @@
             transform: translate(-50%, -50%);
             text-align: right;
         }
-
+        /* 由下至上的針筒漸層色 */
         .barrel::after {
             content: "";
-            width: 200px;
+            width: 300px;
             height: 100px;
-            background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5)50%, rgba(255, 255, 255, 0) 100%);
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.5)50%, rgba(255, 255, 255, 0.2) 100%);
             position: absolute;
             left: 0;
         }
-
+        /* 由左至右的液體顏色變化 */
         .barrel::before {
             content: "";
-            width: 200px;
+            width: 300px;
             height: 100px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 40%, black 41%, black 60%, rgba(250, 250, 124, 0.7) 61%);
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 40%, black 41%, black 60%, rgba(238, 238, 35, 0.7) 61%);
             position: absolute;
             left: 0;
         }
-
+        /* 活塞頭 */
         .plunger {
             width: 30px;
             height: 100px;
@@ -47,9 +47,9 @@
             background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5)50%, rgba(255, 255, 255, 0) 100%);
             border: 1px solid black;
             position: absolute;
-            left: -31%;
+            left: -21%;
         }
-
+        /* 活塞柄 */
         .plunger::after {
             content: "";
             width: 30px;
@@ -59,7 +59,7 @@
             position: absolute;
             top: 25%;
         }
-
+        /* 針頭基部 */
         .needle {
             width: 30px;
             height: 50px;
@@ -67,11 +67,12 @@
             background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5)50%, rgba(255, 255, 255, 0) 100%);
             border: 1px solid black;
             position: absolute;
-            right: -15%;
+            right: -10%;
             top: 25%;
             z-index: -1;
         }
-        .needle::after{
+        /* 針頭 */
+        .needle::before{
             content: "";
             width: 30px;
             height: 2px;
@@ -79,11 +80,18 @@
             position:absolute;
             top: 50%;
         }
+        /* 文字 */
+        .text{
+        position: absolute;
+        bottom: 0;
+        }
+        
     </style>
 </head>
 
 <body>
     <div class="barrel">
+        <div class="text">Made in Taiwan</div>
         <div class="plunger"></div>
         <div class="needle"></div>
     </div>

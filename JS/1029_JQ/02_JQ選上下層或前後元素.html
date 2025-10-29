@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+        integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+        crossorigin='anonymous'></script>
+    <div id="div1">
+        <p>DIV 1</p>
+        <ul>
+            <li>P</li>
+            <li>I</li>
+            <li>G</li>
+        </ul>
+    </div>
+    <table border="1" id="table">
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        <li id="table-li" style="background: yellow;">one</li>
+                        <li>two</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="div2">
+        <p>DIV 2</p>
+        <ul>
+            <li id="div2-li1">1</li>
+            <li id="div2-li2">2</li>
+            <li id="div2-li3">3</li>
+            <li id="div2-li4">4</li>
+            <li id="div2-li5">5</li>
+            <li id="div2-li6">6</li>
+            <li id="div2-li7">7</li>
+        </ul>
+    </div>
+    <script>
+        // .find(選擇器)=>在內層尋找所有符合的元素
+        // (一定要寫選擇器)；可以用*表示全選
+        $('#div1').find('li').css('color', 'pink')
+        // .children(選擇器)=> 在下一層尋找所有符合的元素
+        // (括號內沒寫)就是表示全部
+        $('#div1').children('li').text('改改改')//---->沒反應，因為div的下一層只有p跟ul，沒有li
+        $('#div1').children('p').text('children只找下一層')
+        /*------------------------------------------------------------------------------------*/
+        // .parent()=>上一層；()內可放選擇器過濾
+        // .parents()=>所有上層直到html；()內可放選擇器過濾
+        // .parentsUntil(選擇器)=>往上層選，直到遇到符合的選擇器停止(不含頭尾)；找不到時等同於.parents()
+        // .closest(選擇器)=>上層符合選擇器的第一層
+        const tableli = $('#table-li')
+        // tableli.parent('div').css('background', 'red')---->無效，因tableli的上一層不是div
+        tableli.parent().css('color', 'blue')
+        tableli.parents().css('background', 'skyblue')
+        tableli.parentsUntil('table').css('background', 'honeydew')//不含尾:table，不含頭:tableli
+        tableli.closest('tbody').css('text-align', 'center')
+        /*------------------------------------------------------------------------------------*/
+        // .prev()=>前一個；()內可放選擇器過濾
+        // .prevAll()=>前面所有；()內可放選擇器過濾
+        // .prevUntil()=>向前選直到遇到符合的過濾器停止(不含頭尾)；找不到時等同.prevAll
+        // .next()=>後一個；()內可放選擇器過濾
+        // .nextAll()=>後面所有；()內可放選擇器過濾
+        // .nextUntil()=>向後選直到遇到符合的過濾器停止(不含頭尾)；找不到時等同.nextAll
+        // .siblings()=>同一層的其他所有元素；()內可放選擇器過濾
+        const div2li4 = $('#div2-li4')
+        div2li4.prev().css('color', 'green')
+        div2li4.prevAll().css('background', 'pink')
+        div2li4.prevUntil('#div2-li1').css('text-align', 'center')
+        div2li4.next().css('color', 'red')
+        div2li4.nextAll().css('background', 'orange')
+        div2li4.nextUntil('#div2-li7').css('text-align', 'center')
+        div2li4.siblings().css('font-style', 'italic')
+    </script>
+</body>
+
+</html>

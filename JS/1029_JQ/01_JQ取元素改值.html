@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aquamarine {
+            color: aquamarine;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">JQuery</h1>
+    <p class="text">123</p>
+    <p class="text">456</p>
+    <div id="div">
+        <p>abc</p>
+    </div>
+    <a href="http://google.com" id="link">Google</a>
+    <ul id="list">
+        <li>C</li>
+        <li>A</li>
+        <li>T</li>
+    </ul>
+    <ul id="list2">
+        <li class="target">D</li>
+        <li>O</li>
+        <li class="target">G</li>
+    </ul>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+        integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+        crossorigin='anonymous'></script>
+    <script>
+        /*起手式*/$(document).ready(function () {
+        })
+        // $(選擇器)
+        // .text()=innerText
+        // ()裡有東西 = 修改值
+        // ()裡是空的 = 取值
+        console.log($('#title').text())
+        $('#title').text('寫得少做得多')
+        // .length取數量
+        console.log($('.text').length)
+        // 多個元素時，取到的文字會連在一起；修改時也會一起修改
+        console.log($('.text').text())
+        $('.text').text('666')
+        // .eq() 指定第幾個
+        /* 用陣列語法[]取第幾個時，後面只能接原生JS語法
+        $('.text')[0].text=>錯誤 */
+        console.log($('.text').eq(0).text())//---->JQ
+        console.log($('.text')[0].innerText)//---->原生JS
+
+        // .html()=innerHtml
+        $('#div').html('<h1>xyz</h1>')
+        console.log($('#div').html())
+
+        // .attr(屬性,值)=修改
+        // .attr(屬性)   =取值
+        console.log($('#link').attr('href'))
+        $('#link').attr('target', '_blank')//增加target屬性
+        $('#link').attr({ href: 'https://github.com', title: 'Github' })//一次改多個屬性時，用{}將多屬性包起來
+        $('#link').text('Github')
+
+        // .css(樣式,值)=修改
+        // .css(樣式)   =取值
+        $('#list li').first().css('color', 'pink')
+        console.log($('#list li').first().css('color'))//.first()=.eq(0)
+        $('#list li').last().css({ color: 'skyblue', textAlign: 'center' })//.last()=.eq(最後一個)
+
+        // .filter(選擇器)=>在目前選到的結果中過濾符合的
+        // .not(選擇器)=>在目前選到的結果中過濾不符合的
+        // .addClass=>新增class，用空白分隔
+        // .removeClass=>移除class，用空白分隔
+        // .hasClass=>有沒有包含class? 用空白分隔
+        // .toggleClass=>有這個class就移除它，沒有就新增；用空白分隔
+        $('#list2 li').filter('.target').addClass('aquamarine center').removeClass('center')
+        console.log($('#list2 li').filter('.target').hasClass('center'))
+        $('#list2 li').not('.target').toggleClass('center')
+    </script>
+</body>
+
+</html>

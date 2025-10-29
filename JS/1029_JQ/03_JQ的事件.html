@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+        integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+        crossorigin='anonymous'></script>
+    <input type="button" value="按鈕" id="btn">
+    <hr>
+    <input type="button" value="新增" id="btn-add">
+    <div id="target" style="border: 1px solid black;">
+        <p>rains cats and dogs</p>
+    </div>
+    <hr>
+    <h2>按下"複製按鈕" 按鈕就會複製</h2>
+    <h3>且複製出來的按鈕也具有按下會複製新按鈕的功能</h3>
+    <div id="container" style="border: 1px solid black;">
+        <input type="button" value="複製按鈕" class="button">
+    </div>
+
+    <script>
+        // .on(事件,function) 綁定=addEventListener
+        // .one(事件,function) 綁定，只觸發一次
+        // .off(事件,function) 解除綁定，沒有提供function時會全部解除=removeEventListener
+        $('#btn').on('click', function () {
+            // this=event.target
+            // val()=取輸入欄位的值；(括號內有東西)=改值
+            $(this).val('點過了')
+            alert('我被點了')
+        })
+
+        $('#btn-add').on('click', function () {
+            const target = $('#target')
+            // .appnd()        內層的前面
+            // .prepend()      內層的後面
+            // .insertBefore() 外層的前面
+            // .insertAfter()  外層的後面
+            // 新的東西放上去，舊的東西移動位置
+            target.append('<p>append</p>')
+            target.prepend('<p>prepend</p>')
+            $('<p>insertBefore</p>').insertBefore(target)
+            $('<p>insertAfter</p>').insertAfter(target)
+        })
+
+        // .on(事件名稱, 選擇器, function)=>event-target為選擇器才觸發
+        // 此為正統、可擴充的JQuery寫法!
+        $('#container').on('click', '.button', function () {
+            $(`<input type="button" value="複製按鈕" class="button">`).insertAfter($(this))
+        })
+        /*------------------------------------------------------------------------------------*/
+        /* 一般的寫法只會綁定一開始存在於頁面上的'.button'
+        即使後面複製出來的按鈕帶有class=button也不會被綁定，故按了沒有功能*/
+        // $('.button').on('click', function () {
+        //     $(`<input type="button" value="複製按鈕" class="button">`).insertAfter($(this))
+        // })
+        /*------------------------------------------------------------------------------------*/
+        // 將函式拆出來另外寫，也是一種作法
+        // $('.button').on('click', clonebtn)
+        // function clonebtn() {
+        //     const newbtn = $(`<input type="button" value="複製按鈕" class="button">`)
+        //     newbtn.insertAfter($(this))
+        //     newbtn.on('click', clonebtn)//---->這行賦予新複製出來的按鈕被點擊時會再次執行同一個function，故新的按鈕與原先的按鈕具有同樣複製的功能
+        // }
+
+    </script>
+</body>
+
+</html>

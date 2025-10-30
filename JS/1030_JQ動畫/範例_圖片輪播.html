@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #carousel {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #container {
+            width: 1000px;
+            height: 200px;
+            position: absolute;
+        }
+
+        img {
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+        integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+        crossorigin='anonymous'></script>
+    <div id="carousel">
+        <div id="container">
+            <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/27a6cc8fdc7abc93def1b061b582dac7a93430c1.png"
+                alt="迷你龍">
+            <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/f6ae3010972469372d493e3cc4a516c574df3974.png"
+                alt="哈克龍">
+            <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/ecdc5527d67488c92c242e34458844fe2afac525.png"
+                alt="快龍">
+            <img src="https://archives.bulbagarden.net/media/upload/6/69/Bag_Dragoninite_ZA_Sprite.png" alt="超級石">
+            <img src="https://archives.bulbagarden.net/media/upload/3/3e/0149Dragonite-Mega.png" alt="超級快龍">
+        </div>
+    </div>
+    <input type="button" value="&lt;" id="btn-prev">
+    <input type="button" value="&gt;" id="btn-next">
+    <script>
+        let now = 0//記錄目前顯示的圖片索引
+        $('#btn-next').on('click', function () {
+            if (now + 1 <= 4)
+                now++
+            $('#container').stop(true, true).animate({ left: -200 * now })
+        })
+        $('#btn-prev').on('click', function () {
+            if (now - 1 >= 0)
+                now--
+            $('#container').stop(true, true).animate({ left: -200 * now })
+        })
+
+    </script>
+</body>
+
+</html>

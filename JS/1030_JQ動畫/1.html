@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+        integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+        crossorigin='anonymous'></script>
+    <input type="button" value="小" id="btn1">
+    <input type="button" value="大" id="btn2">
+    <input type="button" value="移動" id="btn3">
+    <input type="button" value="停止" id="btn4">
+    <input type="button" value="淡入" id="btn5">
+    <input type="button" value="淡出" id="btn6">
+    <input type="button" value="半透明" id="btn7">
+    <input type="button" value="淡入淡出切換" id="btn8">
+    <input type="button" value="滑入" id="btn9">
+    <input type="button" value="滑出" id="btn10">
+    <input type="button" value="滑入滑出切換" id="btn11">
+    <hr>
+    <img id="img"
+        src="https://cdn-next.cybassets.com/media/W1siZiIsIjExMTE0L3Byb2R1Y3RzLzQzNDk1OTM1LzExMTE0LXByb2R1Y3QtcGhvdG8tMjAyMzExMzAtNDctMWJ3aHk3cF9iNmZjZWE5YzRlNjhmZGFkNmI0Ni5qcGVnIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.jpeg?sha=cf9fc72c16c57f8e"
+        alt="波加曼">
+    <script>
+        // .animate({樣式:值},動畫時間,linear,結束後執行的function)
+        // 動畫時間長短預設400ms，自訂可寫ms、fast(200)、slow(600)
+        $('#btn1').on('click', function () {
+            $('#img').animate({
+                width: '100px',
+                height: '100px'
+            }, 2000, function () {
+                console.log('變小')
+            })
+        })
+        $('#btn2').on('click', function () {
+            $('#img').animate({
+                width: '+=300px',
+                height: '+=300px'
+            }, 'slow', function () {
+                console.log('變大')
+            })
+        })
+        $('#btn3').on('click', function () {
+            $('#img').animate({
+                left: '+=50px'
+            }, 'slow', 'linear', function () {
+                console.log('往右移動了50px')
+            }).animate({
+                top: '+=100px'
+            }, 'fast', 'linear', function () {
+                console.log('往下移動了100px')
+            })
+        })
+
+        // .stop(是否停止之後的動畫,是否跳到動畫結束狀態)
+        // 預設都是false，如果第二個設定是true，第一個也必須是true
+        $('#btn4').on('click', function () {
+            $('#img').stop(true, true)
+        })
+
+        // .fadeIn(時間,linear,function)
+        $('#btn5').on('click', function () {
+            $('#img').fadeIn()
+        })
+        // .fadeOut(時間,linear,function)
+        $('#btn6').on('click', function () {
+            $('#img').fadeOut()
+        })
+        // .fadeTo(時間,linear,function)
+        $('#btn7').on('click', function () {
+            $('#img').fadeTo(1000, 0.5)
+        })
+        // .fadeToggle(時間,linear,function)
+        $('#btn8').on('click', function () {
+            $('#img').fadeToggle()
+        })
+        // .slideUp(時間,linear,function)
+        $('#btn9').on('click', function () {
+            $('#img').slideDown(5000)
+        })
+        // .slideDown(時間,linear,function)
+        $('#btn10').on('click', function () {
+            $('#img').slideUp(5000)
+        })
+        // .slideToggle(時間,linear,function)
+        $('#btn11').on('click', function () {
+            $('#img').slideToggle(2000)
+        })
+    </script>
+</body>
+
+</html>

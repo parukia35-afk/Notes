@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            height: 100px;
+            overflow: hidden;
+        }
+
+        img {
+            float: left;
+            margin-top: 50px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+        integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+        crossorigin='anonymous'></script>
+    <div id="container">
+        <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/ecdc5527d67488c92c242e34458844fe2afac525.png"
+            alt="快龍">
+        <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/4647a07643460c510c56a3d66a0a056d3acecfbe.png"
+            alt="瑪狃拉">
+        <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/2de9e74170ed9d1aac76d9d87ea578d76e5baa0a.png"
+            alt="水君">
+        <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/f3868a6a16c75d75435819deab8bab97926fc54c.png"
+            alt="波加曼">
+        <img src="https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/27312866a029608cbae0418f331f8b47903548c9.png"
+            alt="鋼炮臂蝦">
+    </div>
+    <script>
+        $('#container img').hover(function () {
+            $(this).animate({ marginTop: 0 })
+            $(this).prev().animate({ marginTop: 25 })
+            $(this).next().animate({ marginTop: 25 })
+        })
+    </script>
+</body>
+
+</html>

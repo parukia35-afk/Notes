@@ -124,7 +124,7 @@
         $('.img').each(function (index, img) {
             console.log(index, img)
             // 滑鼠移過去換圖片
-            // hover(函式1做滑鼠移過去,函式2做滑鼠移開)
+            // hover(函式1是hover入時執行，函式2是hover出時執行)
             $(img).hover(function () {
                 $(img).attr('src', `./img/050${index + 1}r.gif`)
             }, function () {

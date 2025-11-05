@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        try {
+            // 發生錯誤時會直接跳到catch
+            alertt('多打一個t')
+            console.log('上面有錯就不執行下面的')//因為上一行alert發生錯誤會跳到catch，故這行不會執行
+        }
+        catch (error) { console.log(error) }
+        console.log('不會因錯誤發生而不執行')//錯誤之後的程式不會因發生錯誤而不執行
+
+        // 在沒有trycatch的情況下
+        alertt('多打一個t')
+        console.log('因上面code有錯，這行就不執行')
+    </script>
+</body>
+
+</html>

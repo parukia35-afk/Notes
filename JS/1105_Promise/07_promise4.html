@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const wait = (ms, ok) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (ok) {
+                        resolve('ok' + ms)
+                    } else {
+                        reject(new Error('not ok' + ms))
+                    }
+                }, ms)
+            })
+        }
+        /*
+                Promise.all(Promise陣列)
+                同時開始執行所有的Promise
+                所有都resolve才會.then()
+                .then()是每個Promise的結果按順序排成的陣列
+                只要有一個reject就會.catch()
+                .catch是發生錯誤的Promise的reject
+        */
+        Promise.all([
+            wait(5000, true),
+            wait(3000, true),
+            wait(1000, true),
+        ]).then(result => {
+            console.log(result)
+        }).catch(error => {
+            console.log(error)
+        })
+
+        /*
+        Promise.allSettled(Promise陣列)
+        同時開始執行所有的Promise
+        所有都執行完才會.then()，不管事resolve還是reject
+        .then()的內容是所有Promise執行的結果的陣列
+        以staus來表示結果:
+        fulfulled = resolve，以value代表結果
+        rejected = reject，以reason代表錯誤
+        */
+
+        Promise.allSettled([
+            wait(5000, true),
+            wait(3000, false),
+            wait(1000, true),
+        ]).then(result => {
+            console.log(result)
+        })
+
+        /*
+        Promise.any(Promise陣列)
+        取第一個resolve的東西然後進到.then()
+        全部都reject才跳到.catch(，並出現錯誤:AggregateError: All promises were rejected
+        */
+        Promise.any([
+            wait(5000, false),
+            wait(3000, false),
+            wait(1000, false),
+        ]).then(result => {
+            console.log(result)
+        }).catch(error => {
+            console.log(error)
+        })
+
+        /*
+        Promise.race(Promise陣列)
+        同時開始執行所有Promise
+        取第一個處理完成的，然後.then().catch()
+        */
+        Promise.race([
+            wait(5000, true),
+            wait(3000, true),
+            wait(1000, true),
+        ]).then(result => {
+            console.log(result)
+        }).catch(error => {
+            console.log(error)
+        })
+    </script>
+</body>
+
+</html>

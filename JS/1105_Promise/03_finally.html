@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        try {
+            console.log('try')
+            alertt('多打一個t')
+        } catch (error) {
+            console.log('catch')
+        } finally {//不管有沒有錯誤都會執行
+            console.log('finally')
+        }
+
+
+        /* ---------------finally不管有沒有錯都會執行，就把return的值給蓋掉了--------------- */
+        const test = () => {
+            try {
+                alertt()//發生錯誤了，跳到catch
+                return 1
+            } catch (error) {
+                return 2//應該要return 2
+            } finally {
+                return 3//finally不管有沒有錯誤都會執行，return 3把前面的2覆蓋掉了
+                // 所以最終印出的結果是 3
+            }
+        }
+        console.log(test())
+    </script>
+</body>
+
+</html>

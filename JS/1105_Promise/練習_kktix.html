@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table></table>
+    <script>
+        fetch('https://kktix.com/events.json')
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data)
+
+                const events = data.entry
+                const table = document.getElementsByTagName('table')
+                events.forEach((element) => {
+                    const tr = document.createElement('tr')
+                    tr.innerHTML = `
+                    <td>${element.title}</td>
+                    <td>${element.summary}</td>
+                    <td>${element.content}</td>
+                    <td>${element.author.name}</td>
+                    <td>${element.published}</td>
+                    `
+                    table[0].append(tr)
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    </script>
+</body>
+
+</html>

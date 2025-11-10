@@ -5,10 +5,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #game {
+            width: 500px;
+            height: 500px;
+            background: black;
+            position: relative;
+            cursor: url(./images/cursor.png) 50 50, auto;
+            overflow: hidden;
+            /* 甲魚誕生時的位置若靠近邊界可能因圖片的大小而超出父元素，
+            使用overflow:hidden就能將溢出的部分隱藏，看起來就好像是從畫面內走出來，沒有溢出。 */
+        }
+
+        img {
+            height: 100px;
+            width: auto;
+            position: absolute;
+            user-select: none;
+            overflow: hidden;
+            -webkit-user-drag: none;
+        }
+
+        .blood {
+            /* 
+            忽略滑鼠事件
+            變成血跡的甲魚會擋住其他還活著的甲魚而使得滑鼠點不到被擋住的甲魚，忽略滑鼠事件可以使點擊穿透
+            */
+            pointer-events: none;
+            /* 將變成血跡的甲魚的階層始終維持最低 */
+            z-index: 0;
+        }
+    </style>
 </head>
 
 <body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+        integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+        crossorigin='anonymous'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <input type="button" value="開始遊戲" id="btn-start">
+    <br>
+    <p>分數: <span id="text-score">0</span></p>
+    <p>剩餘時間: <span id="text-time">0</span></p>
+    <p>最高分玩家: <span id="text-highscore-name">-</span></p>
+    <p>最高分分數: <span id="text-highscore-score">0</span></p>
+    <div id="game">
+        <!-- <img src="./images/kodai_sacabambaspis.png"> -->
+    </div>
+    <script>
+        // 控制甲魚移動的函式
+        function move(target) {
+            const top = Math.round(Math.random() * 100) + '%'
+            const left = Math.round(Math.random() * 100) + '%'
+            target.animate({ top, left }, 2000, function () {
+                move(target)
+            })
+        }
+        /*-----------------------------------------------------------------------------------*/
+        const GAME_TIME = 10
+        let score = 0
+        let timeleft = 0
+        let timer = 0
+        const highscore = {
+            name: '-',
+            score: 0
+        }
+        // 開始遊戲
+        $('#btn-start').on('click', function () {
+            $(this).attr('disabled', true)//當遊戲開始後，將按鈕停用
+            score = 0//重設分數
+            $('#text-score').text(score)
+            timeleft = GAME_TIME//重設剩餘時間
+            $('#text-time').text(timeleft)
 
+            timer = setInterval(function () {
+                timeleft--//每過一秒，timeleft-1，顯示剩餘時間的欄位也隨之改變
+                $('#text-time').text(timeleft)
+
+                const random = Math.round(Math.random() * 10)
+                if (random >= 3 && $('.target').length < 10) {//當隨機數>=3且場上的甲魚數<10才執行接下來的函式
+                    // 建立目標
+                    const target = $(`<img class='target' src="./images/kodai_sacabambaspis.png">`)
+                    // 隨機位置
+                    const top = Math.round(Math.random() * 100) + '%'
+                    const left = Math.round(Math.random() * 100) + '%'
+                    target.css({ top, left })
+                    $('#game').append(target)//將甲魚投放到遊戲區域
+                    move(target)//執行move函式(單獨拎出來寫在最上面)
+
+
+                }
+                // 時間到
+                if (timeleft === 0) {
+                    clearInterval(timer)//停止計時
+                    $('#btn-start').attr('disabled', false)//重新啟用開始按鈕
+                    $('#game').empty()//將剩下的甲魚從遊戲區域清空
+
+                    // 最高分
+                    if (score > highscore.score) {
+                        Swal.fire({//使用sweetAlert2取代一般的alert
+                            title: '最高分',
+                            text: '請輸入名字',
+                            input: 'text'
+                        }).then(result => {
+                            console.log(result)
+                            const name = result.value || '路人'
+                            highscore.score = score
+                            highscore.name = name
+                            $('#text-highscore-name').text(name)
+                            $('#text-highscore-score').text(score)
+                            // localStorage.setItem(資料名稱,文字)
+                            // localStorage.資料名稱=文字
+                            localStorage.fish = JSON.stringify(highscore)
+                        })
+                    }
+                }
+            }, 1000)
+        })
+
+        if (localStorage.fish) {
+            const data = JSON.parse(localStorage.fish)
+            highscore.score = data.score
+            highscore.name = data.name
+            $('#text-highscore-name').text(data.name)
+            $('#text-highscore-score').text(data.score)
+        }
+
+        $('#game').on('click', '.target', function () {//甲魚被點到了
+            score++
+            $('#text-score').text(score)
+            $(this).stop()//停止移動的動畫
+            $(this).attr('src', './images/blood.png')//將圖片換成血跡
+            $(this).removeClass('target').addClass('blood')//將被點到的甲魚移除target的class，新增blood的class
+        })
+
+
+    </script>
 </body>
 
 </html>

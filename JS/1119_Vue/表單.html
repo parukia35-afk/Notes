@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+v-model = 綁定表單欄位使用者輸入的值
+trim = 去除前後空白
+number = 轉成數字
+lazy = 失去焦點或按下enter才更新值
+-->
+    <input type="text" v-model="form.text">
+    <p>{{form.text}}</p>
+    <!-- radio和checkbox用v-model分組 -->
+    <input type="radio" v-model="form.radio1" value="1">
+    <input type="radio" v-model="form.radio1" value="abc">
+    <input type="radio" v-model="form.radio1" value="true">
+    <br>
+    <input type="radio" v-model="form.radio2" :value="1">
+    <input type="radio" v-model="form.radio2" :value="'abc'">
+    <input type="radio" v-model="form.radio2" :value="true">
+    <br>
+    <template v-for="(checkOption, index) in checkOptions">
+      <input type="checkbox" :id="'check' + index" value>
+      <label for="'check' + index">{{checkOption.label}}</label>
+    </template>
+    <br>
+    <select v-model="form.select">
+      <option v-for="checkOption in checkOptions" :value="checkOption.value">{{checkOption.label}}</option>
+    </select>
+    <p>{{form.select}}</p>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          form: {
+            text: '',
+            radio1: undefined,
+            radio2: undefined,
+            check: [],
+            select: undefined
+          },
+          checkOptions: [
+            { label: '蘋果', value: 'apple' },
+            { label: '香蕉', value: 'banana' },
+            { label: '橘子', value: 'orange' }
+          ]
+        }
+      }
+    }).mount('#app');
+  </script>
+
+</body>
+
+</html>

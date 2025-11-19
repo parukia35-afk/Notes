@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="button" value="按鈕" v-on:click="btnClick">
+    <input type="button" value="按鈕" @click="btnClick">
+    <input type="button" value="按鈕2" @click="btnClick2('Hello World')">
+    <input type="button" value="按鈕3" @click="btnClick3('Hello World',$event)">
+    <!-- 事件修飾符 -->
+    <a @click.prevent href="https://github.com">Github</a>
+    <hr>
+    <input type="text" v-model="input" @keydown.enter="add">
+    <ul>
+      <li v-if="list.length===0">清單是空的</li>
+      <li v-for="item in list">{{item}}</li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          input: '',
+          list: []
+        }
+      },
+      methods: {
+        btnClick(event) { console.log(event); },
+        btnClick2(text) { console.log(text); },
+        btnClick3(text, event) { console.log(text, event); },
+        add() {
+          if (this.input.length === 0) return
+          this.list.push(this.input)
+          this.input = ''
+        },
+      }
+    }).mount('#app');
+  </script>
+</body>
+
+</html>

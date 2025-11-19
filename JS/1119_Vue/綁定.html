@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .center {
+      text-align: center;
+    }
+
+    .blue {
+      color: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <img v-bind:src="img" width="50">
+    <img :src="img" width="50">
+    <a v-for="value in links" :href="value.url">{{value.text}}</a>
+    <!-- style綁定{}物件，可以和一般的style同時存在 -->
+    <p :style="textStyle">312</p>
+    <p :style="{color:textColor,textAlign}" style="font-weight: bold;">456</p>
+    <!-- 
+    class綁定 陣列或物件
+    陣列:會將陣列內的class名稱全部加上去
+    物件:屬性為class名稱，值為布林值，true則加上該class，false則不加
+    -->
+    <p :class="classArray">312</p>
+    <p :class="classObject">312</p>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          img: 'https://tw.portal-pokemon.com/play/resources/pokedex/img/pm/f3868a6a16c75d75435819deab8bab97926fc54c.png',
+          links: [
+            { text: 'Github', url: 'https://github.com' },
+            { text: 'Google', url: 'https://google.com' },
+          ],
+          textStyle: {
+            color: 'pink',
+            textAlign: 'center',
+            backgroundColor: 'lightblue',
+          },
+          textColor: 'lightgreenn',
+          textAlign: 'right',
+
+          classArray: ['center'],
+          classObject: {
+            blue: true,
+            center: false,
+          }
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+
+</html>

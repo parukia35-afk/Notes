@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+  1. 行內樣式 (inline style)[黑桃] : 1,0,0,0
+  2. ID 選擇器 (ID selector)[紅心] :0,1,0,0
+  3. 類別選擇器 (class selector)、屬性選擇器 (attribute selector)、偽類選擇器 (pseudo-class selector)[方塊] :0,0,1,0
+  4. 元素選擇器 (type selector)、偽元素選擇器 (pseudo-element selector)[梅花] :0,0,0,1
+
+  後代(空白)、子代(>)、同層相鄰(+)、一般兄弟(~) 對權重沒有貢獻:0,0,0,0
+ */
+    #box1 p {
+      /* 計分:0 1 0 1 */
+      color: green;
+    }
+
+    .box1 p {
+      /* 計分:0 0 1 1 */
+      color: red;
+    }
+
+    /* #box1 p贏.box1 p，p是綠色 */
+  </style>
+</head>
+
+<body>
+  <h1>階層權重-替選擇器打分數</h1>
+  <div id="box1">
+    <div class="box">
+      <h1>標題</h1>
+      <p>Lorem ipsum, dolor sit <a href="#">連結</a> consectetur adipisicing elit. Fugit expedita nobis iusto rerum
+        corporis maiores,
+        quasi, est corrupti veniam quaerat, ullam tempore ad ipsam fugiat exercitationem quam sunt. Quam, a.</p>
+    </div>
+  </div>
+
+</body>
+
+</html>

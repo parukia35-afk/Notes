@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    :root {
+      /* -- 宣告CSS原生變數 */
+      /* 在root宣告相當於全域變數，底下的每個階層都可以使用 */
+      --primary: lightblue;
+      --secondary: gray;
+      --success: lightgreen;
+      --info: blue;
+      --warning: orange;
+      --danger: red;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("https://picsum.photos/1920/1080/?random=10");
+    }
+
+    .container {
+      background: #fff;
+      width: 95%;
+      margin: 1rem auto;
+      padding: 15px;
+      border: 1px solid #000;
+    }
+
+    h1 {
+      /* 區域變數 */
+      --main: lightcoral;
+      color: var(--main);
+      background: var(--primary);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar {
+      display: none;
+      width: 150px;
+      color: white;
+      border-radius: 1rem;
+      background: #000;
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .isShow {
+      display: none;
+    }
+
+    /* 每一個@media被稱為斷點(breakpoint) */
+    /* min-width尺寸以上套用這個樣式 */
+    @media(min-width:576px) {
+      body {
+        background: url("https://picsum.photos/1920/1080/?random=2");
+      }
+
+      .container {
+        border: 3px solif #000;
+      }
+
+      h1 {
+        color: skyblue;
+        background: honeydew;
+      }
+    }
+
+    @media(min-width:768px) {
+      body {
+        background: url("https://picsum.photos/1920/1080/?random=4") no-repeat/cover;
+        backdrop-filter: blur(10px);
+      }
+
+      .container {
+        box-shadow: 0 0 50px 25px rgba(0, 0, 0, 0.5);
+      }
+
+    }
+
+    @media(min-width:992px) {
+      .isShow {
+        display: inline;
+      }
+
+      .sidebar {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>響應式網頁<span class="isShow">(Responsive web design,RWD)</span></h1>
+    <ul>
+      <li>1.響應式網頁設計讓內容如流水般能適應各種形狀的容器，在每個裝置都能以適配尺寸瀏覽</li>
+      <li>2.CSS的媒體查詢負責(media query)是響應式最主要的工作</li>
+      <li>3.媒體查詢的斷點為不同尺寸的裝置設定通過點</li>
+      <li>4.容器的width,height使用%，文字大小使用rem</li>
+      <li>5.行動裝置優先的漸進概念，基於最小尺寸開始思考的設計模式</li>
+    </ul>
+    <div class="sidebar">
+      設置命令聯合有些描述點頭辦公開心站長孩子，記住包含有可能，唯一對手社會遺憾再說兒童我和演員對象發言門口所有人就要是在辛。
+    </div>
+  </div>
+</body>
+
+</html>

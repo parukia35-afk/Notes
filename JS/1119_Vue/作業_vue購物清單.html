@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <form @submit.prevent="addItem">
+            <input type="text" v-model="input" :style="{border:inputBorder}">
+            <input type="submit" value="新增">
+        </form>
+        <input type="button" value="清空" @click="delAll">
+        <input type="button" value="全部標記" @click="allDone">
+        <ul>
+            <li v-for="(item,idx) in filterList">
+                <input type="checkbox" v-model="item.done">
+                <del v-if="item.done">{{item.text}}</del>
+                <span v-else>{{item.text}}</span>
+                <input type="button" value="x" @click="delItem(item.id)">
+            </li>
+        </ul>
+        <input type="text" v-model="search" placeholder="搜尋欄">
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    input: '',
+                    list: [],
+                    id: 1,
+                    search: ''
+                }
+            },
+            computed: {
+                inputBorder() {
+                    if (this.input.length === 0) { return }
+                    else if (this.input.length < 3) {
+                        return '5px solid red'
+                    } else {
+                        return '5px solid green'
+                    }
+                },
+                filterList() {
+                    return this.list.filter(item => {
+                        return item.text.toUpperCase().includes(this.search.toUpperCase())
+                    })
+                }
+            },
+            methods: {
+                addItem() {
+                    if (this.input.length < 3) return
+                    this.list.push({
+                        text: this.input,
+                        done: false,
+                        id: this.id++
+                    })
+                    this.input = ''
+                },
+                delItem(id) {
+                    const idx = this.list.findIndex(item => {
+                        return item.id === id
+                    })
+                    this.list.splice(idx, 1)
+                },
+                delAll() {
+                    this.list = []
+                },
+                allDone() {
+                    const hasUndone = this.list.some(item => item.done == false)
+                    this.list.forEach(function (item) {
+                        item.done = hasUndone
+                    })
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

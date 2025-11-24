@@ -27,8 +27,8 @@ lazy = 失去焦點或按下enter才更新值
     <input type="radio" v-model="form.radio2" :value="true">
     <br>
     <template v-for="(checkOption, index) in checkOptions">
-      <input type="checkbox" :id="'check' + index" value>
-      <label for="'check' + index">{{checkOption.label}}</label>
+      <input type="checkbox" v-model="form.check" :id="'check' + index" :value="checkOption.value">
+      <label :for="'check' + index">{{checkOption.label}}</label>
     </template>
     <br>
     <select v-model="form.select">

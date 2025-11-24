@@ -10,12 +10,18 @@
 <body>
   <div id="app">
     <input type="button" value="按鈕" v-on:click="btnClick">
+    <!-- 簡寫 -->
+    <!-- 不帶參數會預設傳event進函式 -->
     <input type="button" value="按鈕" @click="btnClick">
+    <!-- 帶參數後，就沒辦法帶入event了 -->
     <input type="button" value="按鈕2" @click="btnClick2('Hello World')">
+    <!-- 如果還想要把event帶進函式，就要使用$event -->
     <input type="button" value="按鈕3" @click="btnClick3('Hello World',$event)">
-    <!-- 事件修飾符 -->
+    <!-- 事件修飾符 https://zh-hk.vuejs.org/guide/essentials/event-handling#event-modifiers -->
+    <!-- prevent，阻止預設動作，也就是跳頁 -->
     <a @click.prevent href="https://github.com">Github</a>
     <hr>
+    <!-- 按鍵修飾符 https://zh-hk.vuejs.org/guide/essentials/event-handling#key-modifiers -->
     <input type="text" v-model="input" @keydown.enter="add">
     <ul>
       <li v-if="list.length===0">清單是空的</li>

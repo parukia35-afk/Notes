@@ -11,15 +11,18 @@
   <div id="app">
     <form @submit.prevent="addItem">
       <input type="text" v-model="input" :style="{border:inputBorder}">
-      <input type="submit" value="新增" @click="delItem(idx)">
+      <input type="submit" value="新增">
     </form>
     <ul>
-      <li v-for="item in list"></li>
-      <input type="checkbox">
-      <del v-if="item.done">{{item.text}}</del>
-      <span v-else=>{{item.text}}</span>
-      <input type="button" value="x" @click="delItem(idx)">
+      <li v-for="(item,idx) in filterList">
+        <!-- JS認為空字串包含於任何字串內，可以存在於該字串的任何位置，如開頭、兩字之間... -->
+        <input type="checkbox" v-model="item.done">
+        <del v-if="item.done">{{item.text}}</del>
+        <span v-else>{{item.text}}</span>
+        <input type="button" value="x" @click="delItem(item.id)">
+      </li>
     </ul>
+    <input type="text" v-model="search">
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
@@ -28,6 +31,8 @@
         return {
           input: '',
           list: [],
+          id: 1,
+          search: ''
         }
       },
       computed: {
@@ -38,6 +43,12 @@
           } else {
             return '5px solid green'
           }
+        },
+        filterList() {
+          // 將陣列裡每個東西都執行一次提供的function，回傳執行結果為true的東西為新的陣列
+          return this.list.filter(item => {
+            return item.text.toUpperCase().includes(this.search.toUpperCase())
+          })
         }
       },
       methods: {
@@ -45,10 +56,16 @@
           if (this.input.length < 3) return
           this.list.push({
             text: this.input,
-            done: false
+            done: false,
+            id: this.id++
           })
+          this.input = ''
         },
-        delItem() {
+        delItem(id) {
+          const idx = this.list.findIndex(item => {
+            return item.id === id
+          })
+          // splice() 從指定的索引位置，刪除幾個東西
           this.list.splice(idx, 1)
         }
       }

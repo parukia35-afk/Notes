@@ -13,6 +13,15 @@
     名<input type="text" v-model="firstName">
     <p>全名 {{fullName}}</p>
     <p>全名 {{ fullNameMethod() }}</p>
+    <!-- 
+    button是一個與上面fullName都無關的資料
+    當按下按鈕時，console主控台顯示只有methods裡的fullNameMethod()在作動
+
+    為甚麼?
+    computed只有在你用到的data(這裡是firstName和lastName)有變動的時候才會執行一次
+    但methods是每次只要更新DOM的內容時都會執行一次
+    所以computed比較節省效能
+    -->
     <input type="button" :value="num" @click="num++">
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -38,6 +47,7 @@
         }
       },
       watch: {
+        // 監聽:把想要監聽的資料當作function的名稱，參數分別為新值與舊值。用來偵測資料的變更
         num(newValue, oldValue) {
           console.log('num變了', newValue, oldValue)
         }

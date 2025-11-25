@@ -13,6 +13,7 @@
       box-sizing: border-box;
     }
 
+    /* 棋盤與格線 */
     #battlefield {
       display: flex;
       flex-direction: column;
@@ -22,6 +23,7 @@
       border: 1px solid black;
       width: 800px;
       height: 840px;
+      position: relative;
     }
 
     .field {
@@ -56,12 +58,14 @@
       height: 80px;
     }
 
+    /* 棋子 */
     .piece {
       width: 50px;
       height: 50px;
       border: 1px solid black;
       border-radius: 50%;
       margin: 15px;
+      background: white;
       text-align: center;
       line-height: 50px;
       font-family: '標楷體';
@@ -69,17 +73,59 @@
     }
 
     #black {
-      /* background: lightblue; */
       position: absolute;
-      top: 70px;
-      left: 340px;
-      width: 800px;
+      top: 20px;
+      left: 40px;
+      width: 720px;
       display: flex;
+      flex-wrap: wrap;
+    }
+
+    .blank {
+      width: 50px;
+      height: 50px;
+      margin: 15px;
+      background: white;
+      opacity: 0;
+    }
+
+    .row {
+      width: 720px;
+      height: 80px;
+    }
+
+    #red {
+      position: absolute;
+      top: 500px;
+      width: 720px;
+      display: flex;
+      flex-wrap: wrap-reverse;
+      color: red;
+    }
+
+    /* 對聯 */
+    #xialian {
+      font-family: '標楷體';
+      font-size: 40px;
+      writing-mode: vertical-lr;
+      position: absolute;
+      top: 20px;
+      left: -100px;
+    }
+
+    #shanglian {
+      font-family: '標楷體';
+      font-size: 40px;
+      writing-mode: vertical-lr;
+      position: absolute;
+      top: 20px;
+      left: 840px;
     }
   </style>
 </head>
 
 <body>
+  <!-- 棋盤與格線 -->
   <div id="battlefield">
     <div class="field">
       <div class="block"></div>
@@ -152,19 +198,72 @@
       <div class="block"></div>
       <div class="block"></div>
     </div>
+    <!-- 棋子 -->
+    <div id="black">
+      <div class="piece">車</div>
+      <div class="piece">馬</div>
+      <div class="piece">象</div>
+      <div class="piece">士</div>
+      <div class="piece">將</div>
+      <div class="piece">士</div>
+      <div class="piece">象</div>
+      <div class="piece">馬</div>
+      <div class="piece">車</div>
+      <div class="row"></div>
+      <div class="blank"></div>
+      <div class="piece">包</div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="piece">包</div>
+      <div class="blank"></div>
+      <div class="piece">卒</div>
+      <div class="blank"></div>
+      <div class="piece">卒</div>
+      <div class="blank"></div>
+      <div class="piece">卒</div>
+      <div class="blank"></div>
+      <div class="piece">卒</div>
+      <div class="blank"></div>
+      <div class="piece">卒</div>
+    </div>
+    <div id="red">
+      <div class="piece">俥</div>
+      <div class="piece">傌</div>
+      <div class="piece">相</div>
+      <div class="piece">仕</div>
+      <div class="piece">帥</div>
+      <div class="piece">仕</div>
+      <div class="piece">相</div>
+      <div class="piece">傌</div>
+      <div class="piece">俥</div>
+      <div class="row"></div>
+      <div class="blank"></div>
+      <div class="piece">炮</div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="piece">炮</div>
+      <div class="blank"></div>
+      <div class="piece">兵</div>
+      <div class="blank"></div>
+      <div class="piece">兵</div>
+      <div class="blank"></div>
+      <div class="piece">兵</div>
+      <div class="blank"></div>
+      <div class="piece">兵</div>
+      <div class="blank"></div>
+      <div class="piece">兵</div>
+    </div>
+    <!-- 對聯 -->
+    <div id="xialian">棋盤裡，車無輪，馬無韁，叫聲將軍提防提防</div>
+    <div id="shanglian">圖畫裡，龍不吟，虎不嘯，小小書僮可笑可笑</div>
   </div>
 
-  <div id="black">
-    <div class="piece">車</div>
-    <div class="piece">馬</div>
-    <div class="piece">象</div>
-    <div class="piece">士</div>
-    <div class="piece">將</div>
-    <div class="piece">士</div>
-    <div class="piece">象</div>
-    <div class="piece">馬</div>
-    <div class="piece">車</div>
-  </div>
 </body>
 
 </html>

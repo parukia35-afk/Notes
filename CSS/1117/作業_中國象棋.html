@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *,
+    *::after,
+    *:before {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    #battlefield {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+      border: 1px solid black;
+      width: 800px;
+      height: 840px;
+    }
+
+    .field {
+      border-width: 1px 0 0 1px;
+      border-style: solid;
+      border-color: black;
+      width: 641px;
+      height: 320px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .river {
+      width: 641px;
+      height: 80px;
+      border-width: 0 1px;
+      border-style: solid;
+      font-size: 36px;
+      text-align: center;
+      line-height: 80px;
+    }
+
+    pre {
+      font-family: '標楷體';
+    }
+
+    .block {
+      border-width: 0 1px 1px 0;
+      border-style: solid;
+      border-color: black;
+      width: 80px;
+      height: 80px;
+    }
+
+    .piece {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      border-radius: 50%;
+      margin: 15px;
+      text-align: center;
+      line-height: 50px;
+      font-family: '標楷體';
+      font-size: 32px;
+    }
+
+    #black {
+      /* background: lightblue; */
+      position: absolute;
+      top: 70px;
+      left: 340px;
+      width: 800px;
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="battlefield">
+    <div class="field">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+    <div class="river">
+      <pre>楚河             漢界</pre>
+    </div>
+    <div class="field">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+  </div>
+
+  <div id="black">
+    <div class="piece">車</div>
+    <div class="piece">馬</div>
+    <div class="piece">象</div>
+    <div class="piece">士</div>
+    <div class="piece">將</div>
+    <div class="piece">士</div>
+    <div class="piece">象</div>
+    <div class="piece">馬</div>
+    <div class="piece">車</div>
+  </div>
+</body>
+
+</html>

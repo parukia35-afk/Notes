@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    .container {
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      margin-bottom: 20px 0;
+    }
+
+    .d-flex {
+      color: white;
+      background-color: var(--bs-gray-200);
+      margin-bottom: 20px;
+      height: 200px;
+    }
+
+    .d-flex> :nth-child(1) {
+      background-color: var(--bs-purple);
+    }
+
+    .d-flex> :nth-child(2) {
+      background-color: var(--bs-yellow);
+    }
+
+    .d-flex> :nth-child(3) {
+      background-color: var(--bs-pink);
+    }
+
+    .d-flex> :nth-child(4) {
+      background-color: var(--bs-green);
+    }
+
+    .d-flex> :nth-child(5) {
+      background-color: var(--bs-cyan);
+    }
+
+    .d-flex> :nth-child(6) {
+      background-color: var(--bs-gray);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>flex</h1>
+    <h2>水平</h2>
+    <div class="d-flex flex-row">
+      <div class="p-2">flex-item1</div>
+      <div class="p-2">flex-item2</div>
+      <div class="p-2">flex-item3</div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <div class="p-2">flex-item1</div>
+      <div class="p-2">flex-item2</div>
+      <div class="p-2">flex-item3</div>
+    </div>
+  </div>
+</body>
+
+</html>

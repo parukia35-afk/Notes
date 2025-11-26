@@ -15,6 +15,9 @@
         </form>
         <input type="button" value="清空" @click="delAll">
         <input type="button" value="全部標記" @click="allDone">
+        <!-- 其他做法 -->
+        <!-- <input type="button" value="全部已完成" @click="markAll(true)"> -->
+        <!-- <input type="button" value="全部未完成" @click="markAll(false)"> -->
         <ul>
             <li v-for="(item,idx) in filterList">
                 <input type="checkbox" v-model="item.done">
@@ -69,13 +72,19 @@
                 },
                 delAll() {
                     this.list = []
+                    // 也可以這樣寫:
+                    // this.list.length=0
+                    // this.list.splice(0, this.list.length)
                 },
                 allDone() {
                     const hasUndone = this.list.some(item => item.done == false)
                     this.list.forEach(function (item) {
                         item.done = hasUndone
                     })
-                }
+                },
+                // markAll(value) {
+                //     this.list.forEach(item => item.done = value)
+                // }
             }
         }).mount('#app')
     </script>

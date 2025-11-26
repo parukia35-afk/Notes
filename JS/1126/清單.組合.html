@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <form @submit.prevent="addItem">
+      <input type="text" v-model="input" :style="{border:inputBorder}">
+      <input type="submit" value="新增">
+    </form>
+    <input type="button" value="清空" @click="delAll">
+    <input type="button" value="全部已完成" @click="markAll(true)">
+    <input type="button" value="全部未完成" @click="markAll(false)">
+    <ul>
+      <li v-for="(item,idx) in filterList">
+        <input type="checkbox" v-model="item.done">
+        <del v-if="item.done">{{item.text}}</del>
+        <span v-else>{{item.text}}</span>
+        <input type="button" value="x" @click="delItem(item.id)">
+      </li>
+    </ul>
+    <input type="text" v-model="search" placeholder="搜尋欄">
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, reactive, computed } = Vue
+    // ref可以存任何資料型態；reactive只能存陣列物件，並帶有深層監聽
+    createApp({
+      setup() {
+        const input = ref('')
+        const list = reactive([])
+        // 如果html本身不會使用到該變數(不需要響應式)，可以寫一般的變數宣告
+        let id = 1
+        const search = ref('')
+
+        const add = () => {
+          if (input.value.length < 2) return
+          list.push({
+            text: input.value,
+            done: false,
+            id: id++
+          })
+
+          const delItem = (id) => {
+            const idx = list.findIndex(item => item.id === id)
+            list.splice(idx, 1)
+          }
+
+          const delAll = () => {
+            list.length = 0
+          }
+
+          const markAll = () => {
+            list.array.forEach(item => {
+              item.done = value
+            })
+          }
+        }
+
+        const inputBorder = computed(() => {
+          if (input.value.length === 0) {
+            return ''
+          } else if (input.value.length < 2) {
+            return '5px solid red'
+          } else {
+            return '5px solid green'
+          }
+        })
+
+        const filterlist = computed(() => {
+          return lilst.filter(item => item.text.includes(search.value))
+        })
+
+        watch(list, () => {
+          localStorage.list = JSON.stringify(list)
+        })
+        if (localStorage.list) {
+          list.push(...JSON.parse(localStorage.list))
+          id = list.at(-1).id + 1
+        }
+        return {
+          input,
+          search,
+          add,
+          delItem,
+          delAll,
+          markAll,
+          inputBorder,
+          filterlist
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

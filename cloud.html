@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 背景示例</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(#87CEFA, #1e3c72);
+            /* 白天天空 */
+            position: relative;
+        }
+
+        /* ----- 雲朵 ----- */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: cloud-move 60s linear infinite;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cloud::before {
+            width: 40px;
+            height: 40px;
+            top: -10px;
+            left: 10px;
+        }
+
+        .cloud::after {
+            width: 30px;
+            height: 30px;
+            top: 5px;
+            left: 30px;
+        }
+
+        @keyframes cloud-move {
+            0% {
+                transform: translateX(-200px);
+            }
+
+            100% {
+                transform: translateX(120vw);
+            }
+        }
+
+        /* ----- 山丘 ----- */
+        .mountain {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 80px solid transparent;
+            border-right: 80px solid transparent;
+            border-bottom: 100px solid #556B2F;
+        }
+
+        .mountain.small {
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 70px solid #6B8E23;
+        }
+
+        .mountain.left {
+            left: 50px;
+        }
+
+        .mountain.center {
+            left: 200px;
+        }
+
+        .mountain.right {
+            left: 400px;
+        }
+
+        /* ----- 建築物 ----- */
+        .building {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 100px;
+            background: #888;
+            border: 2px solid #555;
+        }
+
+        .building.small {
+            width: 30px;
+            height: 60px;
+        }
+
+        .building.left {
+            left: 100px;
+        }
+
+        .building.center {
+            left: 250px;
+        }
+
+        .building.right {
+            left: 500px;
+        }
+
+        /* ----- 元件沉降動畫（火箭升空錯覺） ----- */
+        .scene-element {
+            animation: move-down 3600s linear infinite;
+            /* 1小時循環示意 */
+        }
+
+        @keyframes move-down {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(50vh);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 雲朵 -->
+    <div class="cloud" style="top:50px; left:100px; width:60px; height:40px;"></div>
+    <div class="cloud" style="top:80px; left:300px; width:80px; height:50px;"></div>
+    <div class="cloud" style="top:40px; left:600px; width:50px; height:30px;"></div>
+
+    <!-- 山丘 -->
+    <div class="mountain small scene-element left"></div>
+    <div class="mountain scene-element center"></div>
+    <div class="mountain small scene-element right"></div>
+
+    <!-- 建築物 -->
+    <div class="building small scene-element left"></div>
+    <div class="building scene-element center"></div>
+    <div class="building small scene-element right"></div>
+
+</body>
+
+</html>

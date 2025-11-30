@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Rocket Clock</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(#87CEFA, #1e3c72);
+            /* 預設白天 */
+            transition: background 1s linear;
+        }
+
+        /* ----- 星星背景（用大量 shadow） ----- */
+        .stars {
+            position: absolute;
+            top: -200%;
+            left: 0;
+            width: 100%;
+            height: 300%;
+            background: transparent;
+            pointer-events: none;
+            animation: stars-fall 10s linear infinite;
+            opacity: .8;
+        }
+
+        /* 產生星點 */
+        .stars::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow:
+                50px 100px white,
+                120px 180px white,
+                300px 90px white,
+                500px 230px white,
+                800px 150px white,
+                200px 300px white,
+                900px 400px white,
+                400px 500px white,
+                600px 700px white,
+                1000px 900px white;
+        }
+
+        /* 星星往下飄 → 看起來火箭往上 */
+        @keyframes stars-fall {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(33%);
+            }
+        }
+
+        /* ----- 火箭容器 ----- */
+        .rocket-container {
+            position: absolute;
+            bottom: 5vh;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ----- 火箭本體（純 CSS） ----- */
+        .rocket {
+            width: 30px;
+            height: 80px;
+            background: white;
+            border-radius: 15px 15px 5px 5px;
+            position: relative;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        /* 頭錐 */
+        .rocket::before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 30px;
+            height: 25px;
+            background: red;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        /* 火焰 */
+        .flame {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 14px;
+            height: 25px;
+            transform: translateX(-50%);
+            background: linear-gradient(orange, red);
+            border-radius: 50% 50% 70% 70%;
+            animation: flame-anim 0.3s infinite alternate;
+            filter: blur(0.3px);
+        }
+
+        /* 火焰晃動（視覺視為上升） */
+        @keyframes flame-anim {
+            0% {
+                transform: translateX(-50%) scale(1, 0.8);
+            }
+
+            50% {
+                transform: translateX(-48%) scale(1.1, 1.1);
+            }
+
+            100% {
+                transform: translateX(-52%) scale(0.9, 0.7);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <div class="rocket-container">
+        <div class="rocket">
+            <div class="flame"></div>
+        </div>
+    </div>
+
+    <script>
+        /* === 一小時高度循環 === */
+
+        function updateRocketPosition() {
+            const now = new Date();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            // 一小時總秒數
+            const totalSec = minutes * 60 + seconds;
+
+            // 百分比（0 → 100%）
+            const progress = totalSec / 3600;
+
+            // 位置：最低 5vh → 最高 70vh（可調）
+            const minY = 5;
+            const maxY = 70;
+
+            const currentY = minY + (maxY - minY) * progress;
+
+            document.querySelector(".rocket-container").style.bottom = currentY + "vh";
+        }
+
+        /* === 背景日夜顏色變化（依小時） === */
+        function updateBackground() {
+            const h = new Date().getHours();
+
+            let bg;
+
+            if (h >= 6 && h < 12) {         // 早
+                bg = "linear-gradient(#87CEFA, #1e3c72)";
+            } else if (h >= 12 && h < 17) { // 午
+                bg = "linear-gradient(#6EC6FF, #274B8B)";
+            } else if (h >= 17 && h < 20) { // 黃昏
+                bg = "linear-gradient(#FFB46A, #2e3a87)";
+            } else {                        // 夜
+                bg = "linear-gradient(#0b0d26, #000000)";
+            }
+
+            document.body.style.background = bg;
+        }
+
+        /* 每秒更新一次（火焰動畫自己跑） */
+        setInterval(() => {
+            updateRocketPosition();
+            updateBackground();
+        }, 1000);
+
+        updateRocketPosition();
+        updateBackground();
+
+    </script>
+</body>
+
+</html>

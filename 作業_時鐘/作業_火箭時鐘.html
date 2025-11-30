@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業_火箭時鐘</title>
+    <style>
+        html,
+        body {
+            height: 100vh;
+            background: linear-gradient(to top, #B0E0E6, #87CEEB);
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* 背景整體 */
+        #background {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .earth {
+            width: 100%;
+            height: 20vh;
+            background: #B05C4F;
+        }
+
+        .city {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        /* 火箭本體 */
+        #rocket-container {
+            position: absolute;
+            left: 50%;
+            bottom: 10%;
+            transform: translateX(-50%)scale(0.5);
+            transform-origin: bottom center;
+        }
+
+        /* 火焰 */
+        #rocket-container::after {
+            content: '';
+            width: 150px;
+            height: 250px;
+            background: linear-gradient(red, orange);
+            position: absolute;
+            left: 50%;
+            bottom: -8%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 70% 70%;
+            filter: blur(7px);
+            z-index: -1;
+            animation: flame-anim 0.3s infinite alternate;
+        }
+
+        @keyframes flame-anim {
+            0% {
+                transform: translateX(-50%) scale(1, 0.8);
+            }
+
+            50% {
+                transform: translateX(-48%) scale(1.1, 1.1);
+            }
+
+            100% {
+                transform: translateX(-52%) scale(0.9, 0.8);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="background">
+        <div><img class="city" src="./img/city.png"></div>
+        <div class="earth"></div>
+    </div>
+    <div id="rocket-container">
+        <img class="rocket" src="./img/rocket.png">
+    </div>
+</body>
+
+</html>

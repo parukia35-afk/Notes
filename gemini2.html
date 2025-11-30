@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* --- 基礎設定 --- */
+        .scene-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sky-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #B0E0E6, #87CEEB);
+            /* 淺藍漸變 */
+        }
+
+        /* --- 雲朵模型與動畫 --- */
+        .cloud-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 300px;
+            top: 50px;
+            pointer-events: none;
+            /* 確保不影響點擊 */
+        }
+
+        .cloud {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            /* 創造雲朵的堆疊效果 */
+            box-shadow:
+                100px 0 0 -15px #fff,
+                40px 0 0 0 #fff,
+                150px 0 0 -20px #fff;
+            width: 70px;
+            height: 30px;
+            opacity: 0.8;
+            animation: drift linear infinite;
+            /* 雲朵飄動動畫 */
+        }
+
+        /* 雲朵位置和速度設置 */
+        .cloud-1 {
+            top: 50px;
+            left: -150px;
+            transform: scale(1.5);
+            animation-duration: 45s;
+        }
+
+        .cloud-2 {
+            top: 150px;
+            left: 10%;
+            transform: scale(0.9);
+            animation-duration: 55s;
+            animation-delay: -10s;
+            /* 讓它從中間開始 */
+        }
+
+        .cloud-3 {
+            top: 100px;
+            left: 80%;
+            transform: scale(1.2);
+            animation-duration: 35s;
+            animation-delay: -20s;
+        }
+
+        /* 雲朵飄動的關鍵幀：由左往右飄過 */
+        @keyframes drift {
+            0% {
+                transform: translateX(-100vw);
+            }
+
+            /* 從左邊視窗外開始 */
+            100% {
+                transform: translateX(200vw);
+            }
+
+            /* 飄到右邊視窗外 */
+        }
+
+        /* --- 山丘 (地形層) --- */
+        .terrain-layer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 400px;
+            /* 整個地形層的高度 */
+            z-index: 5;
+        }
+
+        .mountain {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 遠山 (顏色較淡，位於後方) */
+        .mountain-far {
+            height: 300px;
+            background:
+                linear-gradient(110deg, transparent 40%, #778899 40%, #778899 70%, transparent 70%) 20% 100% / 40% 100% no-repeat,
+                linear-gradient(70deg, transparent 30%, #697A8D 30%, #697A8D 80%, transparent 80%) 80% 100% / 30% 100% no-repeat;
+            opacity: 0.8;
+        }
+
+        /* 近山 (顏色較深，位於前方) */
+        .mountain-near {
+            height: 250px;
+            background:
+                linear-gradient(135deg, transparent 35%, #58697A 35%, #58697A 65%, transparent 65%) 5% 100% / 60% 100% no-repeat,
+                linear-gradient(60deg, transparent 50%, #465768 50%, #465768 90%, transparent 90%) 90% 100% / 40% 100% no-repeat;
+            z-index: 7;
+        }
+
+        .ground-grass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 120px;
+            background: #5D9954;
+            /* 深綠色草地 */
+            z-index: 10;
+        }
+
+        /* --- 建築群 (天際線) --- */
+        .city-skyline {
+            position: absolute;
+            bottom: 115px;
+            /* 略高於草地 */
+            left: 0;
+            width: 100%;
+            height: 150px;
+            z-index: 12;
+        }
+
+        .building {
+            position: absolute;
+            background-color: #555;
+            bottom: 0;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .b-1 {
+            left: 10%;
+            width: 40px;
+            height: 80px;
+            background-color: #888;
+        }
+
+        .b-2 {
+            left: 20%;
+            width: 60px;
+            height: 120px;
+            background-color: #666;
+            /* 簡化窗戶 */
+            box-shadow:
+                inset 5px 10px 0 0 #F0E68C,
+                inset 5px 25px 0 0 #F0E68C;
+        }
+
+        .b-3 {
+            left: 40%;
+            width: 30px;
+            height: 150px;
+            background-color: #444;
+        }
+
+        .b-4 {
+            left: 65%;
+            width: 70px;
+            height: 90px;
+            background-color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scene-container">
+        <div class="sky-background">
+            <div class="cloud-wrapper">
+                <div class="cloud cloud-1"></div>
+                <div class="cloud cloud-2"></div>
+                <div class="cloud cloud-3"></div>
+            </div>
+        </div>
+
+        <div class="terrain-layer">
+            <div class="mountain mountain-far"></div>
+            <div class="mountain mountain-near"></div>
+            <div class="ground-grass"></div>
+        </div>
+
+        <div class="city-skyline">
+            <div class="building b-1"></div>
+            <div class="building b-2"></div>
+            <div class="building b-3"></div>
+            <div class="building b-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #canvas {
+        outline: 1px solid black;
+    }
+</style>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <input type="color" id="input-color">
+    <input type="range" id="input-size" min="1" max="100" value="10">
+    <script>
+        const canvas = document.getElementById('canvas')
+        const inputColor = document.getElementById('input-color')
+        const inputSize = document.getElementById('input-size')
+
+        // 取得canvas的2D繪圖參數
+        const ctx = canvas.getContext('2d')
+
+        // 畫矩形
+        // fillStyle=填滿顏色
+        // fillRect(xx,y,長,寬)
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+        // 畫線
+        ctx.beginPath()//---->開始路徑
+        ctx.moveTo(50, 50)//---->移動到指定位置
+        ctx.lineTo(205, 205)//---->畫線到指定位置
+        ctx.strokeStyle = 'red'//---->線條顏色
+        ctx.lineWidth = 10//---->線條粗細
+        ctx.lineCap = 'round'//---->線條兩端
+        ctx.lineJoin = 'round'//---->線條兩端
+        ctx.stroke()//---->把線畫出來
+        /*-------------------------------------------------------------------------------------*/
+        // 記錄上一個滑鼠座標
+        const previousMousePos = {
+            x: 0,
+            y: 0
+        }
+        // 滑鼠是不是按著?
+        let isMouseDown = false
+
+        canvas.onmousedown = (event) => {
+            previousMousePos.x = event.offsetX
+            previousMousePos.y = event.offsetY
+            isMouseDown = true
+        }
+        canvas.onmouseup = () => {
+            isMouseDown = false
+        }
+        canvas.onmouseleave = () => {
+            isMouseDown = false
+        }
+        canvas.onmousemove = (event) => {
+            if (!isMouseDown) return
+            ctx.strokeStyle = inputColor.value
+            ctx.lineWidth = inputSize.value
+            ctx.lineCap = 'round'
+            ctx.lineJoin = 'round'
+            ctx.beginPath()
+            ctx.moveTo(previousMousePos.x, previousMousePos.y)
+            ctx.lineTo(event.offsetX, event.offsetY)
+            ctx.stroke()
+            previousMousePos.x = event.offsetX
+            previousMousePos.y = event.offsetY
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .padding {
+            height: 2000px;
+        }
+
+        #target {
+            height: 100px;
+            background: pink;
+            outline: 100px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="padding"></div>
+    <div id="target"></div>
+    <div class="padding"></div>
+
+    <script>
+        const target = document.getElementById('target')
+
+        // entries=發生互動的元素
+        // owner=
+        const observer = new IntersectionObserver((entries, owner) => {
+            for (const entry of entries) {
+                console.log(entry)
+            }
+        }, {
+            // 基準元素，官持目標碰到基準時觸發
+            // null=瀏覽器視窗
+            root: null,
+            // 範圍偵測
+            // 0.5=>元素出現一半時、元素離開一半時觸發
+            threshold: [0.5],
+            // 邊界偏移
+            // 100px=>偵測範圍上下左右擴張100px
+            rootMargin: '100px'
+
+        })
+        observer.observe(target)
+    </script>
+</body>
+
+</html>

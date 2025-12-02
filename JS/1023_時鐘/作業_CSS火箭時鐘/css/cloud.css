@@ -1,0 +1,415 @@
+.cloud {
+	width: 10vw;
+	height: 7vw;
+	background: white;
+	opacity: 0.7;
+	border-radius: 50%;
+	position: absolute;
+	top: 15%;
+	left: -20%;
+	/* animation-delay: 0s; */
+}
+
+.cloud::before {
+	content: '';
+	width: 80%;
+	height: 70%;
+	background: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+.cloud::after {
+	content: '';
+	width: 60%;
+	height: 57%;
+	background: whitesmoke;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 60%;
+}
+
+.cloud2 {
+	width: 10vw;
+	height: 7vw;
+	background: white;
+	opacity: 0.7;
+	border-radius: 50%;
+	position: absolute;
+	top: -10%;
+	left: 80%;
+	/* animation-delay: -10s; */
+}
+
+.cloud2::before {
+	content: '';
+	width: 65%;
+	height: 80%;
+	background: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 70%;
+	left: -20%;
+}
+
+.cloud2::after {
+	content: '';
+	width: 140%;
+	height: 70%;
+	background: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 80%;
+	left: 20%;
+}
+
+/* 新增雲朵3 */
+.cloud3 {
+	width: 15vw;
+	height: 8vw;
+	background: whitesmoke;
+	opacity: 0.6;
+	border-radius: 50%;
+	position: absolute;
+	top: 10%;
+	left: 70%;
+	/* animation-delay: -25s; */
+}
+
+.cloud3::before {
+	content: '';
+	width: 60%;
+	height: 70%;
+	background: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: -15%;
+}
+
+.cloud3::after {
+	content: '';
+	width: 90%;
+	height: 60%;
+	background: #f5f5f5;
+	border-radius: 50%;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+}
+
+.cloud4 {
+	width: 12vw;
+	height: 7vw;
+	background: #f0f0f0;
+	opacity: 0.65;
+	border-radius: 50%;
+	position: absolute;
+	top: 20%;
+	left: 40%;
+	/* animation-delay: -5s; */
+}
+
+.cloud4::before {
+	content: '';
+	width: 50%;
+	height: 60%;
+	background: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 60%;
+	left: -20%;
+}
+
+.cloud4::after {
+	content: '';
+	width: 80%;
+	height: 50%;
+	background: #e8e8e8;
+	border-radius: 50%;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+}
+
+.cloud5 {
+	width: 18vw;
+	height: 9vw;
+	background: #ffffff;
+	opacity: 0.7;
+	border-radius: 50%;
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	/* animation-delay: -15s; */
+}
+
+.cloud5::before {
+	content: '';
+	width: 70%;
+	height: 60%;
+	background: #f8f8f8;
+	border-radius: 50%;
+	position: absolute;
+	top: 40%;
+	left: -20%;
+}
+
+.cloud5::after {
+	content: '';
+	width: 80%;
+	height: 50%;
+	background: #f0f0f0;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 40%;
+}
+
+/* 超高空雲1 */
+.cloud6 {
+	width: 6vw;
+	height: 3vw;
+	background: #fafafa;
+	opacity: 0.25;
+	border-radius: 50%;
+	position: absolute;
+	top: -90%;
+	left: 10%;
+	/* animation-delay: -30s; */
+}
+
+.cloud6::after::before {
+	content: '';
+	width: 50%;
+	height: 40%;
+	background: #f5f5f5;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: -10%;
+}
+
+.cloud6::after {
+	content: '';
+	width: 50%;
+	height: 50%;
+	background: #f0f0f0;
+	border-radius: 50%;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+}
+
+/* 超高空雲2 */
+.cloud7 {
+	width: 5vw;
+	height: 2.5vw;
+	background: #f8f8f8;
+	opacity: 0.2;
+	border-radius: 50%;
+	position: absolute;
+	top: -80%;
+	left: 50%;
+	/* animation-delay: -20s; */
+}
+
+.cloud7::before {
+	content: '';
+	width: 60%;
+	height: 50%;
+	background: #f5f5f5;
+	border-radius: 50%;
+	position: absolute;
+	top: 40%;
+	left: -20%;
+}
+
+.cloud7::after {
+	content: '';
+	width: 50%;
+	height: 40%;
+	background: #f0f0f0;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+/* 超高空雲3 */
+.cloud8 {
+	width: 7vw;
+	height: 3.5vw;
+	background: #ffffff;
+	opacity: 0.22;
+	border-radius: 50%;
+	position: absolute;
+	top: -70%;
+	left: 30%;
+	/* animation-delay: -12s; */
+}
+
+.cloud8::before {
+	content: '';
+	width: 50%;
+	height: 50%;
+	background: #f5f5f5;
+	border-radius: 50%;
+	position: absolute;
+	top: 60%;
+	left: -10%;
+}
+
+.cloud8::after {
+	content: '';
+	width: 60%;
+	height: 40%;
+	background: #f0f0f0;
+	border-radius: 50%;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+}
+
+/* 超高空雲4 */
+.cloud9 {
+	width: 6.5vw;
+	height: 3.2vw;
+	background: #f9f9f9;
+	opacity: 0.18;
+	border-radius: 50%;
+	position: absolute;
+	top: -60%;
+	left: 70%;
+	/* animation-delay: -3s; */
+}
+
+.cloud9::before {
+	content: '';
+	width: 50%;
+	height: 45%;
+	background: #f5f5f5;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: -15%;
+}
+
+.cloud9::after {
+	content: '';
+	width: 55%;
+	height: 40%;
+	background: #f0f0f0;
+	border-radius: 50%;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+}
+
+/* 超高空雲10 */
+.cloud10 {
+	width: 7vw;
+	height: 3.5vw;
+	background: #ffffff;
+	opacity: 0.4;
+	border-radius: 50%;
+	position: absolute;
+	top: -95%;
+	left: 20%;
+	/* animation-delay: -18s; */
+}
+
+.cloud10::before {
+	content: '';
+	width: 55%;
+	height: 45%;
+	background: #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 45%;
+	left: -15%;
+}
+
+.cloud10::after {
+	content: '';
+	width: 50%;
+	height: 40%;
+	background: #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 40%;
+	left: 55%;
+}
+
+/* 超高空雲11 */
+.cloud11 {
+	width: 8vw;
+	height: 4vw;
+	background: #ffffff;
+	opacity: 0.4;
+	border-radius: 50%;
+	position: absolute;
+	top: -85%;
+	left: 65%;
+	/* animation-delay: -8s; */
+}
+
+.cloud11::before {
+	content: '';
+	width: 60%;
+	height: 45%;
+	background: #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: -15%;
+}
+
+.cloud11::after {
+	content: '';
+	width: 55%;
+	height: 45%;
+	background: #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+}
+
+/* 超高空雲12 */
+.cloud12 {
+	width: 7vw;
+	height: 3.5vw;
+	background: #ffffff;
+	opacity: 0.4;
+	border-radius: 50%;
+	position: absolute;
+	top: -70%;
+	left: 40%;
+	/* animation-delay: -22s; */
+}
+
+.cloud12::before {
+	content: '';
+	width: 55%;
+	height: 45%;
+	background: #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 55%;
+	left: -10%;
+}
+
+.cloud12::after {
+	content: '';
+	width: 50%;
+	height: 40%;
+	background: #ffffff;
+	border-radius: 50%;
+	position: absolute;
+	top: 40%;
+	left: 55%;
+}

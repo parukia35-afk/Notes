@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業_火箭時鐘</title>
+    <link rel="stylesheet" href="./css/cloud.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body {
+            height: 100vh;
+            background: linear-gradient(to top, #B0E0E6, #87CEEB);
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #spaceOverlay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: black;
+            opacity: 0;
+            z-index: 10;
+            transition: opacity 1s linear;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 0 5px white;
+            opacity: 0;
+            animation: twinkle 1s infinite alternate, star-drift 300s 0.5s infinite backwards;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes star-drift {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* 時鐘本體：寶貝球的外觀 */
+        #clock {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: fixed;
+            opacity: 1;
+            top: 0;
+            right: 0;
+            z-index: 20;
+
+            /* 黑色外框和中間分割線 */
+            border: 4px solid black;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+            /* 寶貝球顏色分成上下兩半 */
+            background: linear-gradient(to bottom,
+                    rgba(255, 0, 0, 0.5) 0%,
+                    rgba(255, 0, 0, 0.8) 50%,
+                    white 50%,
+                    white 100%);
+        }
+
+        /* 寶貝球中央的黑色分割線 */
+        #clock::before {
+            content: '';
+            position: absolute;
+            top: calc(50% - 3px);
+            /* 居中定位 */
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: black;
+            z-index: 21;
+        }
+
+        /* 寶貝球中央按鈕 (白色大圓環和內嵌黑點) */
+        #clock::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center,
+                    #000000 0%,
+                    /* 中心黑點 */
+                    #000000 20%,
+                    /* 中心黑點結束 */
+                    white 20%,
+                    /* 白色開始 */
+                    white 100%
+                    /* 白色結束 */
+                );
+            border: 8px solid black;
+            /* 粗黑框 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 22;
+            /* 比指針低 */
+        }
+
+        /* 時針：恢復時針功能，調整樣式和長度 */
+        #hour {
+            width: 20%;
+            /* 時針較短 */
+            height: 8px;
+            background: #000000;
+            /* 黑色指針 */
+            position: absolute;
+            left: 30%;
+            /* 保持原始定位 */
+            top: calc(50% - 4px);
+            transform-origin: right center;
+            z-index: 23;
+            /* 確保在寶貝球中心按鈕之上 */
+        }
+
+        /* 分針 */
+        #minute {
+            width: 35%;
+            /* 分針中等長度 */
+            height: 6px;
+            background: #000000;
+            /* 黑色指針 */
+            position: absolute;
+            left: 15%;
+            /* 調整左邊距 */
+            top: calc(50% - 3px);
+            transform-origin: right center;
+            z-index: 23;
+        }
+
+        /* 秒針 */
+        #second {
+            width: 45%;
+            height: 3px;
+            background: #F05;
+            /* 紅色秒針 */
+            position: absolute;
+            left: 5%;
+            top: calc(50% - 1.5px);
+            transform-origin: right center;
+            z-index: 23;
+        }
+
+        /* 數字時間 */
+        #currentTime {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            z-index: 20;
+            font-family: "Science Gothic";
+            color: aquamarine;
+        }
+
+        /* 背景整體 */
+        #background {
+            width: 100%;
+            height: auto;
+            position: absolute;
+        }
+
+        /* 雲朵飄動動畫 */
+        .clouds {
+            animation: cloud-float 40s linear infinite;
+        }
+
+        @keyframes cloud-float {
+            0% {
+                transform: translateX(-100vw);
+            }
+
+            /* 移動到右側畫面外結束 */
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+
+        .earth {
+            width: 100%;
+            height: 20vh;
+            background: #B05C4F;
+        }
+
+        .city {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        /* 火箭本體 */
+        #rocket-container {
+            position: absolute;
+            left: 50%;
+            bottom: 10%;
+            transform: translateX(-50%)scale(0.5);
+            transform-origin: bottom center;
+            z-index: 15;
+        }
+
+        /* 火焰 */
+        #rocket-container::after {
+            content: '';
+            width: 150px;
+            height: 250px;
+            background: linear-gradient(red, orange);
+            position: absolute;
+            left: 50%;
+            bottom: -8%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 70% 70%;
+            filter: blur(7px);
+            z-index: -1;
+            animation: flame-anim 0.3s infinite alternate;
+        }
+
+        /* 控制火焰飄動動畫 */
+        @keyframes flame-anim {
+            0% {
+                transform: translateX(-50%) scale(1, 0.8);
+            }
+
+            50% {
+                transform: translateX(-48%) scale(1.1, 1.1);
+            }
+
+            100% {
+                transform: translateX(-52%) scale(0.9, 0.8);
+            }
+        }
+
+        .jet {
+            animation: jet 2s 1 normal;
+        }
+
+        @keyframes jet {
+            from {
+                transform: translateX(-50%) scale(0.5) translateY(0px);
+            }
+
+            to {
+                transform: translateX(-50%) scale(0.5) translateY(-2000px);
+            }
+        }
+
+        #piplup {
+            position: fixed;
+            transform: scale(0.3);
+            top: 0%;
+            right: -1%;
+            z-index: 23;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spaceOverlay"></div>
+    <div id="clock">
+        <img id="piplup" src="./img/piplup.gif">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+    <div id="currentTime"></div>
+    <div id="background">
+        <div class="cloud clouds"></div>
+        <div class="cloud2 clouds"></div>
+        <div class="cloud3 clouds"></div>
+        <div class="cloud4 clouds"></div>
+        <div class="cloud5 clouds"></div>
+        <div class="cloud6 clouds"></div>
+        <div class="cloud7 clouds"></div>
+        <div class="cloud8 clouds"></div>
+        <div class="cloud9 clouds"></div>
+        <div class="cloud10 clouds"></div>
+        <div class="cloud11 clouds"></div>
+        <div class="cloud12 clouds"></div>
+        <div class="cloud clouds" style="width: 20vw;height: 10vw;top: 5%;left: 50%;"></div>
+        <div><img class="city" src="./img/city.png"></div>
+        <div class="earth"></div>
+    </div>
+    <div id="rocket-container">
+        <img class="rocket" src="./img/rocket.png">
+    </div>
+    <script>
+        const elHour = document.getElementById('hour')
+        const elMinute = document.getElementById('minute')
+        const elSecond = document.getElementById('second')
+        const currentTime = document.getElementById('currentTime')
+        const background = document.getElementById('background')
+        const overlay = document.getElementById('spaceOverlay')
+        const rocket = document.getElementById('rocket-container')
+        // 一開始沒有星星，所以沒有星星需要被清除，清除星星狀態標記為false
+        let hasStarToClear = false
+
+        // 設定背景初始距離視窗頂部多少距離，要讓background貼齊視窗底部
+        function updateBackgroundTop() {
+            const bgHeight = background.offsetHeight
+            background.style.top = (window.innerHeight - bgHeight) + 'px'
+        }
+        updateBackgroundTop()
+        window.addEventListener('resize', updateBackgroundTop)
+
+        function createStar() {
+            const x = Math.random() * 100
+            const y = Math.random() * 100
+            const star = document.createElement('div')
+            star.className = 'star'
+            star.style.left = `${x}%`
+            star.style.top = `${y}%`
+            overlay.append(star)
+        }
+
+        const clock = () => {
+            const date = new Date()
+            const h = date.getHours()
+            const m = date.getMinutes()
+            const s = date.getSeconds()
+
+            elHour.style.transform = `rotate(${h * 30 + 90}deg)`
+            elMinute.style.transform = `rotate(${m * 6 + 90}deg)`
+            elSecond.style.transform = `rotate(${s * 6 + 90}deg)`
+            currentTime.innerText = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
+
+            const totalSecond = m * 60 + s
+            let progress = Math.min(totalSecond / 1800, 1)
+            const bgHeight = background.offsetHeight;
+            background.style.transform = `translateY(${progress * bgHeight}px)`;
+
+            // 天空漸漸變黑
+            if (totalSecond < 1200) { // 0 to 19:59
+                overlay.style.opacity = 0;
+            } else if (totalSecond < 2400) { // 20:00 to 39:59 (漸變區間)
+                let overlayProgress = (totalSecond - 1200) / 1200;
+                overlay.style.opacity = overlayProgress;
+            } else { // 40:00 to 59:59 (全黑)
+                overlay.style.opacity = 1;
+            }
+            // 生成星星
+            if (m >= 40 && s % 3 === 0) {
+                createStar()
+                hasStarToClear = true
+            }
+            // 清除上個循環的星星
+            if (m < 40 && hasStarToClear) {
+                overlay.innerHTML = ''
+                hasStarToClear = false
+            }
+            // 在最後2秒，火箭會加速衝出螢幕外
+            if (m === 59 && s === 58) {
+                rocket.classList.add("jet")
+            }
+            if (m === 0) {
+                rocket.classList.remove("jet")
+            }
+        }
+
+        setInterval(clock, 1000)
+        clock()
+
+    </script>
+</body>
+
+</html>

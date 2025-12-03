@@ -18,6 +18,7 @@ const router = createRouter({
       name: 'jinmen',
       // 需要時才會載入，打包時會產生單獨的js檔
       component: () => import('@/views/JinmenView.vue'),
+      // 這裡的meta跟Html的<meta>不太一樣，這裡的代表這個路由的一些資訊(meta不一定要寫，但上面的path,name,component通常一定會有)
       meta: {
         title: '金門逍遙遊',
       },
@@ -28,7 +29,7 @@ const router = createRouter({
       // 需要時才會載入，打包時會產生單獨的js檔
       component: () => import('@/views/MazuView.vue'),
       meta: {
-        title: '卡溜到馬祖',
+        title: '卡蹓到馬祖',
       },
     },
     {
@@ -38,15 +39,21 @@ const router = createRouter({
       component: () => import('@/views/PenghuView.vue'),
       meta: {
         title: '踏浪澎湖行',
+        // meta不一定要寫。裡面的資訊也是可以自訂的，例如:apple
+        apple: '^_^',
       },
     },
   ],
 })
+// 導航守衛:可以寫在全局或單獨一個路由獨享的或元件內
+// 進到每頁之前執行一個function
 // to = 要去哪裡
 // from = 從哪裡來
 router.afterEach((to, from) => {
-  document.title = to.meta.title
+  document.title = to.meta.title //頁面的title變成我要去的頁面的meta的title=>換頁後瀏覽器頁籤的標題就變了
 })
+// 進到每頁之後執行一個function，
+// 例如:需要使用者登入的網頁不應該讓未登入者進度帳號管理頁面，就可以用beforeEach()把人攔下來
 // router.beforeEach()
 
 export default router

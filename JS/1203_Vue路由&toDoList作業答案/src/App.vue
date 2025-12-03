@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
+// 要先引入 vue-router 套件並useRouter()才可以使用router.push()
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -41,6 +42,7 @@ const go = (path) => {
     <table>
       <tr>
         <!-- $router.push 跳頁 -->
+         <!-- 為甚麼這裡會用.push這麼叫的?因為可以它把瀏覽紀錄看作是一個陣列 -->
         <td><img src="@/assets/0508.gif" @click="$router.push({ name: 'home' })" /></td>
       </tr>
       <tr>
@@ -62,7 +64,7 @@ const go = (path) => {
   </div>
   <div id="right">
     <marquee>歡迎來到書曼的旅遊相簿，本網站有我的旅遊影像紀錄介紹耶！</marquee>
-    <!-- 路由對應的元件顯示位置 -->
+    <!-- 路由對應的元件顯示位置(也可以寫成<RouterView></RouterView>) -->
     <router-view></router-view>
   </div>
 </template>

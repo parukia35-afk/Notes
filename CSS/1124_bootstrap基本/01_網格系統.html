@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <style>
+        .row>*:nth-child(1) {
+            background: var(--bs-teal);
+        }
+
+        .row>*:nth-child(2) {
+            background: var(--bs-cyan);
+        }
+
+        .row>*:nth-child(3) {
+            background: var(--bs-yellow);
+        }
+
+        .row>*:nth-child(4) {
+            background: var(--bs-pink);
+        }
+
+        .row>*:nth-child(5) {
+            background: var(--bs-purple);
+        }
+
+        h3 {
+            margin-bottom: 1.5rem 0;
+        }
+
+        h4 {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./js/bootstrap.bundle.js"></script>
+
+    <div class="container-fluid bg-primary">container-fluid 滿版容器</div>
+    <div class="container bg-secondary">.container 固定寬度容器 </div>
+
+    <div class="container text-center">
+        <h1>網格系統</h1>
+        <h2>.col 等寬，flex:1,0,0 平均分配剩餘的空間</h2>
+        <div class="row">
+            <div class="col">
+                Column
+            </div>
+            <div class="col">
+                Column
+            </div>
+            <div class="col">
+                Column
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>有數字的.col，例如:.col-6、.col-sm-6、.col-md-6</h2>
+        <div class="row">
+            <div class="col">
+                1 of 3
+            </div>
+            <div class="col-6">
+                2 of 3 (width:50%)
+            </div>
+            <div class="col">
+                3 of 3
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>加入斷點綴詞的.col</h2>
+        <p>在某個斷點下，欄位的分配方式</p>
+        <div class="row">
+            <!--
+            到達md斷點之前每欄佔父元素寬100%，因為.row有設wrap所以會換行
+            到達md斷點後但xl斷點前，每欄佔50%，故每行只能容納2個.col，超過就換行，共3行
+            到達xl斷點後，每欄佔25%，每行可容納4個.col，第五欄被擠到第二行去，共2行
+            -->
+            <div class="col-12 col-md-6 col-xl-3">1</div>
+            <div class="col-12 col-md-6 col-xl-3">2</div>
+            <div class="col-12 col-md-6 col-xl-3">3</div>
+            <div class="col-12 col-md-6 col-xl-3">4</div>
+            <div class="col-12 col-md-6 col-xl-3">5</div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2">
+                1 of 3
+            </div>
+            <div class="col-md-auto">
+                Variable width content
+            </div>
+            <div class="col col-lg-2">
+                3 of 3
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                1 of 3
+            </div>
+            <div class="col-md-auto">
+                Variable width content
+            </div>
+            <div class="col col-lg-2">
+                3 of 3
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

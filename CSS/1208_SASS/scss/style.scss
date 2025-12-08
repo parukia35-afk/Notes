@@ -1,0 +1,553 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  font-family: "微軟正黑體";
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+.container {
+  width: 90%;
+  min-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #3498db;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin: 1.5rem 0 1rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 1rem 0 0.5rem;
+}
+
+h4 {
+  font-size: 1rem;
+  color: #666;
+  margin: 0.8rem 0 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+section {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  th,
+  td {
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #3498db;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+}
+
+ol,
+ul {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  li {
+    line-height: 1.6;
+  }
+}
+
+img {
+  max-height: 100%;
+  height: auto;
+  display: block;
+}
+
+// 單行註解 不會編譯出去
+/* 多行註解 */
+/* 
+變數
+使用 $ 宣告變數，可以儲存顏色、數字、字串、list、map等等
+使用變數的好處是統一管理、便於修改、提高可讀性
+*/
+$primary-color:#3498db;
+$secondary-color:#2ecc71;
+$warning-color:#f39c12;
+$danger-color:#e74c3c;
+$dark-color:#2c3e50;
+$light-color:#ecf0f1;
+
+// spacing
+$spacing-small:0.5rem;
+$spacing-medium:1rem;
+$spacing-large:2rem;
+
+// border
+$border-radius:4px;
+
+// 流程控制
+$message-type: "success";
+.mybox{
+  width: 200px;
+  padding: $spacing-medium $spacing-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: $spacing-medium;
+  border-radius: $border-radius;
+  border-left: 4px solid;
+
+  @if $message-type=="success"{
+    background-color:lighten($secondary-color,45%);
+    border-color: $secondary-color;
+    color: darken($secondary-color,20%);
+  }@else if $message-type=="warning"{
+    background-color: lighten($warning-color,45%);
+    border-color: $warning-color;
+    color: darken($warning-color,20%);
+  }else{
+    background-color: lighten($primary-color,45%);
+    border-color: $primary-color;
+    color: darken($primary-color,20%);
+  }
+}
+
+@for $i from 1 through 3{
+  .through-#{$i}{
+    width: 60px + ($i*30px);
+    height: 60px + ($i*30px);
+    background-color: lighten($primary-color,(4 - $i)*10%);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.3s;
+
+    //& 是佔位符，代表上層的選擇器
+    &::before{
+      content: "#{$i}";
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    } 
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+}
+@for $i from 1 to 3{
+  .to-#{$i}{
+    width: 60px + ($i*30px);
+    height: 60px + ($i*30px);
+    background-color: lighten($secondary-color,(4 - $i)*10%);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.3s;
+
+    //& 是佔位符，代表上層的選擇器
+    &::before{
+      content: "#{$i}";
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    } 
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+}
+
+// 嵌套
+#section5{
+  .menu{
+    display: flex;
+    padding: 0;
+    margin-top: $spacing-large;
+    background-color: $dark-color;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    li{
+      flex: 1;
+      position: relative;
+      a{
+        display: block;
+        padding: $spacing-medium $spacing-large;
+        color: rgba(255,255,255,0.9);
+        text-decoration: none;
+        text-align: center;
+        transition: 0.3s;
+
+        &:hover{
+          background-color: lighten($dark-color,10%);
+          color: white;
+        }
+      }
+    }
+    & + li{
+      border-left:3px solid rgba(255,255,255,0.5) ;
+    }
+  }
+}
+
+.sidebar {
+  background-color: white;
+  padding: $spacing-large;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  min-width: 200px;
+  &__item {
+    display: block;
+    padding: $spacing-medium $spacing-large;
+    color: $dark-color;
+    text-decoration: none;
+    margin-bottom: $spacing-small;
+    border-radius: $border-radius;
+    transition: 0.3s;
+    position: relative;
+    padding-left: 45px;
+
+    &::before {
+      content: "▸";
+      position: absolute;
+      left: 15px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    &--active {
+      background-color: $primary-color;
+      color: white;
+      &::before {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+#excercise{
+  .row{
+    display: flex;
+    gap: 2%;
+    flex-wrap: wrap;
+    margin-top: $spacing-large;
+  }
+  .col{
+    flex: 1;
+    min-width: 280px;
+    background-color: #ffa;
+    padding: 0;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+    overflow: hidden;
+    &:hover{
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      img{
+        transform: scale();
+      }
+    }
+    img{
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: $border-radius $border-radius 0 0;
+      transition: 0.3s;
+    }
+    >:not(img){
+      padding: 0 $spacing-large;
+    }
+    h2{
+      font-size: 1.3rem;
+      margin: $spacing-medium;
+      a{
+        color: $dark-color;
+        text-decoration: none;
+        a:hover{
+          color: $primary-color;
+        }
+      }
+    }
+    p{
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #333;
+      // 文字超過3行時，會顯示...
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+    }
+  }
+}
+// 用 % 定義一個共用樣式，可以在其他地方使用@extend來繼承這些樣式
+%base-box{
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin: $spacing-small;
+  border-radius: $border-radius;
+  border: 2px solid $dark-color;
+  transition: 0.3s;
+  &:hover{
+    transform: scale(1.2);
+  }
+}
+
+#extend{
+  .box1{
+    @extend %base-box;
+    background-color: $danger-color;
+  }
+  .box2{
+    @extend %base-box;
+    background-color: $secondary-color;
+  }
+  .box3{
+    @extend %base-box;
+    background-color: $primary-color;
+  }
+}
+
+
+// function----------------------------------
+// 計算盒子尺寸函式
+@function calculate-size($base,$multiplier){
+  @return $base * $multiplier
+}
+
+$base-font-size:16px;
+// 計算字體大小
+@function font-size($level){
+  @return $base-font-size + ($level * 2px)
+}
+
+.funcbox{
+  width: calculate-size(50px,2 );
+  height: calculate-size(50px,2 );
+  font-size: $base-font-size(2);
+  background-color: $secondary-color;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius;
+  margin: $spacing-medium;
+}
+
+// mixin----------------------------
+@mixin flex-center($direction:row){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+.boxflex{
+  @include flex-center(column);
+  width: 200px;
+  height: 150px;
+  background-color: $warning-color;
+  color: white;
+  font-size: 1rem;
+  border: $border-radius;
+  box-shadow: 0 4px 12px rgba($warning-color,0.5);
+  &::before{
+    content: '★';
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+}
+
+@mixin btn-style($hue){
+  display: inline-block;
+  padding: 6px 14px;
+  margin: 4px;
+  // hsl() 是CSS內建函式，代表色相、飽和度、明度
+  background-color: hsl($hue,70%,90%);
+  color: hsl($hue, 70%, 30%);
+  border: 1px solid hsl($hue, 70%, 70%);
+  border-radius: $border-radius;
+  font-size: 0.875rem;
+  font-weight: 5--;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover{
+    background-color: hsl($hue,70%,40%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px hsla($hue, 70%, 40%, 0.3);
+  }
+}
+
+@for $i from 1 through 5{
+  .b#{$i}{
+    @include btn-style(72 * $i)
+  }
+}
+
+/* 使用mixin + @content 設計RWD */
+$breakpoint-sm:556px;
+$breakpoint-md:768px;
+$breakpoint-lg:992px;
+$breakpoint-xl:1200px;
+$breakpoint-xxl:1400px;
+
+@mixin sm{
+  @media (min-width:$breakpoint-sm){
+    @content;
+  }
+}
+@mixin md{
+  @media (min-width:$breakpoint-md){
+    @content;
+  }
+}
+@mixin lg{
+  @media (min-width:$breakpoint-lg){
+    @content;
+  }
+}
+@mixin xl{
+  @media (min-width:$breakpoint-xl){
+    @content;
+  }
+}
+@mixin xxl{
+  @media (min-width:$breakpoint-xxl){
+    @content;
+  }
+}
+
+#section8{
+  .container{
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+  }
+
+  .col + .col {
+    margin-top: 20px;
+  }
+
+  // sm
+  @include sm {
+    .container {
+      width: 75%;
+    }
+
+    .col {
+      width: 50%;
+    }
+
+    .col + .col {
+      margin-top: 0;
+    }
+  }
+
+  // md
+  @include md {
+    .col {
+      width: 33.333333%;
+    }
+  }
+
+  // lg
+  @include lg {
+    .col {
+      width: 25%;
+    }
+  }
+
+  // xl
+  @include xl {
+    .col {
+      width: 20%;
+    }
+  }
+
+  // xxl
+  @include xxl {
+    .col {
+      width: 10%;
+    }
+  }
+}
+
+// list
+$width_list: 100px,200px,300px;
+$margin_list: 10px 20px 30px 40px;
+$bgColor_list: red,green,blue;
+$colors:"red","green","blue";
+
+@each $color in $colors{
+  .bg-#{$color}{
+    // unquote()
+    background-color: unquote($color);
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    margin: 5px;
+    border-radius: $border-radius;
+  }
+}
+// map
+$theme-colors:(
+  primary:$primary-color,
+  secondary:$secondary-color,
+  warning:$warning-color,
+  danger:$danger-color,
+);
+
+@each $name,$color in $theme-colors{
+  .alert-#{$name}{
+    background-color: $color;
+    padding: $spacing-medium;
+    border-left: 4px solid #333;
+  }
+}

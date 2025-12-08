@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCSS教學</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <section id="section1">
+    <div class="container">
+      <h1>1-SASS介紹</h1>
+      <p>sass是css的預處理器(preprocessor)，其目的在減少css的重工，更有效率維護樣式的結構。</p>
+      <p>sass還能使用變數(現在原生也可以)和函式、流程控制、嵌套(巢狀語法，原生也支援)等</p>
+      <h2>sass與scss</h2>
+      <p>scss是後來推出的更貼近css的寫法，差異如下:</p>
+      <table>
+        <tr>
+          <th>副檔名</th>
+          <th>語法</th>
+          <th>說明</th>
+        </tr>
+        <tr>
+          <td>.sass</td>
+          <td>縮排語法<br>沒有大括號，結尾分號</td>
+          <td>語法無法兼容css</td>
+        </tr>
+        <tr>
+          <td>.scss</td>
+          <td>塊語法<br>寫法與css一致，兼容css</td>
+          <td>常用於bootstrap，普及受歡迎，直接將css複製貼上即可使用</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+  <section id="section2">
+    <div class="container">
+      <h1>2-SASS 資料型態</h1>
+      <ol>
+        <li>color:blue,#3498db,rgba(0,0,0,0.5),line-gradient()</li>
+        <li>nmuber:數字有分有單位(1px、2rem)和無單位</li>
+        <li>string:有引號字串("Noto Sans TC"),無引號字串(微軟正黑體)</li>
+        <li>boolean</li>
+        <li>null</li>
+        <li>list:用半形空格或逗號做分隔，例如:1.5rem 2rem 3rem或"Helvetica","Arial","sans-serif"</li>
+        <li>map:類似Javascript的物件，使用key-value配對</li>
+      </ol>
+    </div>
+  </section>
+  <section id="section3">
+    <div class="container">
+      <h1>3-變數</h1>
+      <p>使用 $ 定義變數。寫在大括號是區域範圍，寫在最外面是全域範圍。</p>
+      <p>變數可以使用底線_和連字號-，兩者是同樣的</p>
+    </div>
+  </section>
+  <section id="section4">
+    <div class="container">
+      <h1>4-流程控制</h1>
+      <h3>#if、@else if、@else</h3>
+      <p>使用and、or、not處理判斷運算式</p>
+      <div class="mybox">文字</div>
+      <h3>@for迴圈有兩種:through 與 to</h3>
+      <p>@for $i from (start) through (end){...}，包含end</p>
+      <div class="through-1"></div>
+      <div class="through-2"></div>
+      <div class="through-3"></div>
+      <p>@for $i from (start) from to (end){...}，不包含end</p>
+      <div class="to-1"></div>
+      <div class="to-2"></div>
+    </div>
+  </section>
+  <section id="section5">
+    <div class="container">
+      <h1>5-嵌套巢狀</h1>
+      <p>雖然很好用，但勿過度使用。應考慮用最少的選擇器選擇到想要的位置，盡量維持三層。</p>
+      <p>過度使用:編譯過的的選擇器會太長，影響效能與維護姓，不易閱讀，容量也較大。</p>
+      <ul class="menu">
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+      </ul>
+    </div>
+  </section>
+  <section id="bem">
+    <div class="container">
+      <h2>BEM命名</h2>
+      <div class="sidebar">
+        <a class="sidebar__item sidebar__item--active" href="#">MENU</a>
+        <a class="sidebar__item" href="#">MENU</a>
+        <a class="sidebar__item" href="#">MENU</a>
+        <a class="sidebar__item" href="#">MENU</a>
+        <a class="sidebar__item" href="#">MENU</a>
+      </div>
+    </div>
+  </section>
+  <section id="excercise">
+    <div class="container">
+      <h2>練習:用巢狀結構建立三欄結構</h2>
+      <div class="row">
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>改善必須海外忍不住異常免費版開通還是不要漫畫辛苦看法，強化的人奇蹟的人數字，豐原走到無線，睡覺習慣。改善必須海外忍不住異常免費版開通還是不要漫畫辛苦看法，強化的人奇蹟的人數字，豐原走到無線，睡覺習慣。</p>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>改善必須海外忍不住異常免費版開通還是不要漫畫辛苦看法，強化的人奇蹟的人數字，豐原走到無線，睡覺習慣。改善必須海外忍不住異常免費版開通還是不要漫畫辛苦看法，強化的人奇蹟的人數字，豐原走到無線，睡覺習慣。</p>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=10">
+          <h2><a href="#">Title</a></h2>
+          <p>改善必須海外忍不住異常免費版開通還是不要漫畫辛苦看法，強化的人奇蹟的人數字，豐原走到無線，睡覺習慣。改善必須海外忍不住異常免費版開通還是不要漫畫辛苦看法，強化的人奇蹟的人數字，豐原走到無線，睡覺習慣。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section6">
+    <div class="container">
+      <h1>6-繼承 extend</h1>
+      <p>繼承可以用 % 佔位符選擇器的樣式，避免重複撰寫。</p>
+      <div id="extend">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+      </div>
+    </div>
+  </section>
+  <section id="section7">
+    <div class="container">
+      <h1>7-函式</h1>
+      <div class="funcbox">funcbox</div>
+      <p>@function與@mixin有點像，函式必須使用@return回傳值。</p>
+      <p>函式在呼叫時，無法產生一段css樣式，但@mixin可以。</p>
+    </div>
+  </section>
+  <section id="section8">
+    <div class="container">
+      <h1>8-mixin 混合</h1>
+      <p>@mixin可以定義一段可重複使用的樣式區塊</p>
+      <p>可以使用 @include 像函式一樣被呼叫。</p>
+
+      <h2>flex-box</h2>
+      <div class="boxflex"></div>
+
+      <h2>mixin + for 建立多個不同顏色的按鈕</h2>
+      <button class="b1">button</button>
+      <button class="b2">button</button>
+      <button class="b3">button</button>
+      <button class="b4">button</button>
+      <button class="b5">button</button>
+
+      <h2>使用mixin + @content設計RWD</h2>
+      <div class="row">
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+        <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam voluptates vero dicta rem corporis velit iure omnis! Rerum suscipit alias quisquam asperiores error, delectus aut repellendus modi, officia expedita dolor at facere quis labore voluptatibus esse id quod odio beatae. Nobis, magni quia iusto eos omnis quis totam adipisci. Necessitatibus praesentium vero ea excepturi, reiciendis mollitia, deserunt sequi inventore voluptatibus quae dolorum nostrum, doloremque minus modi libero aut explicabo quos placeat distinctio suscipit magnam. Illum vel cum fugit commodi vitae porro officia exercitationem inventore aperiam deserunt, ducimus repellendus autem saepe similique neque ratione rerum numquam nesciunt, adipisci, tenetur sed.</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

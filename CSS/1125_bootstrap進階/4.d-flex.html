@@ -43,7 +43,15 @@
     }
 
     .d-flex> :nth-child(6) {
-      background-color: var(--bs-gray);
+      background-color: var(--bs-orange);
+    }
+
+    .flex-1 {
+      flex: 1
+    }
+
+    .w-40 {
+      width: 40%;
     }
   </style>
 </head>
@@ -51,7 +59,7 @@
 <body>
   <div class="container">
     <h1>flex</h1>
-    <h2>水平</h2>
+    <h2>主軸為水平軸</h2>
     <div class="d-flex flex-row">
       <div class="p-2">flex-item1</div>
       <div class="p-2">flex-item2</div>
@@ -62,7 +70,266 @@
       <div class="p-2">flex-item2</div>
       <div class="p-2">flex-item3</div>
     </div>
+    <h2>主軸為垂直軸</h2>
+    <div class="d-flex flex-column">
+      <div class="p-2">flex-item1</div>
+      <div class="p-2">flex-item2</div>
+      <div class="p-2">flex-item3</div>
+    </div>
+    <div class="d-flex flex-column-reverse">
+      <div class="p-2">flex-item1</div>
+      <div class="p-2">flex-item2</div>
+      <div class="p-2">flex-item3</div>
+    </div>
   </div>
+  <hr>
+  <div class="container">
+    <h2>主軸的對齊</h2>
+    <h5>主軸上置左</h5>
+    <div class="d-flex justify-content-start">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>主軸上置右</h5>
+    <div class="d-flex justify-content-end">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>主軸上置中</h5>
+    <div class="d-flex justify-content-center">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>主軸上將間隔移至align-items之間</h5>
+    <div class="d-flex justify-content-between">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>主軸上使padding等寬</h5>
+    <div class="d-flex justify-content-around">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>主軸上等間隔</h5>
+    <div class="d-flex justify-content-evenly">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h2>交叉軸的對齊</h2>
+    <h5>交叉軸上置上</h5>
+    <div class="d-flex align-items-start">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>交叉軸上置下</h5>
+    <div class="d-flex align-items-end">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>交叉軸上置中</h5>
+    <div class="d-flex align-items-center">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>align-items在交叉軸上延伸空間</h5>
+    <div class="d-flex align-items-stretch">
+      <div class="p-2">flex item 1</div>
+      <div class="p-2">flex item 2</div>
+      <div class="p-2">flex item 3</div>
+    </div>
+    <h5>交叉軸上對準文字基線(幾乎不用)</h5>
+    <div class="d-flex align-items-baseline">
+      <div class="p-2 fs-1">flex item 1</div>
+      <div class="p-2 display-5">flex item 2</div>
+      <div class="p-2 h5">flex item 3</div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h2>交叉軸的彈性項目自身對齊</h2>
+    <div class="d-flex">
+      <div class="p-2 align-self-start">flex item 1</div>
+      <div class="p-2 align-self-end">flex item 2</div>
+      <div class="p-2 align-self-center">flex item 3</div>
+      <div class="p-2 align-self-stretch">flex item 4</div>
+      <div class="p-2 align-self-baseline fs-1">flex item 5</div>
+      <div class="p-2 align-self-baseline display-5">flex item 6</div>
+      <div class="p-2 align-self-baseline h5 bg-dark">flex item 7</div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h3>填滿 flex-fill</h3>
+    <p>.flex-fill:<code>flex: 1 1 auto</code></p>
+    <p>是將剩餘空間均分給每個欄位，非等寬</p>
+    <div class="d-flex">
+      <div class="p-2 flex-fill">flex item 1</div>
+      <div class="p-2 flex-fill">flex item 2</div>
+      <div class="p-2 flex-fill">flex item 3</div>
+    </div>
+    <div class="d-flex">
+      <div class="p-2 flex-fill">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Natus, cumque! Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Fugit, autem.</div>
+      <div class="p-2 flex-fill">flex item</div>
+      <div class="p-2 flex-fill">flex item</div>
+    </div>
+    <h3>flex-grow-1</h3>
+    <p>flex-grow:1，剩餘空間分配到1等分；但沒有flex-grow-2、3、4...</p>
+    <div class="d-flex">
+      <div class="p-2 flex-grow-1">flex item 1 Lorem ipsum dolor sit amet.</div>
+      <div class="p-2 flex-grow-1">flex item 2</div>
+      <div class="p-2 flex-grow-1">flex item 3</div>
+    </div>
+
+    <h3>真正的等寬</h3>
+    <p>簡寫<code>flex:1</code>等同於<code>flex:1,1,0</code></p>
+    <p>因為<code>flex-basis:0</code>相當於將每個帶有basis:0的彈性項目當作0寬度，接著再由<code>flex-grow:1</code>分配所有欄寬，故每欄拿到的空間是一樣的。</p>
+    <p>為了達到這種效果，我們可以自己寫class=>.flex-1{flex:1}</p>
+    <div class="d-flex">
+      <div class="p-2 flex-1">flex item 1 Lorem ipsum dolor sit amet.</div>
+      <div class="p-2 flex-1">flex item 2</div>
+      <div class="p-2 flex-1">flex item 3</div>
+    </div>
+  </div>
+  <hr>
+  <div class="container bg-secondary">
+    <h2 class="text-white">爆版(display:flex預設不會換行，flex-shrink:0使欄位也不會縮)</h2>
+    <div class="d-flex align-items-center w-25 border border-5">
+      <div class="w-40 h-75 flex-shrink-0">item1</div>
+      <div class="w-40 h-75 flex-shrink-0">item1</div>
+      <div class="w-40 h-75 flex-shrink-0">item1</div>
+      <div class="w-40 h-75 flex-shrink-0">item1</div>
+      <div class="w-40 h-75 flex-shrink-0">item1</div>
+      <div class="w-40 h-75 flex-shrink-0">item1</div>
+    </div>
+    <h2 class="text-white">flex-wrap</h2>
+    <p>.flex-wrap設定flex-wrap:wrap而會換行</p>
+    <div class="d-flex flex-wrap">
+      <div class="w-25">item1</div>
+      <div class="w-25">item2</div>
+      <div class="w-25">item3</div>
+      <div class="w-25">item4</div>
+      <div class="w-25">item5</div>
+      <div class="w-25">item6</div>
+    </div>
+    <h2 class="text-white">flex-wrap-reverse</h2>
+    <div class="d-flex flex-wrap-reverse">
+      <div class="w-25">item1</div>
+      <div class="w-25">item2</div>
+      <div class="w-25">item3</div>
+      <div class="w-25">item4</div>
+      <div class="w-25">item5</div>
+      <div class="w-25">item6</div>
+    </div>
+    <h2 class="text-white">flex-row-reverse + flex-wrap-reverse</h2>
+    <div class="d-flex flex-row-reverse flex-wrap-reverse">
+      <div class="w-25">item1</div>
+      <div class="w-25">item2</div>
+      <div class="w-25">item3</div>
+      <div class="w-25">item4</div>
+      <div class="w-25">item5</div>
+      <div class="w-25">item6</div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h2>flex-item 使用 margin 推擠空間</h2>
+    <h3>水平推擠</h3>
+    <div class="d-flex">
+      <div class="p-2 me-auto">item1</div>
+      <div class="p-2">item2</div>
+      <div class="p-2">item3</div>
+    </div>
+    <h3>垂直推擠</h3>
+    <div class="d-flex flex-column">
+      <div class="p-2 mb-auto">item1</div>
+      <div class="p-2">item2</div>
+      <div class="p-2">item3</div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h2>ALIGN-CONTENT</h2>
+    <p>整個內容對齊交叉軸的位置</p>
+    <p>彈性容器一定要設定換行</p>
+    <div class="container border-dark border border-5">
+      <h3>align-content-start</h3>
+      <div class="d-flex flex-wrap align-content-start">
+        <div class="w-25">item1</div>
+        <div class="w-25">item2</div>
+        <div class="w-25">item3</div>
+        <div class="w-25">item4</div>
+        <div class="w-25">item5</div>
+        <div class="w-25">item6</div>
+      </div>
+      <h3>比較align-content-start和align-items-start</h3>
+      <div class="d-flex flex-wrap align-items-start">
+        <div class="w-25">item1</div>
+        <div class="w-25">item2</div>
+        <div class="w-25">item3</div>
+        <div class="w-25">item4</div>
+        <div class="w-25">item5</div>
+        <div class="w-25">item6</div>
+      </div>
+    </div>
+    <h3>align-content-cneter</h3>
+    <div class="d-flex flex-wrap align-content-center">
+      <div class="w-25">item1</div>
+      <div class="w-25">item2</div>
+      <div class="w-25">item3</div>
+      <div class="w-25">item4</div>
+      <div class="w-25">item5</div>
+      <div class="w-25">item6</div>
+    </div>
+    <h3>align-content-end</h3>
+    <div class="d-flex flex-wrap align-content-end">
+      <div class="w-25">item1</div>
+      <div class="w-25">item2</div>
+      <div class="w-25">item3</div>
+      <div class="w-25">item4</div>
+      <div class="w-25">item5</div>
+      <div class="w-25">item6</div>
+    </div>
+    <h3>align-content-stretch</h3>
+    <div class="d-flex flex-wrap align-content-stretch">
+      <div class="w-25">item1</div>
+      <div class="w-25">item2</div>
+      <div class="w-25">item3</div>
+      <div class="w-25">item4</div>
+      <div class="w-25">item5</div>
+      <div class="w-25">item6</div>
+    </div>
+    <h3>align-content-between</h3>
+    <div class="d-flex flex-wrap align-content-between">
+      <div class="w-25">item1</div>
+      <div class="w-25">item2</div>
+      <div class="w-25">item3</div>
+      <div class="w-25">item4</div>
+      <div class="w-25">item5</div>
+      <div class="w-25">item6</div>
+    </div>
+    <h3>align-content-around</h3>
+    <div class="d-flex flex-wrap align-content-around">
+      <div class="w-25">item1</div>
+      <div class="w-25">item2</div>
+      <div class="w-25">item3</div>
+      <div class="w-25">item4</div>
+      <div class="w-25">item5</div>
+      <div class="w-25">item6</div>
+    </div>
 </body>
 
 </html>

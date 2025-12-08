@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+    <span class="align-baseline">baseline</span>
+    <span class="align-top">top</span>
+    <span class="align-middle">middle</span>
+    <span class="align-bottom">bottom</span>
+    <span class="align-text-top">text-top</span>
+    <span class="align-text-bottom">text-bottom</span>
+    <br>
+    <div class="container">
+        <h2>上標</h2>
+        <span>X</span><sup>2</sup><br>
+        <span>X</span><span style="vertical-align: 10px;font-size:10px;">2</span>
+
+        <hr>
+        <h2>bootstrap對img都做了vertical-align的設定，會自動消除幽靈空白</h2>
+        <p>除了 vertical-align: baseline 不行，其他都可以</p>
+        <div class="border border-dark">
+            <img src="https://picsum.photos/100/100/?random=10">
+            <img src="https://picsum.photos/100/100/?random=10">
+            <img src="https://picsum.photos/100/100/?random=10">
+            <img src="https://picsum.photos/100/100/?random=10">
+        </div>
+        <br>
+        <h2>在非bootstrap框架下，彈性盒預設會自動連圖片之間的空白都消掉</h2>
+        <div class="border border-dark d-flex">
+            <img src="https://picsum.photos/100/100/?random=10">
+            <img src="https://picsum.photos/100/100/?random=10">
+            <img src="https://picsum.photos/100/100/?random=10">
+            <img src="https://picsum.photos/100/100/?random=10">
+        </div>
+    </div>
+</body>
+
+</html>

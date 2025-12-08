@@ -7,6 +7,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <style>
+        .row {
+            background: #eee;
+            margin-bottom: 1rem;
+        }
+
         .row>*:nth-child(1) {
             background: var(--bs-teal);
         }
@@ -90,10 +95,17 @@
             <div class="col-12 col-md-6 col-xl-3">5</div>
         </div>
 
+        <p>.justify-content-md-center:斷點到md時，啟用justify-content:center
+        </p>
         <div class="row justify-content-md-center">
             <div class="col col-lg-2">
                 1 of 3
             </div>
+            <!--
+             .col-md-auto 
+             斷點在md時，auto代表隨內容自動調整大小。
+             所以在md之前，.col-md-auto沒有發揮作用，相當於一般的<div>，<div>會獨佔一行
+             -->
             <div class="col-md-auto">
                 Variable width content
             </div>
@@ -101,6 +113,8 @@
                 3 of 3
             </div>
         </div>
+        <!-- 到達md斷點之前和之後，跟上面例子一樣。
+             到斷點lg時，第3欄佔16%，第二欄只隨內容增長，不參與剩餘空間分配， 使得第1欄獨佔剩餘空間。-->
         <div class="row">
             <div class="col">
                 1 of 3
@@ -111,6 +125,36 @@
             <div class="col col-lg-2">
                 3 of 3
             </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>列與欄</h2>
+        <p>.row-cols-2，設定每列均分2欄(每欄寬定50%)</p>
+        <div class="row row-cols-2">
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+        </div>
+    </div>
+    <div class="container">
+        <p>設定xs:1欄，sm:2欄，md以上:4欄</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p>雖然設定均分4欄(每欄寬定25%)，但第3欄額外設定佔用50%，導致第4欄被擠出去</p>
+        <div class="row row-cols-4">
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col-6">Column</div>
+            <div class="col">Column</div>
         </div>
     </div>
 </body>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container px-4">
+        <h2>設.gx-5之前，</h2>
+        <p>根據<code>.row>*</code>，其子層的.col 要有padding-left & right各0.75rem</p>
+        <div class="row bg-danger">
+            <div class="col">
+                <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+            <div class="col">
+                <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+        </div>
+    </div>
+    <div class="container px-4">
+        <h2>設.gx-5</h2>
+        <p>.gx-5設定變數<code>--bs-gutter-x: 3rem</code>代入<code>.row>*</code>，使得.col的padding-left & right應有1.5rem</p>
+        <div class="row gx-5 bg-danger">
+            <div class="col">
+                <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+            <div class="col">
+                <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <h2>設gy-5</h2>
+    </div>
+    <div class="container overflow-hidden ">
+        <p>gy-5設定變數<code>--bs-gutter-y: 3rem</code>代入<code>.row>*</code>，使得.col的margin-top有3rem</p>
+        <div class="row gy-5 bg-info">
+            <div class="col-6">
+                <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+            <div class="col-6">
+                <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+            <div class="col-6">
+                <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+            <div class="col-6">
+                <div class="p-3 border bg-light">Custom column padding</div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <p>老師:實際上我不會用gutters去調欄位間的距離，而是在.col加上padding(如:px-3)</p>
+        <div class="row">
+            <div class="col-6 bg-danger p-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 bg-info p-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 bg-warning p-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 bg-dark p-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

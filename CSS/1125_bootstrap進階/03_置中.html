@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Display</h2>
+        <h3>圖片置中</h3>
+        <h4>d-block</h4>
+        <img class="d-block mx-auto" src="https://picsum.photos/300/200/?random=10">
+
+        <h4>text-align</h4>
+        <p class="text-center"><img src="https://picsum.photos/300/200/?random=10"></p>
+
+        <h4>d-flex</h4>
+        <p class="d-flex justify-content-center"><img src="https://picsum.photos/300/200/?random=10"></p>
+
+        <h4 class="mt-5">position</h4>
+        <p class="position-relative bg-dark w-100" style="height: 200px;">
+            <img class="position-absolute top-50 start-50 translate-middle"
+                src="https://picsum.photos/300/200/?random=10">
+        </p>
+    </div>
+</body>
+
+</html>

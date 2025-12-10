@@ -1,0 +1,9 @@
+@function calculate-size($base,$multiplier){
+  @return $base * $multiplier
+}
+
+$base-font-size:16px;
+// 計算字體大小
+@function font-size($level){
+  @return $base-font-size + ($level * 2px)
+}

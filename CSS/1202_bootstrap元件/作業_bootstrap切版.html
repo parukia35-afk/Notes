@@ -10,15 +10,41 @@
 
 <body>
     <!-- 導覽列 -->
-    <nav class="navbar navbar-expand-lg text-white bg-black">
+    <nav class="navbar navbar-expand-md bg-black bg-opacity-75 fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="#">泰山咖啡莊園</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active  text-white" aria-current="page" href="#">菜單餐點</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">周邊景點</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle  text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                    莊園位置
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-white" href="#">聯絡我們</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  text-white" href="#">咖啡故事</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
     <!-- 圖片輪播 -->
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
@@ -51,8 +77,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card’s content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                            the card's content.</p>
                     </div>
                 </div>
             </div>
@@ -63,7 +88,6 @@
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card’s content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -74,7 +98,6 @@
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card’s content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -83,25 +106,25 @@
     <br>
     <!-- 兩欄卡片 -->
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col">
-                <img class="col-12 col-md-6 d-block m-auto" src="https://picsum.photos/800/600/?random=10">
+        <div class="row justify-content-center bg-light">
+            <div class="col-12 col-md-6 text-center order-md-1 p-0">
+                <img class="w-100" src="https://picsum.photos/800/600/?random=14">
             </div>
-            <div class="col-12 col-md-6">
-                <div class="card text-center m-auto" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card’s content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
+            <div class="col-12 col-md-6 text-center my-auto order-md-2 px-2 pb-5">
+            <h2>Coffee Shop</h2>
+            <div class="pb-3">遇到格式女朋友漢化參數註明，賓館指導有可能估計眼神形象發佈時間得分報導傳統，所屬戀愛每個人評估二手有一能夠食品相機人大承擔一下子配置，都不相對也會人物，老人問題人大原本收藏你就天氣躺在研究桌面電腦學歷擔任人氣有所，基層為你太多留在房地產當前位置參加，大聲陽光能夠，信號留在可用語文請您我對表示，突出街道，沒想到，高考戀愛空中綠色後面地球安排招生會有，對待草魚並不意大利圖書，你們發現，宜蘭重點，消費。</div>
+            <button type="button" class="btn btn-success text-uppercase">View Collection</button>
+            </div>
+            <div class="col-12 col-md-6 text-center order-md-4 p-0">
+                <img class="w-100" src="https://picsum.photos/800/600/?random=13">
+            </div>
+            <div class="col-12 col-md-6 text-center my-auto order-md-3 px-2 pb-5">
+            <h2>Coffee Shop</h2>
+            <div class="pb-3">證券彷彿一直一番新聞分配像是，一體外掛成績，一批天然請大家都不包裝女人下載次數，責任編輯，基隆因而發展我真大會留言板百度預計出售來了利用上門要是，並不重複陷入。</div>
+            <button type="button" class="btn btn-success text-uppercase">View Collection</button>
             </div>
         </div>
     </div>
-    <br>
     <!-- 地圖 -->
     <div class="container-fluid">
         <iframe class="w-100"
@@ -117,31 +140,48 @@
             <h3>泰山咖啡莊園，傳承熱情coding精神</h3>
             <div>任何服務問題或建議，歡迎您透過客服表單告知我們，謝謝!</div>
         </div>
-        <form>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">姓名</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <form> 
+            <div class="row">
+                <div class="mb-3 col-12 col-md-6">
+                    <label for="exampleInputEmail1" class="form-label">姓名</label>
+                
+                    <div class="input-group-text p-0 border-0">
+                    <input type="email" class="form-control" id="exampleInputEmail1">
+                    先生<input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input">
+                    女士<input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <div class="mb-3 col-12 col-md-6">
+                    <label for="exampleInputPassword1" class="form-label">電話</label>
+                    <input type="password" class="form-control" id="exampleInputEmail">
+                </div>
+                <div class="mb-3 col-12 col-md-6">
+                    <label for="exampleInputPassword1" class="form-label">電子信箱</label>
+                    <input type="password" class="form-control" id="exampleInputEmail">
+                </div>
+                <select class="form-select mb-3 d-block col-12 col-md-6">
+                    <option selected>餐飲建議</option>
+                    <option value="1">妙蛙種子</option>
+                    <option value="2">小火龍</option>
+                    <option value="3">傑尼龜</option>
+                </select>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">電話</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">電子信箱</label>
-                <input type="password" class="form-control" id="exampleInputEmail">
+                <label for="exampleFormControlTextarea1" class="form-label">意見需求</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">訂閱泰山莊園最新訊息</label>
             </div>
-            <button type="submit" class="btn btn-secondary">送出</button>
+            <button type="submit" class="btn btn-secondary d-block mx-auto">送出</button>
         </form>
     </div>
 
     <br>
     <!-- 頁尾 -->
     <div class="container-fluid bg-black text-white">
-        <div class="row justify-content-center py-3 px-3 m-auto">
+        <div class="w-100 row justify-content-center p-3">
             <div class="col-6 col-md-3">
                 <img style="border-radius: 50%;" src="https://picsum.photos/200/200/?random=10">
             </div>

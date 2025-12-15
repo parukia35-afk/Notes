@@ -9,18 +9,19 @@
   <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <div id="app">
-      <!-- {{}}或v-text用文字顯示資料 = .innerText = .text() -->
+      <!-- {{}}或v-text，將資料以文字顯示資料 = .innerText = .text() -->
       <h1>標題:{{title}}</h1>
-      <h1 v-text="title">123456</h1>
       <!--v-text是指令，會覆蓋標籤內的東西-->
+      <h1 v-text="title">123456</h1>
+      <!-- v-html，將資料以HTML顯示 = innerHTML = .html() -->
       <div>{{img}}</div>
       <div v-text="img"></div>
       <div v-html="img"></div>
-      <!-- 判斷式，不符合不會在DOM -->
+      <!-- v-if，判斷式，不符合者會直接不存於DOM -->
       <div v-if="num>10">大於10</div>
       <div v-else-if="num===10">等於10</div>
       <div v-else="num<10">小於10</div>
-      <!-- 判斷式，不符合者display:none -->
+      <!-- v-show，判斷式，不符合者display:none(仍存在於DOM) -->
       <div v-show="num>10">大於10</div>
       <div v-show="num===10">等於10</div>
       <div v-show="num<10">小於10</div>
@@ -32,9 +33,9 @@
       <ul>
         <li v-for="(value,i) in pokemons">索引是{{i}}時是{{value}}</li>
       </ul>
-      <!-- v-for和v-if不能投使用在一個標籤上 -->
-      <!-- 必須使用template標籤輔助 -->
-      <!-- template只能用v-if和v-for -->
+      <!-- v-for和v-if不能同時用在一個標籤上，因為會有兩層涵義。1.符合才跑迴圈? 2.跑迴圈後符合才顯示? -->
+      <!-- 必須使用template標籤輔助才能做到v-if和v-for混用 -->
+      <!-- template只能配合v-if和v-for使用 -->
       <ul>
         <template v-for="value in pokemons">
           <li v-if="value==='火球鼠'">{{value}}</li>

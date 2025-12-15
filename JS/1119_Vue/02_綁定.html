@@ -18,22 +18,27 @@
 
 <body>
   <div id="app">
+    <!-- v-bind，綁定標籤屬性 -->
     <img v-bind:src="img" width="50" />
     <img :src="img" width="50" />
     <a v-for="value in links" :href="value.url">{{value.text}}</a>
+
+    <!-- 綁定style -->
+    <!-- 1. 全綁一起 -->
     <p :style="textStyle">綁定一個樣式物件</p>
+
+    <!-- 2. 分開綁 -->
     <!-- style綁定{}物件，可以和一般的style同時存在 -->
     <p :style="{color:textColor,textAlign}" style="font-weight: bold">
-      <!-- JS物件語法糖:當key和value的變數名稱相同時，可以省略只寫一個 -->
       nline Object Style Binding:行內物件式 style 綁定
+      <!-- JS物件語法糖:當key和value的變數名稱相同時，可以省略只寫一個 -->
     </p>
-    <!-- 
-    class綁定 陣列或物件
-    陣列:會將陣列內的class名稱全部加上去
-    物件:屬性為class名稱，值為布林值，true則加上該class，false則不加
-    -->
-    <p :class="classArray">陣列:物件內的class名稱都加上去</p>
-    <p :class="classObject">物件:true的classh加上去</p>
+    <!-- 綁定class -->
+
+    <!-- 1. 陣列綁法: 陣列內所有的 class 都綁上去 -->
+    <p :class="classArray">陣列綁class</p>
+    <!-- 2. 物件綁法: 物件內值為true的屬性才綁，false就不綁 -->
+    <p :class="classObject">物件綁class</p>
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>

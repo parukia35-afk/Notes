@@ -9,7 +9,7 @@
 
 <body>
   <div id="app">
-    <form @submit.prevent="addItem">
+    <form @submit.prevent="add">
       <input type="text" v-model="input" :style="{border:inputBorder}">
       <input type="submit" value="新增">
     </form>
@@ -28,7 +28,7 @@
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    const { createApp, ref, reactive, computed } = Vue
+    const { createApp, ref, reactive, computed } = Vue  //將createApp從vue這個物件解構出來
     // ref可以存任何資料型態；reactive只能存陣列物件，並帶有深層監聽
     createApp({
       setup() {
@@ -40,27 +40,31 @@
 
         const add = () => {
           if (input.value.length < 2) return
+          //不能直接寫input.length!! 資料如果是ref，必須加.value才能取值
           list.push({
             text: input.value,
             done: false,
             id: id++
           })
-
-          const delItem = (id) => {
-            const idx = list.findIndex(item => item.id === id)
-            list.splice(idx, 1)
-          }
-
-          const delAll = () => {
-            list.length = 0
-          }
-
-          const markAll = () => {
-            list.array.forEach(item => {
-              item.done = value
-            })
-          }
         }
+
+        const delItem = (id) => {
+          const idx = list.findIndex(item => item.id === id)
+          list.splice(idx, 1)
+        }
+
+        const delAll = () => {
+          // 這裡本來在選項式寫 this.list=[]，但在組合式下，前面已經寫const list= reactive([])
+          // 所以必須換種寫法
+          list.length = 0
+        }
+
+        const markAll = (value) => {
+          list.array.forEach(item => {
+            item.done = value
+          })
+        }
+
 
         const inputBorder = computed(() => {
           if (input.value.length === 0) {
@@ -83,6 +87,7 @@
           list.push(...JSON.parse(localStorage.list))
           id = list.at(-1).id + 1
         }
+        // 組合式寫法最後要寫return，將所有html會用到的東西都寫進去
         return {
           input,
           search,

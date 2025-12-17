@@ -9,7 +9,7 @@
 
 <body>
   <div id="app">
-    <form @submit.prevent="addItem">
+    <form @submit.prevent="add">
       <input type="text" v-model="input" :style="{border:inputBorder}">
       <input type="submit" value="新增">
     </form>
@@ -17,7 +17,7 @@
     <input type="button" value="全部已完成" @click="markAll(true)">
     <input type="button" value="全部未完成" @click="markAll(false)">
     <ul>
-      <li v-for="(item,idx) in filterList">
+      <li v-for="(item,idx) in filterlist">
         <input type="checkbox" v-model="item.done">
         <del v-if="item.done">{{item.text}}</del>
         <span v-else>{{item.text}}</span>
@@ -45,6 +45,7 @@
             done: false,
             id: id++
           })
+        }
 
           const delItem = (id) => {
             const idx = list.findIndex(item => item.id === id)
@@ -60,7 +61,7 @@
               item.done = value
             })
           }
-        }
+        
 
         const inputBorder = computed(() => {
           if (input.value.length === 0) {
@@ -73,9 +74,10 @@
         })
 
         const filterlist = computed(() => {
-          return lilst.filter(item => item.text.includes(search.value))
+          return list.filter(item => item.text.includes(search.value))
         })
 
+        // 用watch來監聽list的變化並存到localStorage
         watch(list, () => {
           localStorage.list = JSON.stringify(list)
         })

@@ -8,27 +8,31 @@
 </head>
 
 <body>
+  <!-- vue的主體 -->
   <div id="app">
+    <!-- 使用元件:直接以元件名稱做標籤 -->
     <Counter></Counter>
     <Counter></Counter>
     <Counter></Counter>
     <Counter></Counter>
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- 元件在html環境下的固定寫法: type="tex/x-template" 用以宣告元件的模板，但寫成x-template的話就不能獨立寫在src內 -->
   <script type="tex/x-template" id="counter">
     <input type="button" :value="num" @click="num++">
   </script>
   <script>
-
     const { createApp, ref } = Vue
     createApp({
 
     })
-      // component(元件名稱)
+    // 元件的JS部分寫在createApp外面，用.component定義
+      // component(元件名稱，首字通常會大寫以跟html的元素做區分)
       .component('Counter', {
         // 定義元件的HTML部分
-        // template:<input type="button" :value="num" @click="num++">
-        template: '#counter',
+        template: '#counter', // template用來指定元件對應的html的部分，可以使用id指定對應的模板
+        // 也可以直接寫html: template:<input type="button" :value="num" @click="num++">
+        // 後面的寫法就跟組合式createApp裡面的寫法一樣了...
         setup() {
           const num = ref(0)
           return { num }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    body{
+      padding-bottom: 500px;
+    }
+    h3,h4{
+      margin-bottom: 20px;
+    }
+    .wrap{
+      width: 600px;
+      height: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      background: lightgray;
+    }
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7{
+      width: 50px;
+      height: 50px;
+      background: lightblue;
+      margin: 5px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <!-- GSAP -->
+  <script src="./gsap/gsap.js"></script>
+  <div class="container">
+    <h3>Stagger 交錯動畫</h3>
+    <div class="wrap">
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+      <div class="box1"></div>
+    </div>
+    <script>
+      gsap.to('.box1',{
+        y:245,
+        duration:1,
+        stagger:0.1,
+        stagger:{
+          each:0.1,
+          from:'random', //start,center,end,edges,random
+          from:8, //設定從第幾個索引先開始
+          repeat:-1,
+          yoyo:true,
+        },
+        ease:'power1.in',
+      })
+    </script>
+
+    <h3>動畫事件與事件函式</h3>
+    <div class="box2"></div>
+    <div class="progress mb-3">
+      <div class="progress-bar w-25"></div>
+    </div>
+  </div>
+  <button id="btn1">播放</button>
+  <button id="btn2">暫停</button>
+  <button id="btn3">反轉</utton>
+
+  <script>
+    const tween=gsap.to('.box2',{
+      x:'80vw',
+      duration:5,
+      paused:true,
+      ease:'none',
+    })
+    $('#btn1').on(click,function(){
+      tween.play()
+    })
+    $('#btn2').on(click,function(){
+      tween.paused()
+    })
+    $('#btn3').on(click,function(){
+      tween.paused()
+    })
+  </script>
+  
+</body>
+</html>

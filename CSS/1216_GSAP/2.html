@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+  <!-- GSAP -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- JQ -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==' crossorigin='anonymous'></script>
+  <div class="container-fluid vh-100 p-0 bg-dark"></div>
+
+
+  <script>
+    function createStar(starCount){
+      for(let i = 0;i < starCount;i++){
+        $('.container-fluid').append(`<div class="star animate">★</div>`)
+      }
+      gsap.set('.star',{
+        position:'absolute',
+        left:function(index,target,targets){
+          return gsap.utils.random(0,100) + '%'
+        },
+        top:function(index,target,targets){
+          return gsap.utils.random(0,100) + '%'
+        },
+        color:'yellow'
+      })
+    }
+    createStar(50)
+  </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    body{
+      padding-bottom: 500px;
+    }
+    h3{
+      margin: 20px 0;
+    }
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7,
+    .box8,
+    .box9,
+    .box10,
+    .box11{
+      width: 50px;
+      height: 50px;
+      background: black;
+      margin: 5px;
+    }
+    .box2{
+      background: pink;
+    }
+    .box3{
+      background: lightblue;
+    }
+    .box4{
+      background: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <!-- GSAP -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- JQ -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==' crossorigin='anonymous'></script>
+  <div class="container">
+    <h1>Tween 補間動畫</h1>
+    <ul>
+      <li>有三種方式建立補間動畫:gsap.to()、gsap.from()、gsap.fromTo()</li>
+      <li>用gsap.timeline()建立時間軸</li>
+    </ul>
+    <div class="box1"></div>
+    <script>
+      // 第一個參數為目標，第二參數為一用來設定gsap動畫和css屬性的物件
+      const tween1=gsap.to('.box1',{
+        x:500, //css屬性
+        duration:3, //css屬性
+        rotation:3600, //gsap屬性
+      })
+    </script>
+    <h3>選擇群組:使用陣列</h3>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box3"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box4"></div>
+    <div class="box4"></div>
+    <script>
+      const jq1=$('.box2')
+      const jq2=$('.box3')
+      const jq3=$('.box4')
+
+      const tween2=gsap.to([jq1,jq2,jq3],{
+        x:500,
+        duration:3,
+        rotation:90
+      })
+    </script>
+    <h3>絕對數值</h3>
+    <div class="box5"></div>
+    <script>
+      const tween3=gsap.to('.box5',{
+        xPercent:100,
+        yPercent:100,
+        duration:3,
+      })
+    </script>
+    <h3>相對數值</h3>
+    <div class="box6"></div>
+    <script>
+      const tween4=gsap.to('.box6',{
+        x:'+=200',
+        // let myVar='300'
+        // x:`+=${myVar}` //搭配插值語法
+        duration:2,
+        repeat:3, //重複播放3，加上本來的初始播放1，共播放4次
+        repeatRefresh:true, //重複記錄當前的狀態，通常與相對數值配合
+      })
+    </script>
+    <h3>隨機函式值(字串)</h3>
+    <div class="box7"></div>
+    <div class="box7"></div>
+    <div class="box7"></div>
+    <script>
+      const tween5=gsap.to('.box7',{
+        x:'random(0,1000)', //0~1000隨機
+        x:'random(500,1000,100)', //500~1000能被100整除的數取隨機->500,600,700,800,900,1000
+        background:'random([red,yellow,green,skyblue])',
+        border:'7px random([solid,dashed,double]) rgba(random(0,255),random(0,255),random(0,255))',
+        width:'random(50,200)',
+        duration:3,
+      })
+    </script>
+    <h3>函式作為值</h3>
+    <div class="box8"></div>
+    <div class="box8"></div>
+    <div class="box8"></div>
+    <script>
+      const tween6=gsap.to('.box8',{
+        x:function(index,target,targets){
+          console.log(index,target,targets)
+          return 50*(index + 1)
+        }
+      })
+    </script>
+    <h3>設定css屬性</h3>
+    <div class="box9" style="margin:auto ;"></div>
+    const tween7=gsap.to('.box9',{
+      x:
+    })
+
+    <h3>設定動畫屬性</h3>
+    <div class="box10"></div>
+
+    <h3>keyframe 關鍵影格</h3>
+    <div class="box11"></div>
+    <script>
+      gsap.to('.box11',{
+        repeat:-1,
+        yoyo:true,
+        defaults:{
+          duration:0.5,
+          delay:1,
+          ease:'elastic',
+        },
+        keyframe:[
+        {
+          x:200,
+          rotation:360,
+        },
+        {
+          y:100,
+          scale:0.1,
+          duration:3,
+          ease:'steps(3)',
+        },
+        {
+          x:0,
+          rotation:-360,
+          scale:1.5,
+        },
+        {
+          y:0,
+          scale:1,
+        }
+      ]
+      })
+    </script>
+  </div>
+  
+</body>
+</html>

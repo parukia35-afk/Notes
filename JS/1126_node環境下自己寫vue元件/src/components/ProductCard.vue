@@ -54,8 +54,9 @@ const props = defineProps({
 // const price = toRef(props, 'price')
 const { price } = toRefs(props)
 const show = () => {
-  alert(props.price)
-  alert(price.value)
+  // props.title+=123 //props是唯獨不能修改，要改東西的話要在外部，因為資料來源是外部
+  alert(props.price) //非解構
+  alert(price.value) //解構
 }
 </script>
 

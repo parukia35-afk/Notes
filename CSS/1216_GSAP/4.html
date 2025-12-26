@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    body{
+      padding-bottom: 500px;
+    }
+    h3{
+      margin: 20px 0;
+    }
+    .box1,
+    .box2{
+      width: 50px;
+      height: 50px;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <!-- GSAP -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- JQ -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==' crossorigin='anonymous'></script>
+  <div class="container">
+  <h1>from與fromTo</h1>
+  <p>gsap除了提供gsap.to()，還有gsap.from()、gsap.fromto()這兩個製作補間(tween)動畫的方法</p>
+  <h2>from</h2>
+  <p>指定元素補間動畫從"設定狀態"到"目前狀態"，很適合用在進場動畫
+  </p>
+  <div class="box1"></div>
+  <script>
+    gsap.from('.box1',{
+      x:-500,
+      duration:1
+    })
+  </script>
+  <h2>fromTo</h2>
+  <p>指定元素補間動畫從"from的設定狀態"到"to的設定狀態"</p>
+  <div class="box2"></div>
+  <script>
+    gsap.fromTo('.box2',{
+      x:1000,
+    },{
+      x:-100,
+      delay:1, //動畫屬性下在第二個參數，下第一個會沒用
+      duration:3,
+    })
+  </script>
+  </div>
+  
+</body>
+</html>

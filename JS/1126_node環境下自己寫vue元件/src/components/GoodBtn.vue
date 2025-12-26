@@ -17,5 +17,7 @@ const text = computed(() => {
 
 const toggle = () => {
   good.value = !good.value
+  // emit('自訂事件名稱', 傳出的資料)
+  emit('toggle',good.value) // 
 }
 </script>

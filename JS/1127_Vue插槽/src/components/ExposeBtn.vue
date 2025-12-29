@@ -11,7 +11,7 @@ const func = () => {
 
 // defineExpose 是特殊語法，不需要import
 //定義那些變數或函式可以讓外部直接存取
-// 只有script setup需要寫，script + export default不需要
+// 只有script setup需要寫，script + export default不需要定義那些東西給外面
 defineExpose({
   count,
   func,

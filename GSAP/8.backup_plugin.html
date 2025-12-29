@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    section{
+      height: 50vh;
+      font-size:  3rem;
+      color: white;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- GSAP -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- plugin -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+  <!-- JQ -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==' crossorigin='anonymous'></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+
+    $('section').each(function(index,section){
+      gsap.set(section,{
+        backgroundImage:`url(https://picsum.photos/1920/1080/?random=${index})`,
+      })
+      gsap.to(section,{
+        scrollTrigger:{
+          trigger:section,
+          start:'top 50%',
+          end:'bottom 0%',
+          scrub:true,
+          markers:true,
+        },
+        backgroundPostion:'50% -50%',
+        ease:'none',
+      })
+    })
+
+  </script>
+  <section id="section1">Section1</section>
+  <section id="section2">Sectiom2</section>
+  <section id="section3">Section3</section>
+  <section id="section4">Section4</section>
+  <section id="section5">Section5</section>
+  <section id="section6">Section6</section>
+</body>
+</html>

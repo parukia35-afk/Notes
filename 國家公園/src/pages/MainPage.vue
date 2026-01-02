@@ -1,7 +1,6 @@
 <template lang="pug">
 #main 
   img(src="@/assets/national_park.jpg")
-
 </template>
 
 <style scoped lang="sass">

@@ -1,13 +1,15 @@
 <template>
+  <h1>插槽</h1>
   <!-- 插槽:元件標籤中沒東西，顯示預設內容 -->
   <SlotCard></SlotCard>
   <!-- 元件標籤中有東西，覆蓋插槽位置的內容 -->
   <SlotCard>ABC</SlotCard>
   <SlotCard>
-    <h1>AAA</h1>
+    <h2>AAA</h2>
     <p>BBB</p>
   </SlotCard>
   <hr />
+  <h1>使用帶有名字的插槽與預設插槽</h1>
   <!-- 元件有很多插槽時，標籤內的內容(ABC)會蓋掉沒有名字的預設插槽(card-body內的插槽)的預設內容 -->
   <SlotCardTwo>ABCD</SlotCardTwo>
   <!--
@@ -31,6 +33,7 @@
     <template #footer>xyz</template>
   </SlotCardTwo>
   <hr />
+  <h1>使用插槽提供的資料</h1>
   <SlotCardThree>
     <!-- 
     使用插槽提供的資料的語法，必須在元件標籤內包一個<template>
@@ -45,9 +48,13 @@
     </template>
   </SlotCardThree>
   <hr />
-  <h1 ref="title">AAA</h1>
-  <h2 ref="subtitle">BBB</h2>
-  <ExposeBtn ref=""></ExposeBtn>
+  <h1>用ref或useTemplateRef抓到HTML元素</h1>
+  <h2 ref="title">AAA</h2>
+  <h3 ref="subtitle">BBB</h3>
+  <hr>
+  <h1>在子元件使用defineExpose定義元件提供的資料。在父元件用useTemplateRef抓到元件的標籤後，使用defineExpose的資料</h1>
+  <ExposeBtn ref="expBtn"></ExposeBtn>
+  <input type="button" value="檢查元件" @click="check">
 </template>
 
 <style scoped></style>
@@ -77,4 +84,19 @@ onMounted(()=>{
   console.log(subtitle.value.innerText)
   console.log(title.value.innerText)
 })
+// 元件也是一樣的用法:先用useTemplateRef讓變數抓到元件後，
+const expBtn = useTemplateRef('expBtn')
+// 就可以存取元件defineExpose的資料了
+const check=()=>{
+  console.log(expBtn.value.count)
+  expBtn.value.func()
+}
 </script>
+
+<style scoped>
+  h1{
+    color: indianred;
+    font-family: '微軟正黑體';
+    text-decoration: underline;
+  }
+</style>

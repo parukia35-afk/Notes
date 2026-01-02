@@ -2,7 +2,7 @@
   <input type="button" :value="count" @click="count++" />
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 const count = ref(0)
 const func = () => {

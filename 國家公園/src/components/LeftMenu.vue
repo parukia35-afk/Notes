@@ -6,12 +6,15 @@
         td
           img(:src="link.image" @click="go(link.page)")
       tr(v-if="idx !== links.length - 1")
+      //- 如果索引不是3，才有空的tr =>前三筆link後都有空一個tr，最後一筆沒有，故迴圈完共有7個tr
   p
+    //- 在pug裡，如果要打標籤內的文字的話，在元素後面空一個空白
     a 檔案下載
 </template>
 
 <script setup>
 const links = [
+  // 在JS寫檔案的相對路徑: new URL('@/',import.meta.url).href
   { page: 'yangmingshan', image: new URL('@/assets/park0302.jpg', import.meta.url).href },
   { page: '', image: new URL('@/assets/park0303.jpg', import.meta.url).href },
   { page: '', image: new URL('@/assets/park0304.jpg', import.meta.url).href },

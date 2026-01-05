@@ -9,6 +9,7 @@ export const useListStore = defineStore('list', () => {
   // 目前進行中事項
   const currentItem = ref('')
 
+  /* 事項流向:使用者在輸入框輸入事項→ 丟進items(待辦事項)→開始進行時丟進currentItem(目前進行中事項)→完成後丟進finishedItems(已完成事項) */
   const id = ref(1)
 
   return {

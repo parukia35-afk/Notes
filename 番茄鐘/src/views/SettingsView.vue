@@ -18,11 +18,11 @@
             <tr v-for="alarm in settings.alarms" :key="alarm.id">
               <td>{{ alarm.name }}</td>
               <td>
-                <audio controls src="alarm.file" />
+                <audio controls src="alarm.file" /> <!-- 做出播放器一點都不難，用丙級拿來播音樂的 audio 標籤，加上 controls屬性就好 -->
               </td>
-              <td>
-                <v-radio-group v-model="settings.selected" hide-details>
-                  <v-radio :value="alarm.id" />
+              <td><!-- v-radio-group的屬性 hide-details會造成空白 -->
+                <v-radio-group v-model="settings.selected" hide-details> <!-- 使用者在這頁所選的鬧鐘鈴聲種類會與pinia裡的 selected變數相連動 -->
+                  <v-radio :value="alarm.id" /> <!-- value 代表選擇此單選項時所傳出去的值，等於pinia裡每個alarm的id(1或2)，傳出去是到 v-radio-group，並透過v-model與pinia裡的 selected變數相連動-->
                 </v-radio-group>
               </td>
             </tr>
@@ -34,6 +34,7 @@
 </template>
 
 <script setup>
+  // 存取pinia中，settings.js的資料
   import { useSettingsStore } from '@/stores/settings'
 
   const settings = useSettingsStore()

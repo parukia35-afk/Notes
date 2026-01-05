@@ -1,4 +1,5 @@
 <template>
+  <!-- v-app 是vuetify最外層的元件，可以套用到主題的設定 -->
   <v-app>
     <v-app-bar>
       <v-app-bar-title>網站標題</v-app-bar-title>

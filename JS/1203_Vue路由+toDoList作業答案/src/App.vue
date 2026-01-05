@@ -64,7 +64,10 @@ const go = (path) => {
   </div>
   <div id="right">
     <marquee>歡迎來到書曼的旅遊相簿，本網站有我的旅遊影像紀錄介紹耶！</marquee>
-    <!-- 路由對應的元件顯示位置(也可以寫成<RouterView></RouterView>) -->
+    <!-- 
+    <router-view>是有裝路由套件才可以用的標籤
+    路由對應的元件顯示位置(也可以寫成<RouterView></RouterView>)
+     -->
     <router-view></router-view>
   </div>
 </template>

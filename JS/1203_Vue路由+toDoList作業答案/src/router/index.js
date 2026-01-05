@@ -1,8 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 
+// 路由有兩種模式:createWebHistory 和 createWebHashHistory
+/* 
+  前者的分頁路徑名稱會是locakhost:5173/jinmen，但實際上我們並沒有jinmen.html這個檔案，必須額外設定將所有請求導到index.html裡面
+  後者的分頁路徑名稱是locakhost:5173/#/jimen，#在html代表id
+*/
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
+  // 定義我的網站有哪些頁面可以用
   routes: [
     {
       path: '/',

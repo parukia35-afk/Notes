@@ -2,6 +2,7 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
+// 組合式寫法
 export const useAppStore = defineStore('app', () => {
   const number = ref(0)
 
@@ -25,7 +26,7 @@ export const useAppStore = defineStore('app', () => {
   }
 })
 
-/*
+/* 選項式寫法:
 export const useAppStore = defineStore('app', {
   // 保存的資料 = data
   state: () => ({

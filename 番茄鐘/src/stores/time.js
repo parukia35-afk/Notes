@@ -1,12 +1,13 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useTimeStore = defineStore('time', () => {
-  const timeleft = ref() // 時間還剩多久?
-  const isBreakTime = ref(false) // 現在是否是休息時間?
+// 環境變數
+const TIME = import.meta.env.VITE_TIME
+const TIME_BREAK = import.meta.env.VITE_TIME_BREAK
 
-  const TIME = import.meta.env.VITE_TIME
-  const TIME_BREAK = import.meta.env.VITE_TIME_BREAK
+export const useTimeStore = defineStore('time', () => {
+  const timeleft = ref(TIME) // 時間還剩多久?
+  const isBreakTime = ref(false) // 現在是否是休息時間?
 
   return {
     timeleft,

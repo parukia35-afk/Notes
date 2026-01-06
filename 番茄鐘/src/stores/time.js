@@ -2,8 +2,8 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useTimeStore = defineStore('time', () => {
-  const timeleft = ref()
-  const isBreakTime = ref(false)
+  const timeleft = ref() // 時間還剩多久?
+  const isBreakTime = ref(false) // 現在是否是休息時間?
 
   const TIME = import.meta.env.VITE_TIME
   const TIME_BREAK = import.meta.env.VITE_TIME_BREAK
@@ -15,3 +15,13 @@ export const useTimeStore = defineStore('time', () => {
     TIME_BREAK,
   }
 })
+/* 環境設定檔 .env
+  https://cn.vite.dev/guide/env-and-mode#env-variables-and-modes
+  .env                # 所有情况下都会加载
+  .env.local          # 所有情况下都会加载，但会被 git 忽略  --->因.gitignore中有設定只要是.env.local都會被git省略
+  .env.[mode]         # 只在指定模式下加载                  --->mode是模式，有兩種:開發模式與正式模式。
+  .env.[mode].local   # 只在指定模式下加载，但会被 git 忽略
+
+  NODE_ENV 和 模式
+  https://cn.vite.dev/guide/env-and-mode#env-variables-and-modes #NODE_ENV 和 模式
+  */

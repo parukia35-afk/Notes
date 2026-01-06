@@ -118,20 +118,21 @@
   const editItem = item => {
     item.edit = true
   }
-  // 當點擊mid-check時觸發此函式，將該待辦事項的text(key)的值改成其input(key)的值
+  // 當點擊mid-check時觸發此函式，將該待辦事項的text(key)的值改成其input(key)的值，而input(key)的值又與輸入框內容綁定。然後再將編輯狀態改為false。
   const submitEditItem = (item, idx) => {
     if (!editTextField.value[idx].isValid) return // 當editTextField的第[索引]個不符合驗證時，return
     item.text = item.input
     item.edit = false
   }
-
+  // 當點擊mid-undo時觸發此函式，將該代辦事項的input(key)的值變成原本的文字(存在text(key)的值)。然後再將編輯狀態改為false。
   const cancelEditItem = item => {
     item.input = item.text
     item.edit = false
   }
 
-  const delItem = id => {
-    const idx = list.items.findIndex(item => item.id === id)
-    list.items.splice(idx, 1)
+  // 當點擊mid-delete時觸發此函式
+  const delItem = id => { // 參數 id代表迴圈到的該待辦事項的id(key)的值
+    const idx = list.items.findIndex(item => item.id === id) // 將items(陣列)迴圈一遍尋找第一個其 id(key，被找者)符合觸發此函式的待辦事項的id(key，目標)的值。
+    list.items.splice(idx, 1) // 將items(陣列)從找到的索引值開始(包含起點自己)刪除一個
   }
 </script>

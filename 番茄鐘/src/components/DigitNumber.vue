@@ -14,7 +14,6 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     y="0px"
   >
-
     <!-- 左上豎槓 -->
     <path
       id="B"
@@ -61,13 +60,13 @@
     將冒號的部分綁定 class=active的樣式，當active: ture時綁定，false則不綁定。
     '013456789'. includes(data) }表示當傳進的data有這些數字時為true，則class=active的樣式會被綁定。
     -->
-    <circle :class="{ active: data === ':'}" cx="146" cy="126.873" r="17" />
-    <circle :class="{ active: data === ':'}" cx="146" cy="389.818" r="17" />
+    <circle :class="{ active: data === ':' }" cx="146" cy="126.873" r="17" />
+    <circle :class="{ active: data === ':' }" cx="146" cy="389.818" r="17" />
   </svg>
 </template>
 
 <script setup>
-  defineProps(['data', 'color'])
+defineProps(['data', 'color'])
 </script>
 
 <style scoped>
@@ -75,12 +74,13 @@ svg {
   margin: 5px;
   width: 100px;
 }
-path, circle {
+path,
+circle {
   /* fill 屬性專用來對 path 和 circle標籤做填滿顏色 */
-  fill:black;
+  fill: black;
   /* 一開始先設定顏色為透明，當active時再套用綁定的顏色，控制不同path的active狀態來實現顯示各種數字的效果 */
 }
-.active{
+.active {
   /*
   Vue 與 CSS的綁定
   https://zh-hk.vuejs.org/api/sfc-css-features#v-bind-in-css */

@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 // 環境變數
+// parseInt的第二個參數10代表使用十進位，是個好習慣
 const TIME = import.meta.env.VITE_TIME
 const TIME_BREAK = import.meta.env.VITE_TIME_BREAK
 

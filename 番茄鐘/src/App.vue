@@ -9,7 +9,17 @@
       </v-container>
     </v-app-bar>
     <v-main>
-      <router-view />
+      <!-- 插槽裡的{Component}代表目前頁面應該要顯示的元件 -->
+      <router-view v-slot="{ Component }">
+        <!--
+        keep-alive:被包住的內容不會被銷毀
+        include:指定要快取的元件名聲
+        -->
+        <!-- compontent是動態元件標籤，用 is 定義是甚麼元件，<component>就會變成is 定義的元件 -->
+        <keep-alive include="HomeView">
+          <component :is="Component"></component>
+        </keep-alive>
+      </router-view>
     </v-main>
   </v-app>
 </template>

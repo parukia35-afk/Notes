@@ -15,7 +15,7 @@ const router = createRouter({
       name: 'home',
       component: () => import('@/views/HomeView.vue'),
       meta: {
-        title: '首頁',
+        title: 'Pomodoro |首頁',
       },
     },
     {
@@ -23,7 +23,7 @@ const router = createRouter({
       name: 'list',
       component: () => import('@/views/ListView.vue'),
       meta: {
-        title: '事項',
+        title: 'Pomodoro |事項',
       },
     },
     {
@@ -31,10 +31,14 @@ const router = createRouter({
       name: 'settings',
       component: () => import('@/views/SettingsView.vue'),
       meta: {
-        title: '設定',
+        title: 'Pomodoro |設定',
       },
     },
   ],
+})
+// 在路由進到每個頁面後，將分頁標籤換成要前往的那個分頁的 meta 的 title 的值
+router.afterEach(to => {
+  document.title = to.meta.title
 })
 
 // Workaround for https://github.com/vitejs/vite/issues/11804

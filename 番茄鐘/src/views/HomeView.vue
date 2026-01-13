@@ -15,7 +15,7 @@
         <DigitNumber
           v-for="(data, idx) in timeleftText"
           :key="idx"
-          color="turqoise"
+          color="turquoise"
           :data="data"
         ></DigitNumber>
         <!--

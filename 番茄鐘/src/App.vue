@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar color="red">
+    <v-app-bar color="teal-accent-4">
       <v-container class="d-flex align-center">
         <v-app-bar-title>番茄鐘</v-app-bar-title>
         <v-btn prepend-icon="mdi-home" to="/">首頁</v-btn>

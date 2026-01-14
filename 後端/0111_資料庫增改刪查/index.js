@@ -110,7 +110,7 @@ app.get('/:id', async (req, res) => {
        const user = await User.find({ _id: req.params.id })[0] */
 
     /* 或使用findOne 回傳符合的第一筆資料
-       const user = await User.findOne({_idLreq.params.id}) */
+       const user = await User.findOne({_id.req.params.id}) */
 
     /* 或直接用findByID查 */
     // .orFail() 用來處理找不到的情況(比如輸入的id在資料庫根本沒有，這時的 user變數會等於null)，這是mongoDB提供的一種更好寫法(可少寫一個if)。不寫orFail，改寫if (user === null) throw new Error('NOTFOUND) 也可以。

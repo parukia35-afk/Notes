@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import express from 'express'
 import { StatusCodes } from 'http-status-codes'
 import routeProduct from './routes/product.js'
+import routeUser from './routes/user.js'
 
 // 資料庫連線
 mongoose
@@ -27,6 +28,8 @@ app.use((error, req, res, _next) => {
 })
 // 從路徑/product 進來的請求，全度丟給 routeProduct 這個路由去做
 app.use('/product', routeProduct)
+
+app.use('/user', routeUser)
 
 // 監聽 4000 port 請求
 app.listen(4000, () => {

@@ -28,7 +28,7 @@ app.use((error, req, res, _next) => {
 })
 // 從路徑/product 進來的請求，全度丟給 routeProduct 這個路由去做
 app.use('/product', routeProduct)
-
+// 從路徑/user 進來的請求，全度丟給 routeUser 這個路由去做
 app.use('/user', routeUser)
 
 // 監聽 4000 port 請求

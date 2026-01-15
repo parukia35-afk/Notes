@@ -7,7 +7,7 @@ const cartSchema = new Schema(
       ref: 'products', // ref表示type中的id是哪裡來的，是從products這個collection來的。使用 .populate()可帶出id對應的資料。
       required: [true, '商品必填'],
     },
-    quanity: {
+    quantity: {
       type: Number,
       required: [true, '數量必填'],
       min: [1, '數量至少為1'],

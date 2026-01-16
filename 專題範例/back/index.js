@@ -4,6 +4,7 @@ import express from 'express'
 import cors from 'cors'
 import { StatusCodes } from 'http-status-codes'
 import routeUser from './router/user.js'
+import './passport/passport.js'
 
 // 資料庫連線
 mongoose

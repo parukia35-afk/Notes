@@ -56,3 +56,13 @@ export const token = (req, res, next) => {
     }
   })(req, res, next)
 }
+
+export const admin = (req, res, next) => {
+  if (req.user.role !== 'admin') {
+    res.status(StatusCodes.FORBIDDEN).json({
+      message: '無權限',
+    })
+  } else {
+    next()
+  }
+}

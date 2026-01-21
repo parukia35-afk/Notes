@@ -42,7 +42,7 @@ const go = (path) => {
     <table>
       <tr>
         <!-- $router.push 跳頁 -->
-         <!-- 為甚麼這裡會用.push這麼叫的?因為可以它把瀏覽紀錄看作是一個陣列 -->
+        <!-- 為甚麼這裡會用.push這麼叫的?因為可以它把瀏覽紀錄看作是一個陣列 -->
         <td><img src="@/assets/0508.gif" @click="$router.push({ name: 'home' })" /></td>
       </tr>
       <tr>
@@ -67,7 +67,7 @@ const go = (path) => {
     <!-- 
     <router-view>是有裝路由套件才可以用的標籤
     路由對應的元件顯示位置(也可以寫成<RouterView></RouterView>)
-     -->
+    -->
     <router-view></router-view>
   </div>
 </template>

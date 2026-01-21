@@ -7,7 +7,7 @@
   <!-- (X)<a href="/mazu">馬祖</a> (✔)要用專屬的router-link -->
 
   <!-- 路徑的三種寫法 -->
-   <!-- 1. 路徑寫法 -->
+  <!-- 1. 路徑寫法 -->
   <router-link to="/penghu">澎湖(作業_ToDoList答案)</router-link>
   <br />
   <!-- 2. path 寫法 -->
